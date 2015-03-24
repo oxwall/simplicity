@@ -1,0 +1,53 @@
+{style}
+	{literal}
+		body,html {background:#fff;min-width:0; height: 100%;}
+		.ow_page_wrap {
+			background: none;
+		}
+		.ow_footer {
+			background: none;
+			border: none;
+		    clear: both;
+		    height: 96px;
+		    margin-top: -99px;
+		    padding: 1px 0;
+		    position: relative;		
+    	}
+		.ow_footer .ow_canvas {
+		    margin: 0 auto;
+		    width: 996px;
+		    word-wrap: break-word;
+		    background: none;
+		}
+		.ow_footer .ow_page {
+		    margin: 0 0 0 auto;
+		    padding: 0 18px;
+		    background: none;
+		}
+		.ow_sign_in_cont {
+			position: relative;
+		}
+		body > .ow_page_wrap {
+		     min-height: 100%;
+		     position: relative;
+		}
+		.ow_page_padding {
+		     padding-bottom: 99px;
+		     background: none;
+		}
+	{/literal}
+{/style}
+<div class="ow_page_wrap">
+	<div class="ow_page_padding">
+		{$content}
+	</div>
+</div>
+<div class="ow_footer">
+	<div class="ow_canvas">
+		<div class="ow_page clearfix">
+			<div style="float:right;padding-bottom: 30px;">
+				{$bottomPoweredByLink}
+			</div>
+		</div>
+	</div>
+</div>    

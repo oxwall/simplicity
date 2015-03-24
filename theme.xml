@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<theme>
+    <name>Portfolio</name>
+    <key>portfolio</key>
+    <version>1.0</version>
+    <compatibility>1.5 and higher</compatibility>
+    <description>The Portfolio theme</description>
+    <author>Oxwall Foundation</author>
+    <authorEmail>themes@oxwall.org</authorEmail>
+    <authorUrl>http://www.oxwall.org/foundation</authorUrl>
+    <developerKey>e547ebcf734341ec11911209d93a1054</developerKey>
+    <build>8274</build>
+    <copyright>(C) 2012 Oxwall Foundation. All rights reserved.</copyright>
+    <license>The BSD License</license>
+    <licenseUrl>http://www.opensource.org/licenses/bsd-license.php</licenseUrl>
+</theme>

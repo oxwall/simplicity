@@ -1,0 +1,37 @@
+<div id="left" class="owm_sidebar_left">
+	<div class="owm_sidebar_left_padding">
+		<header>
+			<div class="owm_sidebar_left_header_txt"><a href="{$siteUrl}">{$siteName}</a></div>
+		</header>
+		<div class="owm_logo"><a href="{$siteUrl}"></a></div>
+		{$topMenu}
+		{$bottomMenu}
+	</div>
+</div>
+<div id="right" class="owm_sidebar_right">
+	<div class="owm_sidebar_right_padding">
+
+		{if $isAuthenticated}
+			{component class='BASE_MCMP_Console'}
+		{else}
+			<header><div class="owm_sidebar_right_header_txt">{text key='mobile+right_sidebar_guest_heading'}</div></header>
+			<section class="owm_sidebar_right_cont">{$signIn}</section>
+		{/if}
+
+	</div>
+</div>
+<div id="main" class="clearfix">
+	<header>
+		 <nav id="head-navigation">
+			<a href="{$buttonData.left.href}" class="owm_nav_menu{if !empty($buttonData.left.class)} {$buttonData.left.class}{/if}" id="{$buttonData.left.id}"{$buttonData.left.extraString}></a>
+			<a href="{$buttonData.right.href}" class="owm_nav_profile{if !empty($buttonData.left.class)} {$buttonData.right.class}{/if}" id="{$buttonData.right.id}"{$buttonData.right.extraString}></a>
+			<a href="javascript://" class="owm_content_header_count" style="display: none;">
+				 <span class="owm_content_header_count_cont"><span class="owm_content_header_count_txt" id="console-counter"></span></span>
+			</a>
+			<div class="owm_top_title" id="owm_heading">{$heading}</div>
+		 </nav>
+	</header>
+	<section>{$content}</section>
+	<div class="owm_overlay" id="owm_overlay" style="display:none;"></div>
+</div>
+{decorator name='floatbox' heading=$heading}

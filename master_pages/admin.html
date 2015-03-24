@@ -1,0 +1,79 @@
+{style}
+{literal}
+.admin_notification, .admin_warning{
+    text-align: center;
+	margin-bottom:10px;
+	padding: 10px 0;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+    background-color: #dfd;
+	color: #444;
+	text-shadow: #fff 1px 1px 0;
+}
+
+.admin_warning{
+    background-color: #fdd;
+}
+{/literal}
+{/style}
+<div class="ow_header ow_admin_header clearfix">
+	{component class='BASE_CMP_Console'}
+	<div class="ow_site_panel">
+		<div class="ow_logo_wrap">
+			<a href="{$siteUrl}" class="ow_tagline">{$siteName}</a>
+			<a href="{url_for_route for="admin_default"}" class="ow_admin_title">Admin Area</a>
+		</div>
+	</div>
+	<div class="ow_canvas">
+		<div class="ow_page">
+			<div class="admin_menu_cont clearfix">
+			{foreach from=$menuArr key='key' item='item'}
+				<div id="{$item.id}" class="menu_item{if $item.isActive} active{/if}">
+					<span class="icon {$key}">
+						<span class="label">{$item.label}</span>
+						<span class="menu_items ow_tooltip">
+						<div class="menu_cont">{$item.cmp}</div>
+						</span>
+					</span>
+				</div>
+			{/foreach}
+			</div>
+		</div>
+	</div>
+</div>
+{if !empty($submenu)}<div class="ow_admin_sub_menu"><div class="ow_canvas">{$submenu}</div></div>{/if}
+<div class="ow_page_container ow_admin">
+	<div class="ow_canvas">
+		<div class="ow_page">
+			{if !empty($warnings)}
+			{foreach from=$warnings item='warning'}
+				<div class="admin_warning">{$warning}</div>
+			{/foreach}
+			{/if}
+			{if !empty($notifications)}
+			{foreach from=$notifications item='notification'}
+				<div class="admin_notification">{$notification}</div>
+			{/foreach}
+			<br />
+			{/if}
+			{if !empty($heading)}<h1 class="ow_stdmargin {$heading_icon_class}">{$heading}</h1>{/if}
+			<div class="ow_content">
+				{$content}
+			</div>
+		</div>
+	</div>
+</div>
+<div class="ow_footer ow_admin">
+	<div class="ow_canvas">
+		<div class="ow_page clearfix" style="padding:20px 0;">
+			<div style="float:left;">
+				{if empty($ow_plugin_xp)}<div class="ow_right ow_std_margin ow_small ow_remark">{$softVersion}</div>{/if}
+			</div>
+			<div style="float:right;line-height:15px;font-size:11px;padding-bottom: 30px;">
+				{$bottomPoweredByLink}
+			</div>
+		</div>
+	</div>
+</div>    
+{decorator name='floatbox'}
