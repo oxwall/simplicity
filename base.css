@@ -2,7 +2,7 @@
 /********************************************************************************
   *
   *     Filename:        base.css
-  *     Description:     Portfolio Origin Theme Base CSS File
+  *     Description:     Portfolio Theme Base CSS File
   *     Version:         1.0.0
   *
   *     -- FILE STRUCTURE: --
@@ -91,7 +91,7 @@ body, html {
 	min-width: 1000px;
 }
 a {
-	color: #2a80ae; /** OW_Control type:color, key:linkColor, section:2. Colors, label: - Links **/
+	color: #2f94f2; /** OW_Control type:color, key:linkColor, section:2. Colors, label: - Links **/
 	text-decoration: none;
 }
 a:hover {
@@ -148,7 +148,7 @@ th {
 	vertical-align: middle;
 }
 th {
-    background-color: #e9e9e9;
+    background-color: #fff;
 }
 hr {
 	background-color: #ccc;
@@ -177,13 +177,14 @@ html body div .ow_page h1 {
 	background-position: left center; 
 }
 .ow_bg_color{
-	background-color: #f4f4f4;
+	background-color: #f4f4f4;/** OW_Control type:color, section:1. General Settings, key:bodyColor, label: Page background color **/	
 }
 body > .ow_page_wrap {
 	min-height: 100%;
+	padding-top: 60px;
 }
 .ow_page_padding {
-	/*overflow: auto;*/
+	border-top: 1px solid #cecece;
 	padding-bottom: 99px;
 } 
 .ow_canvas {
@@ -201,7 +202,6 @@ body .ow_footer .ow_canvas {
 .ow_page_container {
 	width: 996px;
 	margin: 0px auto 16px;	
-	padding-top: 60px;
 }
 .ow_page_container .ow_page {
     padding: 28px 16px 16px;
@@ -303,7 +303,7 @@ ul.ow_regular li {
 	margin: 0 0 3px 0px;
 	padding: 0px 0px 0px 16px;
 	background-repeat: no-repeat;
-	background-image: url(images/miniic_li.png);
+	background-image: url(images/miniic_li.svg);
 	background-position: left 5px;
 }
 .ow_preloader{
@@ -352,17 +352,19 @@ ul.ow_regular li {
 	padding-top: 50px;
 }
 a.ow_logo {
-	font-family: 'pfdin', "Trebuchet MS", "Helvetica CY", sans-serif;
-	font-size: 24px;
-	text-transform: uppercase;
+	background-image: url(images/SiteLogo.png); /** OW_Control type:image, key:navLogo, section:1. General Settings, label: Navigation Logo **/
+	background-size: auto 100%;
+	background-repeat: no-repeat;
 	background-color: #2f94f2;
 	color: #fff;
 	display: inline-block;
 	height: 60px;
-	line-height: 60px;
-	padding: 0 22px;
+	width: 140px;
 	letter-spacing: -0.7px;
 	border-right: 1px solid #49484e;
+	transition: margin 0.3s ease-in;
+	-moz-transition: margin 0.3s ease-in;
+	-webkit-transition: margin 0.3s ease-in;
 }
 a.ow_logo:hover {
 	text-decoration: none;
@@ -416,83 +418,140 @@ a.ow_logo:hover {
 	height: 60px;
     color: #666;
     float: right;
-    border-left: 1px solid #49484e;
 }
 .ow_console_right {
-	position: absolute;
-	top: 0;
-	right: 0;
 	background-color: #36353b;
 }
 .ow_nav_btn {
+	visibility: hidden;
 	position: relative;
 	float: left;
 	width: 60px;
 	height: 60px;
-	border-width: 0 0 0 1px;
-	border-style: solid;
-	border-color: #49484e;
 	cursor: pointer;
-	background-image: url(images/Menu_Btn.png);
+	background-image: url(images/menu_btn.svg);
+	background-position: 0 -120px;
+	opacity: 0;
+	transition: opacity 0.3s ease-out 0.15s;
+	-moz-transition: opacity 0.3s ease-out 0.15s;
+	-webkit-transition: opacity 0.3s ease-out 0.15s;
+}
+.ow_nav_btn:hover,
+.ow_menu_active .ow_nav_btn {
 	background-position: 0 -60px;
+	background-color: #49484e;
 }
-.ow_nav_btn:hover {
+.ow_menu_active .ow_nav_btn,
+.ow_menu_active .ow_nav_btn:hover {
+	background-color: #2f94f2;
 	background-position: 0 0;
-	background-color: #49484e;
+	transition: background-position 0.2s ease;
+	-moz-transition: background-position 0.2s ease;
+	-webkit-transition: background-position 0.2s ease;
 }
-.ow_nav_btn:hover ul {
-	display: block;
+body.ow_menu_active {
+	overflow: hidden;
 }
-.ow_nav_btn ul {
-	display: none;
-	position: absolute;
+.ow_menu_fullpage {
+	position: fixed;
+	z-index: 98;
 	top: 60px;
-	left: -1px;
-	border: 1px solid #49484e;
-	border-top: none;
-	background-color: #49484e;
-	padding: 16px 18px 18px 18px;
-	line-height: 21px;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	min-width: 120px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(54,53,59,0.91);
+	display: none;
 }
-.ow_nav_btn ul li {
+.ow_hidden_menu .ow_site_panel .ow_logo {
+	margin-left: -200px;
 }
-.ow_nav_btn ul li a {
-	font-size: 14px;
-	color: #9b9a9d;
-	text-decoration: none;
+.ow_hidden_menu .ow_site_panel .ow_nav_btn {
+	visibility: visible;
+	opacity: 1;
 }
-.ow_nav_btn ul li a:hover {
+.ow_menu_active .ow_menu_fullpage {
+	display: block;
+	overflow-y: auto;
+}
+.ow_menu_active .ow_menu_fullpage_wrap {
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+.ow_menu_fullpage_wrap ul.ow_main_menu {
+	display: table-cell !important;
+	vertical-align: middle;
+}
+.ow_menu_fullpage_wrap ul.ow_main_menu li {
+	width: 100%;
+	display: block;
+	text-align: center;
+}
+.ow_menu_fullpage_wrap .ow_main_menu li a {
+	text-transform: uppercase;
+	font-size: 30px;
+	line-height: 62px;
+	width: 100%;
+	display: inline-block;
+	padding: 0;
+	color: #99989a;
+}
+.ow_menu_fullpage_wrap .ow_main_menu li a:hover,
+.ow_menu_fullpage_wrap .ow_main_menu li.active a {
 	color: #fff;
+}
+.ow_menu_fullpage_wrap .ow_main_menu li:first-child a {
+	margin-left: 0;
+}
+.ow_menu_fullpage_wrap .ow_main_menu li a:hover {
+	background-color: rgba(22,22,23,0.2);
+}
+.ow_header_img {
+    width: 100%;
+
+}
+.ow_header_pic {
+    background-image: url(images/header_image.jpg); /** OW_Control type:image, key:headerImage, section:1. General Settings, label: Header image **/
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100%;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    display: none;
+}
+.ow_header_pic img {
+	height: 0px;
 }
 .ow_console_body  {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	height: 60px;
-	padding: 14px 14px 0 14px;
+	padding: 14px 14px 0 0;
 }
 .ow_console_item {
 	display: inline-block;
     position: relative;
-	line-height: 20px;
-    height: 24px;
     margin: 0 2px 0 0px;
-    padding: 4px 8px 0 6px;
+    padding: 5px 8px 0 6px;
 	vertical-align: middle;
 	text-align: left;
 	cursor: pointer;
 }
 .ow_console_item:last-child {
 	margin-right: 0;
+	padding-right: 0;
 }
 .ow_console_item a,
 .ow_console_lang_item {
 	color: #9b9a9d;
 	font-size: 13px;
+}
+.ow_console_lang_item {
+	margin-top: -2px;
+}
+body .ow_console_lang_item span {
+	background-position: 0 2px;
 }
 .ow_console_block {
 	display: inline-block;
@@ -517,15 +576,42 @@ a.ow_logo:hover {
 	text-decoration: none;
 }
 .ow_console_more {
-    background: url("images/photo_view_context.png") no-repeat scroll right 8px transparent;
-    display: inline-block;
-    height: 22px;
-    min-width: 8px;
-    padding: 0 0px 0 3px;
-    vertical-align: top;
+    display: none;
 }
-.ow_console_item:hover .ow_console_more {
-    background: url("images/photo_view_context_hover.png") no-repeat scroll right 8px transparent;
+.ow_console_item a.ow_console_item_link {
+	font-size: 0;
+	width: 25px;
+	height: 25px;
+	display: inline-block;
+	background: url(images/Ic_User_console.svg) 0 0 no-repeat;
+	background-size: 100%;
+}
+.ow_console_button.ow_console_item a.ow_console_item_link {
+	pointer-events: auto;
+	width: auto;
+	height: auto;
+	background: none;
+	font-size: 13px;
+}
+.ow_invitation_list.ow_console_item a.ow_console_item_link {
+	background: url(images/Ic_EnvelopeOpen.svg) 0 0 no-repeat;
+	background-size: 100%;
+}
+.ow_friend_request_list.ow_console_item a.ow_console_item_link {
+	background: url(images/Ic_Users_console.svg) 0 0 no-repeat;
+	background-size: 100%;
+}
+.ow_mailbox_items_list.ow_console_item a.ow_console_item_link {
+	background: url(images/Ic_Envelope.svg) 0 0 no-repeat;
+	background-size: 100%;
+}
+.ow_notification_list.ow_console_item a.ow_console_item_link {
+	background: url(images/Ic_Notif.svg) 0 0 no-repeat;
+	background-size: 100%;
+}
+body .ow_console_item:hover a.ow_console_item_link,
+body .ow_console_dropdown_pressed.ow_console_item a.ow_console_item_link {
+	background-position: 0 -25px;
 }
 /*Console select language styles*/
 .ow_console_lang_item {
@@ -534,9 +620,6 @@ a.ow_logo:hover {
 li.ow_console_lang_item {
 	padding: 3px 8px;
 	border: 1px solid transparent;
-    border-radius: 2px;
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
 	margin-bottom: 1px;
 	color: #5a5a5a;
 }
@@ -548,18 +631,24 @@ li.ow_console_lang_item:hover {
 	padding-left: 23px;
 }
 /*End Console select language styles*/
-.ow_console .ow_tooltip_top_right {
-	top: 10px;
+body .ow_console .ow_tooltip_top_right {
+	top: 31px !important;
 	padding-top: 2px;
+	right: 8px;
 }
 .ow_console .ow_tooltip_top_right .ow_tooltip_tail span {
 	background-position: 1px -6px;
 }
 .ow_console span.ow_count_wrap {
-	padding: 4px 0px 0px;
-	margin: 0px -3px 0px 2px;
+	position: absolute;
+	top: 2px;
+	right: 2px;
+
 }
 .ow_console span.ow_count_bg {
+	border-radius: 8px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
 }
 .ow_console span.ow_count {
 	position: relative;
@@ -650,6 +739,7 @@ ul.ow_console_dropdown li:last-child .ow_console_dropdown_cont {
 }
 .ow_console .ow_tooltip .ow_tooltip_body {
 	max-width: 340px;
+	background-color: #fff;
 }
 .console_tooltip {
 	z-index: 100;
@@ -718,18 +808,18 @@ ul.ow_console_dropdown li:last-child .ow_console_dropdown_cont {
 	margin-right: -49px;
 }
 .ow_chat_request_item .console_list_ipc_item {
-	padding-left: 16px;
-	background: url(images/miniic_buble.png) 2px 12px no-repeat;
+	padding-left: 20px;
+	background: url(images/miniic_buble.svg) 2px 12px no-repeat;
 }
 .ow_chat_request_item.ow_console_new_message .console_list_ipc_item {
-	background: url(images/miniic_buble_active.png) 2px 12px no-repeat;
+	background: url(images/miniic_buble_active.svg) 2px 12px no-repeat;
 }
 .ow_mailbox_request_item .console_list_ipc_item {
-	padding-left: 16px;
-	background: url(images/miniic_envelope.png) 2px 12px no-repeat;
+	padding-left: 20px;
+	background: url(images/miniic_envelope.svg) 2px 12px no-repeat;
 }
 .ow_mailbox_request_item.ow_console_new_message .console_list_ipc_item {
-	background: url(images/miniic_envelope_active.png) 2px 12px no-repeat;
+	background: url(images/miniic_envelope_active.svg) 2px 12px no-repeat;
 }
 .ow_chat_request_item .ow_console_mailbox_txt {
 	font-size: 11px;
@@ -762,9 +852,6 @@ body .ow_console_messages_btns .ow_console_messages_viewall a {
 	text-align: center;
 	border: 1px solid #cccccc;
 	border-right: none;
-	border-radius: 2px 0 0 2px;
-	-moz-border-radius: 2px 0 0 2px;
-	-webkit-border-radius: 2px 0 0 2px;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-wenkit-box-sizing: border-box;
@@ -778,9 +865,6 @@ body .ow_console_messages_btns .ow_console_messages_send a {
 	line-height: 25px;
 	text-align: center;
 	border: 1px solid #cccccc;
-	border-radius: 0 2px 2px 0;
-	-moz-border-radius: 0 2px 2px 0;
-	-webkit-border-radius: 0 2px 2px 0;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-wenkit-box-sizing: border-box;
@@ -830,9 +914,6 @@ div.jhtmlarea,
     font-family: "Lucida Grande", "Verdana";
     font-size: 13px;
     padding: 4px;
-    border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
 }
 body form div.jhtmlarea {
 	padding: 0px;
@@ -847,9 +928,6 @@ body .toolbar {
 	height: 24px;
 	background: #fafafa;
 	border-bottom: 1px solid #e8e8e8;
-    border-radius: 3px 3px 0px 0px;
-    -moz-border-radius: 3px 3px 0px 0px;
-    -webkit-border-radius: 3px 3px 0px 0px;
 }
 body .toolbar ul li a {
 	background-image: url(images/wysiwyg.png);
@@ -898,8 +976,8 @@ input[type=button]{
 	background-color: transparent;
     background-position: right 50%;
 	background-repeat: no-repeat;
-    background-image: url(images/ic_right_arrow.png);
-    padding: 1px 31px 2px 0px;
+    background-image: url(images/Ic_right_arrow.svg);
+    padding: 1px 31px 0px 0px;
     color: #626060;
     font-weight: normal;
     cursor: pointer;
@@ -930,9 +1008,6 @@ span.ow_button {
 	background-color: #fafafa;
 	padding: 0px 8px;
 	border: 1px solid #ccc;
-    border-radius: 4px;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
 }
 span.ow_button:hover {
 	border-color: #b6b6b6;
@@ -1149,7 +1224,6 @@ div.tagsinput {
 }
 .ow_attachment_icons {
     float: right;
-    margin-top: 1px;
 }
 .ow_attachments a {
     background: url(images/wysiwyg.png) no-repeat scroll -175px 1px rgba(0, 0, 0, 0);
@@ -1165,9 +1239,6 @@ div.tagsinput {
 }
 .ow_attachments a.attach {
     background: url(images/wysiwyg.png) no-repeat scroll -241px 1px rgba(0, 0, 0, 0);
-    border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
 }
 .ow_attachments a.attach.uploading {
 	background: url(images/ajax_preloader_button.gif) no-repeat center center;
@@ -1188,22 +1259,15 @@ div.tagsinput {
     background-image: none;
     background-repeat: repeat-x;
     background-position: center left;
-    border-radius: 4px;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
 	border: none;
+	padding: 0;
 	display: inline-block;
-	padding: 1px;
 	text-align: center;
 }
 
 .ow_attachment_btn span.ow_button span {
 	display: inline-block;
     background-color: #2f94f2;
-    border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-	margin: 1px;
 }
 .ow_attachment_btn span.ow_button input[type=submit], 
 .ow_attachment_btn span.ow_button input[type="button"] {
@@ -1402,9 +1466,6 @@ body .newsfeed-attachment-preview {
 }
 .ow_file_attachment_info {
     border: 1px solid #DCDCDC;
-    border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
     padding-right: 50px;
     position: relative;
     height: 22px;
@@ -1472,20 +1533,10 @@ body .newsfeed-attachment-preview {
 }
 /* -------End of attachments styles----------*/
 /* ----------- Comments styles---------- */
-body .ow_attachments .buttons {
-	padding: 1px;
-    border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-}
 body .ow_attachments a {
 	background-color: #2f94f2;
-	border-radius: 2px;
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
 }
 body .ow_attachments a.video {
-    border-radius: 0 2px 2px 0;
     margin: 0 0 0 -1px;
 }
 .base_cmnts_temp_cont .ow_ipc_info {
@@ -1524,37 +1575,10 @@ body .ow_attachments a.video {
 	border-width: 1px;
 	margin-bottom: 12px;
 }
-.ow_comments_form_top .ow_comments_list .ow_comments_item:last-child {
-	border-radius: 0px 0px 2px 2px;
-	-moz-border-radius: 0px 0px 2px 2px;
-	-webkit-border-radius: 0px 0px 2px 2px;
-}
-.ow_comments_list .ow_comments_item:first-child {
-	border-radius: 2px 2px 0 0;
-	-moz-border-radius: 2px 2px 0 0;
-	-webkit-border-radius: 2px 2px 0 0;
-}
-.ow_comments_form_top. .ow_comments_list .ow_comments_item:first-child {
-	border-radius: 0;
-	-moz-border-radius: 0;
-	-webkit-border-radius: 0;
-}
 .ow_comments_no_form .ow_comments_list .ow_comments_item:last-child {
-	border-bottom-left-radius: 2px;
-	-webkit-border-bottom-left-radius: 2px;
-	-moz-border-radius-bottomleft: 2px;
-	border-bottom-right-radius: 2px;
-	-webkti-border-bottom-right-radius: 2px;
-	-moz-border-radius-bottomright: 2px;
 	border-width: 1px;
 }
 .ow_comments_form_top.ow_comments_no_form .ow_comments_list .ow_comments_item:first-child {
-	border-top-left-radius: 2px;
-	-webkit-border-top-left-radius: 2px;
-	-moz-border-radius-topleft: 2px;
-	border-top-right-radius: 2px;
-	-webkit-border-top-right-radius: 2px;
-	-moz-border-radius-topright: 2px;
 	border-width: 1px;
 }
 .ow_newsfeed_features .ow_comments_list div .ow_context_action_block .ow_context_action {
@@ -1562,9 +1586,6 @@ body .ow_attachments a.video {
 }
 .ow_comments_form_wrap {
 	padding: 6px 6px 4px 6px;
-	border-radius: 0 0 2px 2px;
-	-moz-border-radius: 0 0 2px 2px;
-	-webkit-border-radius: 0 0 2px 2px;
 	border-width: 1px;
 	min-height: 42px;
 }
@@ -1576,17 +1597,11 @@ body .ow_attachments a.video {
 	border-width: 1px 0 0 0;
 }
 .ow_comments_form_top .ow_comments_form_wrap {
-	border-radius: 2px 2px 0 0;
-	-moz-border-radius: 2px 2px 0 0;
-	-webkit-border-radius: 2px 2px 0 0;
 }
 .ow_feed_comments_viewall {
 	text-align: right;
 	padding: 8px 8px 8px 0;
 	border-width: 1px 1px 0 1px;
-	border-radius: 2px 2px 0 0;
-	-moz-border-radius: 2px 2px 0 0;
-	-webkit-border-radius: 2px 2px 0 0;
 	min-height: 14px;
 }
 .ow_feed_comments_input_sticky {
@@ -1779,7 +1794,7 @@ body textarea.ow_newsfeed_status_input.invitation {
 .ow_box_cap_empty h3{
     background-image: url(images/ic_file.png);
     background-repeat: no-repeat;
-    background-position: 8px 8px;
+    background-position: 8px 6px;
     padding: 8px 0 8px 32px;
     text-transform: uppercase;
 	height: auto;
@@ -1813,9 +1828,6 @@ body textarea.ow_newsfeed_status_input.invitation {
 }
 .ow_forum_topic_posts .ow_box {
 	border-top: 1px solid #ccc;
-	border-radius: 4px;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
 }
 .ow_box_empty{
 	position: relative;
@@ -1965,7 +1977,7 @@ th,
 	border-color: #ccc;
 }
 .ow_page td.ow_highbox {
-	border-color: #e8e8e8;
+	border-color: #ccc;
 }
 
 .ow_box_toolbar {
@@ -1979,7 +1991,6 @@ th,
 }
 .ow_box_toolbar span.ow_nowrap a {
 	display: inline-block;
-    border-radius: 2px;
 	border: 1px solid #ccc;
 	background: #fafafa;
 	padding: 0px 6px 0px;
@@ -2033,9 +2044,6 @@ th,
 .ow_tooltip .ow_tooltip_body {
     background:#f4f4f4;
     padding:4px;
-    border-radius:4px;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
 	border: 1px solid #cccccc;
 	/*max-width: 250px;*/
 }
@@ -2124,9 +2132,6 @@ body .forum_search_wrap input {
 	vertical-align: top;
 }
 .ow_count_bg {
-    border-radius: 8px;
-    -moz-border-radius: 8px;
-    -webkit-border-radius: 8px;
 	display: inline-block;
     background: #2f94f2;
  	min-height: 15px; 
@@ -2333,7 +2338,7 @@ a.avatar_list_more_icon{
 .ow_photo_list .ow_alt1,
 .ow_photo_list .ow_alt2 {
 	border-style: solid;
-	border-color: #e8e8e8;
+	border-color: #ccc;
 }
 .ow_table_1 tr td,
 .ow_table_2 tr td {
@@ -2341,9 +2346,6 @@ a.avatar_list_more_icon{
 }
 .ow_table_1 .ow_empty + tr td:first-child,
 .ow_table_2 .ow_empty + tr td:first-child {
-    border-radius: 4px 0px 0px 0px;
-    -moz-border-radius: 4px 0px 0px 0px;
-    -webkit-border-radius: 4px 0px 0px 0px;
 	border-bottom-width: 1px;
 	border-left-width: 1px;
 	border-top-width: 1px;
@@ -2389,22 +2391,22 @@ a.avatar_list_more_icon{
 .ow_table_1 tr:first-child th:first-child,
 .ow_table_2 tr:first-child td:first-child,
 .ow_table_2 tr:first-child th:first-child {
-    border-top-left-radius: 4px;
-    -moz-border-top-left-radius: 4px;
-    -webkit-border-top-left-radius: 4px;
+    border-top-left-radius: 0;
+    -moz-border-top-left-radius: 0;
+    -webkit-border-top-left-radius: 0;
 	border-bottom-width: 1px;
 	border-left-width: 1px;
-	border-top-width: 1px;
+	border-top-width: 2px;
 }
 .ow_table_1 tr:first-child td:last-child,
 .ow_table_1 tr:first-child th:last-child,
 .ow_table_2 tr:first-child td:last-child,
 .ow_table_2 tr:first-child th:last-child {
-    border-top-right-radius: 4px;
-    -moz-border-top-right-radius: 4px;
-    -webkit-border-top-right-radius: 4px;
+    border-top-right-radius: 0;
+    -moz-border-top-right-radius: 0;
+    -webkit-border-top-right-radius: 0;
 	border-bottom-width: 1px;
-	border-top-width: 1px;
+	border-top-width: 2px;
 	border-right-width: 1px;
 }
 .ow_table_1 tr:last-child td:first-child,
@@ -2415,9 +2417,9 @@ a.avatar_list_more_icon{
 .ow_table_2 tr.ow_alt1:last-child td:first-child,
 .ow_table_2 tr.ow_tr_last td:first-child,
 .ow_table_2 tr.ow_tr_last th:first-child {
-    border-bottom-left-radius: 4px;
-    -moz-border-left-radius: 4px;
-    -webkit-border-left-radius: 4px;
+    border-bottom-left-radius: 0;
+    -moz-border-left-radius: 0;
+    -webkit-border-left-radius: 0;
 	border-bottom-width: 1px;
 	border-left-width: 1px;
 	border-bottom-right-radius: 0px;
@@ -2432,9 +2434,9 @@ a.avatar_list_more_icon{
 .ow_table_2 tr.alt1:last-child td:last-child,
 .ow_table_2 tr.ow_tr_last td:last-child,
 .ow_table_2 tr.ow_tr_last th:last-child {
-    border-bottom-right-radius: 4px;
-    -moz-border-bottom-right-radius: 4px;
-    -webkit-border-bottom-right-radius: 4px;
+    border-bottom-right-radius: 0;
+    -moz-border-bottom-right-radius: 0;
+    -webkit-border-bottom-right-radius: 0;
 	border-bottom-width: 1px;
 	border-right-width: 1px;
 	border-top-right-radius: 0px;
@@ -2456,11 +2458,11 @@ a.avatar_list_more_icon{
 }
 .ow_table_1 tr.ow_tr_first td,
 .ow_table_2 tr.ow_tr_first td{
-	border-top-width: 1px;
+	border-top-width: 2px;
 }
 .ow_table_1 tr.ow_tr_first th,
 .ow_table_2 tr.ow_tr_first th {
-	border-width: 1px 0px;
+	border-width: 2px 0px 1px 0;
 	border-color: #ccc;
 }
 .ow_table_1 tr.ow_tr_first th:first-child,
@@ -2468,7 +2470,7 @@ a.avatar_list_more_icon{
 .ow_table_2 tr.ow_tr_first th:first-child,
 .ow_table_2 tr.ow_tr_first td:first-child {
 	border-left-width: 1px;
-    border-top-left-radius: 4px;
+    border-top-left-radius: 0;
 }
 .ie8 .ow_table_1 tr.ow_tr_first th,
 .ie8 .ow_table_2 tr.ow_tr_first th {
@@ -2489,7 +2491,7 @@ a.avatar_list_more_icon{
 .ow_table_2 tr.ow_tr_first th:last-child,
 .ow_table_2 tr.ow_tr_first td:last-child {
    	border-right-width: 1px;
-    border-top-right-radius: 4px;
+    border-top-right-radius: 0;
 }
 .ow_table_1 tr.ow_tr_first th:last-child,
 .ow_table_2 tr.ow_tr_first th:last-child {
@@ -2563,15 +2565,12 @@ th.ow_section{
 
 th span.ow_section_icon{
     background-repeat: no-repeat;
-    padding-left: 22px;
+    padding-left: 26px;
 }
 
 th.ow_section span{
     background: #f0f0f0;
     padding: 5px 10px;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
     text-shadow: #fff 1px 1px 0;
     font-weight: normal;
 }
@@ -2606,73 +2605,73 @@ img.thumb{
     width: 100px;
 }
 
-html body div .ow_ic_add{ background-image: url(images/ic_add.png); }
-html body div .ow_ic_aloud{ background-image: url(images/ic_aloud.png); }
-html body div .ow_ic_app{ background-image: url(images/ic_app.png); }
-html body div .ow_ic_attach{ background-image: url(images/ic_attach.png); }
-html body div .ow_ic_birthday{ background-image: url(images/ic_birthday.png); }
-html body div .ow_ic_bookmark{ background-image: url(images/ic_bookmark.png); }
-html body div .ow_ic_calendar{ background-image: url(images/ic_calendar.png); }
-html body div .ow_ic_cart{ background-image: url(images/ic_cart.png); }
-html body div .ow_ic_chat{ background-image: url(images/ic_chat.png); }
-html body div .ow_ic_clock{ background-image: url(images/ic_clock.png); }
-html body div .ow_ic_comment{ background-image: url(images/ic_comment.png); }
-html body div .ow_ic_cut{ background-image: url(images/ic_cut.png); }
-html body div .ow_ic_dashboard{ background-image: url(images/ic_dashboard.png); }
-html body div .ow_ic_delete{ background-image: url(images/ic_delete.png); }
+html body div .ow_ic_add{ background-image: url(images/Ic_add.svg); }
+html body div .ow_ic_aloud{ background-image: url(images/Ic_aloud.svg); }
+html body div .ow_ic_app{ background-image: url(images/Ic_app.png); }
+html body div .ow_ic_attach{ background-image: url(images/Ic_attach.svg); }
+html body div .ow_ic_birthday{ background-image: url(images/Ic_birthday.svg); }
+html body div .ow_ic_bookmark{ background-image: url(images/Ic_bookmark.svg); }
+html body div .ow_ic_calendar{ background-image: url(images/Ic_calendar.svg); }
+html body div .ow_ic_cart{ background-image: url(images/Ic_cart.svg); }
+html body div .ow_ic_chat{ background-image: url(images/Ic_chat.svg); }
+html body div .ow_ic_clock{ background-image: url(images/ic_clock.svg); background-size: 20px 20px;}
+html body div .ow_ic_comment{ background-image: url(images/Ic_comment.svg); }
+html body div .ow_ic_cut{ background-image: url(images/Ic_cut.svg); }
+html body div .ow_ic_dashboard{ background-image: url(images/Ic_dashboard.svg); }
+html body div .ow_ic_delete{ background-image: url(images/Ic_delete.svg); }
 
-html body div .ow_ic_draft{ background-image: url(images/ic_draft.png); }
+html body div .ow_ic_draft{ background-image: url(images/Ic_draft.svg); }
 
-html body div .ow_ic_down_arrow{ background-image: url(images/ic_down_arrow.png); }
-html body div .ow_ic_edit{ background-image: url(images/ic_edit.png); }
-html body div .ow_ic_female{ background-image: url(images/ic_female.png); }
-html body div .ow_ic_file{ background-image: url(images/ic_file.png); }
-html body div .ow_ic_files{ background-image: url(images/ic_files.png); }
-html body div .ow_ic_flag{ background-image: url(images/ic_flag.png); }
-html body div .ow_ic_folder{ background-image: url(images/ic_folder.png); }
-html body div .ow_ic_forum{ background-image: url(images/ic_forum.png); }
-html body div .ow_ic_friends{ background-image: url(images/ic_friends.png); }
-html body div .ow_ic_gear_wheel{ background-image: url(images/ic_gear_wheel.png); }
-html body div .ow_ic_heart{ background-image: url(images/ic_heart.png); }
-html body div .ow_ic_help{ background-image: url(images/ic_help.png); }
-html body div .ow_ic_house{ background-image: url(images/ic_house.png); }
-html body div .ow_ic_info{ background-image: url(images/ic_info.png); }
-html body div .ow_ic_key{ background-image: url(images/ic_key.png); }
-html body div .ow_ic_left_arrow{ background-image: url(images/ic_left_arrow.png); }
-html body div .ow_ic_lens{ background-image: url(images/ic_lens.png); }
-html body div .ow_ic_link{ background-image: url(images/ic_link.png); }
-html body div .ow_ic_lock{ background-image: url(images/ic_lock.png); }
-html body div .ow_ic_mail{ background-image: url(images/ic_mail.png); }
-html body div .ow_ic_male{ background-image: url(images/ic_male.png); }
-html body div .ow_ic_mobile{ background-image: url(images/ic_mobile.png); }
+html body div .ow_ic_down_arrow{ background-image: url(images/Ic_down_arrow.svg); }
+html body div .ow_ic_edit{ background-image: url(images/Ic_edit.svg); }
+html body div .ow_ic_female{ background-image: url(images/Ic_female.svg); }
+html body div .ow_ic_file{ background-image: url(images/Ic_file.svg); }
+html body div .ow_ic_files{ background-image: url(images/Ic_files.svg); }
+html body div .ow_ic_flag{ background-image: url(images/Ic_flag.svg); }
+html body div .ow_ic_folder{ background-image: url(images/Ic_folder.svg); }
+html body div .ow_ic_forum{ background-image: url(images/Ic_forum.svg); }
+html body div .ow_ic_friends{ background-image: url(images/Ic_friends.svg); }
+html body div .ow_ic_gear_wheel{ background-image: url(images/Ic_gear_wheel.svg); }
+html body div .ow_ic_heart{ background-image: url(images/Ic_heart.svg); }
+html body div .ow_ic_help{ background-image: url(images/Ic_help.svg); }
+html body div .ow_ic_house{ background-image: url(images/Ic_house.svg); }
+html body div .ow_ic_info{ background-image: url(images/Ic_info.svg); }
+html body div .ow_ic_key{ background-image: url(images/Ic_key.svg); }
+html body div .ow_ic_left_arrow{ background-image: url(images/Ic_left_arrow.svg); }
+html body div .ow_ic_lens{ background-image: url(images/Ic_lens.svg); }
+html body div .ow_ic_link{ background-image: url(images/Ic_link.svg); }
+html body div .ow_ic_lock{ background-image: url(images/Ic_lock.svg); }
+html body div .ow_ic_mail{ background-image: url(images/Ic_mail.svg); }
+html body div .ow_ic_male{ background-image: url(images/Ic_male.svg); }
+html body div .ow_ic_mobile{ background-image: url(images/Ic_mobile.svg); }
 html body div .ow_ic_moderator{ background-image: url(images/ic_moderator.png); }
-html body div .ow_ic_monitor{ background-image: url(images/ic_monitor.png); }
+html body div .ow_ic_monitor{ background-image: url(images/Ic_monitor.svg); }
 html body div .ow_ic_move{ background-image: url(images/ic_move.png); }
-html body div .ow_ic_music{ background-image: url(images/ic_music.png); }
-html body div .ow_ic_new{ background-image: url(images/ic_new.png); }
-html body div .ow_ic_ok{ background-image: url(images/ic_ok.png); }
-html body div .ow_ic_online{ background-image: url(images/ic_online.png); }
-html body div .ow_ic_picture{ background-image: url(images/ic_picture.png); }
-html body div .ow_ic_places{ background-image: url(images/ic_places.png); }
-html body div .ow_ic_plugin{ background-image: url(images/ic_plugin.png); }
-html body div .ow_ic_push_pin{ background-image: url(images/ic_push_pin.png); }
-html body div .ow_ic_reply{ background-image: url(images/ic_reply.png); }
-html body div .ow_ic_right_arrow{ background-image: url(images/ic_right_arrow.png); }
-html body div .ow_ic_rss{ background-image: url(images/ic_rss.png); }
-html body div .ow_ic_save{ background-image: url(images/ic_download.png); }
-html body div .ow_ic_restrict{ background-image: url(images/ic_restrict.png); }
-html body div .ow_ic_script{ background-image: url(images/ic_script.png); }
-html body div .ow_ic_server{ background-image: url(images/ic_server.png); }
-html body div .ow_ic_star{ background-image: url(images/ic_star.png); }
-html body div .ow_ic_tag{ background-image: url(images/ic_tag.png); }
-html body div .ow_ic_trash{ background-image: url(images/ic_trash.png); }
-html body div .ow_ic_unlock{ background-image: url(images/ic_unlock.png); }
-html body div .ow_ic_up_arrow{ background-image: url(images/ic_up_arrow.png); }
-html body div .ow_ic_update{ background-image: url(images/ic_update.png); }
-html body div .ow_ic_user{ background-image: url(images/ic_user.png); }
-html body div .ow_ic_video{ background-image: url(images/ic_video.png); }
-html body div .ow_ic_warning{ background-image: url(images/ic_warning.png); }
-html body div .ow_ic_write{ background-image: url(images/ic_write.png); }
+html body div .ow_ic_music{ background-image: url(images/Ic_music.svg); }
+html body div .ow_ic_new{ background-image: url(images/Ic_new.svg); }
+html body div .ow_ic_ok{ background-image: url(images/Ic_ok.svg); }
+html body div .ow_ic_online{ background-image: url(images/Ic_online.svg); }
+html body div .ow_ic_picture{ background-image: url(images/Ic_picture.svg); }
+html body div .ow_ic_places{ background-image: url(images/Ic_places.svg); }
+html body div .ow_ic_plugin{ background-image: url(images/Ic_plugin.svg); }
+html body div .ow_ic_push_pin{ background-image: url(images/Ic_push_pin.svg); }
+html body div .ow_ic_reply{ background-image: url(images/Ic_reply.svg); }
+html body div .ow_ic_right_arrow{ background-image: url(images/Ic_right_arrow.svg); }
+html body div .ow_ic_rss{ background-image: url(images/Ic_rss.svg); }
+html body div .ow_ic_save{ background-image: url(images/Ic_download.svg); }
+html body div .ow_ic_restrict{ background-image: url(images/Ic_restrict.svg); }
+html body div .ow_ic_script{ background-image: url(images/Ic_script.svg); }
+html body div .ow_ic_server{ background-image: url(images/Ic_server.svg); }
+html body div .ow_ic_star{ background-image: url(images/Ic_star.svg); }
+html body div .ow_ic_tag{ background-image: url(images/Ic_tag.svg); }
+html body div .ow_ic_trash{ background-image: url(images/Ic_trash.svg); }
+html body div .ow_ic_unlock{ background-image: url(images/Ic_unlock.svg); }
+html body div .ow_ic_up_arrow{ background-image: url(images/Ic_up_arrow.svg); }
+html body div .ow_ic_update{ background-image: url(images/Ic_update.svg); }
+html body div .ow_ic_user{ background-image: url(images/Ic_user.svg); }
+html body div .ow_ic_video{ background-image: url(images/Ic_video.svg); }
+html body div .ow_ic_warning{ background-image: url(images/Ic_warning.svg); }
+html body div .ow_ic_write{ background-image: url(images/Ic_write.svg); }
 
 html body div .ow_button span,
 html body div .ow_button span.ow_negative,
@@ -2680,7 +2679,10 @@ html body div .ow_button span.ow_negative .ow_inprogress {
 	background-image: none;
 	background-repeat: no-repeat;
 }
-
+.ow_no_cap span.ow_ic_up_arrow {
+	width: 20px;
+	display: inline-block;
+}
 .maintenance_cont h1 {
 	background-image: none;
 }
@@ -2688,12 +2690,12 @@ html body div .ow_button span.ow_negative .ow_inprogress {
 .ow_icon_control{
     background-repeat: no-repeat;
     display: inline-block;
-    padding: 0px 0 2px 20px;
+    padding: 0px 0 3px 20px;
     line-height: 15px;
 }
 
-html body div .ow_miniic_comment{ background: url(images/miniic_set.png) no-repeat 4px 5px; }
-html body div .ow_miniic_like { background: url(images/miniic_set.png) no-repeat -15px 4px; }
+html body div .ow_miniic_comment{ background: url(images/miniic_set.svg) no-repeat 4px 5px; }
+html body div .ow_miniic_like { background: url(images/miniic_set.svg) no-repeat -15px 4px; }
 html body div .ow_miniic_delete{ background-image: url(images/miniic_x.png); }
 
 html body div .ow_tinyic_delete{ background-image: url(images/tinyic_delete.png); }
@@ -2740,13 +2742,13 @@ span.ow_icon{
 
 /* ---- Main Menu styles ---- */
 
-.ow_menu_wrap {
-	display: inline-block;
-	height: 100%;
+body .ow_menu_wrap {
+	padding: 0;
+	margin-bottom: 0;
 }
 .ow_main_menu{
 	font-family: 'RobotoRegular', "Trebuchet MS", "Helvetica CY", sans-serif;
-	background-color: #36353b;
+	text-align: center;
 }
 .ow_main_menu li {
     padding: 0;
@@ -2754,7 +2756,7 @@ span.ow_icon{
 }
 
 .ow_main_menu li a {
-    color: #9b9a9d; /** OW_Control type:color, key:menuColor, section:2. Colors, label:Menu text color **/
+    color: #555555; /** OW_Control type:color, key:menuColor, section:2. Colors, label:Menu text color **/
     display: inline-block;
 	font-size: 16px;
     padding: 0 15px;
@@ -2773,7 +2775,7 @@ span.ow_icon{
 
 .ow_main_menu li.active a,
 .ow_main_menu li a:hover {
-	color: #fff; 
+	color: #2f94f2; 
 }
 .ow_box_menu {
 	font-size: 0px;
@@ -2861,7 +2863,7 @@ span.ow_icon{
     background-image: url(images/ic_file.png);
     background-position: 5px 9px;
     background-repeat: no-repeat;
-    padding: 8px 8px 10px 28px;
+    padding: 10px 8px 8px 28px;
     display: block;
 }
 .ow_content_menu li.active {
@@ -2895,9 +2897,6 @@ ul.ow_bl li{
 ul.ow_bl a{
     display: block;
 	background: #fafafa;
-    border-radius: 2px;
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
 	border: 1px solid #ccc;
 	color: #999;
 	padding: 0px 8px;
@@ -2914,9 +2913,6 @@ ul.ow_bl a:hover {
 
 span.ow_blitem {
 	background: url(images/btnl_bg.png) repeat-x center left;
-    border-radius: 2px;
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
 	border: 1px solid #ccc;
 	color: #626060;
 	padding: 0px 0px;
@@ -2952,7 +2948,6 @@ span.ow_blitem input:hover {
 
 .ow_bg_controls span.ow_blitem{
 	background: url(images/btnl_black_bg.png) repeat-x center left;
-	border-radius: 3px;
 	border: none;
 	height: 24px;
 	line-height: 22px;
@@ -3022,9 +3017,6 @@ html[xmlns] .ow_paging.clearfix {
     border: 1px solid #ccc;
     padding: 2px 6px 2px 7px;
     text-decoration: none;
-    border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
     color: #999999;
 }
 
@@ -3065,16 +3057,6 @@ html[xmlns] .ow_paging.clearfix {
     font-style: normal;
 
 }
-@font-face {
-    font-family: 'pfdin';
-    src: url(images/pfdin/pfdin.eot);
-    src: url(images/pfdin/pfdin.woff) format('woff'),
-         url(images/pfdin/pfdin.ttf) format('truetype'),
-         url(images/pfdin/pfdin.svg#pfdin) format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
 
 .ow_small{
     font-size: 12px;
@@ -3108,7 +3090,7 @@ html body .ow_console .ow_tiny,
 }
 
 .ow_outline{
-    color: #FF7000;
+    color: #0072dd; /** OW_Control type:color, section:2. Colors, key:txtValue, label:Numeric values **/
     font-weight: bold;
 }
 
@@ -3141,9 +3123,6 @@ tr.ow_alt2 td{
 
 .ow_high2{
     background-color: #f8f8f8;
-    border-radius: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
 }
 
 .ow_add_content{
@@ -3162,7 +3141,6 @@ span.ow_lbutton {
     padding: 0px 3px 0px;
 	line-height: 13px;
     text-transform: uppercase;
-    border-radius: 2px;
 	border: 1px solid #ccc;
     text-shadow: none;
 	display: inline-block;
@@ -3201,9 +3179,6 @@ table.ow_form td.ow_autowidth{
 	background:#ffeed7 url(images/ic_warning.png) no-repeat scroll 15px 45%;
 	border:1px solid #ffd399;
 	padding:10px;
-    border-radius: 4px;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
 }
 
 .outline{
@@ -3276,9 +3251,6 @@ html[xmlns] .clearfix {
 	padding: 28px 0 6px;
 	text-align:center;
 	width:47%;
-    border-radius: 6px;
-	-moz-border-radius: 6px;
-	-webkit-border-radius: 6px;
 	border: 1px solid #d8d8d8;
 }
 
@@ -3413,16 +3385,16 @@ body .ow_mailbox_right.ow_mailbox_right_loading div.ow_mailbox_right_preloading 
 	background-image: url(images/miniic_doc.png);
 }
 .ow_mailbox_convers_info.mails {
-	background-image: url(images/miniic_envelope.png);
+	background-image: url(images/miniic_envelope.svg);
 }
 .ow_mailbox_convers_info.chats {
-	background-image: url(images/miniic_buble.png);
+	background-image: url(images/miniic_buble.svg);
 }
 .ow_mailbox_convers_info_attach {
-    background: url(images/miniic_attach.png) center center no-repeat;
+    background: url(images/miniic_attach.svg) center center no-repeat;
 }
 .ow_mailbox_conv_options_label {
-    background-image: url(images/chat_tiny_arrow_down.png);
+    background-image: url(images/chat_tiny_arrow_down.svg);
 }
 .ow_mailbox_convers_info {
 	background-color: #fff;
@@ -3479,12 +3451,286 @@ body .ow_mailbox_right.ow_mailbox_right_loading div.ow_mailbox_right_preloading 
 	margin-right: 0px;
 }
 .ow_mailbox_convers_actions .ow_miniic_control span {
-	background: url(images/miniic_gearwheel.png) -1px -1px no-repeat;
+	background: url(images/miniic_gearwheel.svg) -1px -1px no-repeat;
 }
 .ow_mailbox_convers_actions .ow_miniic_control.active span {
-	background: url(images/miniic_gearwheel.png) -1px -22px no-repeat;
+	background: url(images/miniic_gearwheel.svg) -1px -22px no-repeat;
 }
 /* ---- End of Mailbox styles ---- */
+/*Chat styles*/
+body .ow_chat_block_wrap {
+	background-color: #36353b;
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+}
+html body .ow_chat_block {
+	border: none;
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+}
+body .ow_chat_in_block {
+	border-bottom: 0;
+}
+body .ow_chat_in_block {
+	border-left: 1px solid #d4d4d4;
+}
+body span.ow_btn_sort_users span {
+	background-image: url(images/chat_btn_sort.png);
+}
+body a.ow_btn_sound span {
+	background-image: url(images/chat_btn_sound.png);
+}
+body .ow_btn_close_search {
+	background-image: url(images/chat_btn_close_search.png);
+}
+.ow_count_block span.ow_count_txt {
+	color: #9b9a9d;
+}
+body .ow_chat_dialog_wrap .ow_count_bg, 
+body .ow_chat .ow_count_bg {
+	border-radius: 7px;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	background-color: #2f94f2;
+}
+body .ow_chat_dialog_wrap .ow_count_active, 
+body .ow_chat .ow_count_active {
+	background-color: #e23e4d;
+}
+body .ow_chat_dialog_wrap .ow_count, 
+body .ow_chat .ow_count {
+	color: #fff;
+	line-height: 14px;
+}
+body a.ow_btn_sound:hover span, 
+body span.ow_btn_sort_users:hover span {
+	background-color: transparent;
+	border-color: transparent;
+}
+body .ow_chat_block .ow_chat_search {
+	border-top: none;
+	border-color: #d4d4d4;
+}
+body .ow_chat_block_main .ow_chat_search input[type="text"], 
+body .ow_chat_block_main .ow_chat_search input[type="password"] {
+	color: #4c4c4c;
+	background-color: #fff;
+}
+body .ow_chat_in_block,
+body .ow_chat_list ul {
+	background-color: #fff;
+}
+body .ow_chat_block_main .ow_chat_search input[type="text"].invitation, 
+body .ow_chat_block_main .ow_chat_search input[type="password"].invitation {
+	color: #999;
+}
+.ow_chat_in_item_photo img {
+	border-radius: 16px;
+	-moz-border-radius: 16px;
+	-webkit-border-radius: 16px;
+}
+.ow_chat_list ul li a.ow_chat_item:hover {
+	background-color: #f4f4f4;
+}
+body .ow_chat_block.ow_active .ow_count_block a:hover {
+	background-image: url(images/photo_view_context.png);
+	background-position: 233px 7px;
+}
+.ow_chat_dialog.ow_open a.ow_chat_item_author_wrap:hover,
+body .ow_mailchat_new_message.ow_chat_dialog_active .ow_author_block a.ow_chat_item_author_wrap:hover,
+body .ow_mailchat_new_message.ow_chat_dialog_active .ow_mailchat_select_user a.ow_chat_minimize_btn {
+	background-image: url(images/photo_view_context_up.png);
+}
+.ow_chat_dialog.ow_open.ow_active a.ow_chat_item_author_wrap:hover,
+body .ow_mailchat_new_message.ow_chat_dialog.ow_active .ow_author_block a.ow_chat_item_author_wrap:hover,
+body .ow_mailchat_new_message .ow_mailchat_select_user a.ow_chat_minimize_btn {
+	background-image: url(images/photo_view_context.png);
+}
+body .ow_count_block a:hover {
+	background-image: url(images/photo_view_context_up.png);
+	background-position: 233px 5px;
+}
+body .ow_mailchat_new_message .ow_mailchat_select_user a.ow_chat_minimize_btn {
+	background-position: center 7px;
+}
+.ow_top_panel,
+.ow_chat_block .ow_bot_panel {
+	border-width: 1px 0 0 1px;
+}
+.ow_chat_block.ow_active .ow_bot_panel {
+	border-width: 0 0 0 1px;
+}
+.ow_chat_block .ow_bot_panel,
+.ow_top_panel {
+	border-style: solid;
+	border-color: #d4d4d4;
+}
+body span.ow_chat_item_author, 
+body span.ow_chat_item_text,
+body .ow_chat_dialog_wrap .ow_chat_message_block .ow_chat_message textarea,
+body .ow_chat_dialog_wrap .ow_dialog_in_item p,
+body .ow_mailchat_new_message.ow_chat_dialog.ow_active .ow_mailchat_select_user input,
+html body .ow_chat_dialog .ow_chat_subject_block input,
+body .ow_mailchat_autocomplete_inner span.ow_chat_item_author .ow_chat_in_item_author,
+body .ow_mailchat_new_message.ow_chat_dialog.ow_chat_dialog_active .ow_mailchat_select_user .ow_mailchat_new_message_title {
+	color:#4c4c4c;
+	font-weight: normal;
+}
+body .ow_author_block span.ow_chat_item_author {
+	color:#9b9a9d;
+}
+body .ow_chat_dialog,
+.ow_mailchat_new_message.ow_chat_dialog .ow_author_block.ow_mailchat_selected_user {
+	background-color: #36353b;
+}
+body .ow_mailchat_new_message.ow_chat_dialog {
+	background: transparent;
+	border: 1px solid #d4d4d4;
+}
+body .ow_diagonal_puller {
+	background-image: url(images/diagonal_puller.png);
+}
+.ow_author_block a.ow_btn_close span {
+	background-image: url(images/chat_btn_close.png);
+}
+body a.ow_btn_close:hover {
+	background: none;
+}
+body .ow_chat_dialog {
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+}
+html body .ow_chat_dialog .ow_chat_block {
+	border: none;
+}
+body .ow_chat_dialog .ow_author_block {
+	border-width: 1px 1px 0 1px;
+	border-style: solid;
+	border-color: #d4d4d4;
+}
+body .ow_chat_dialog .ow_mailchat_select_user.ow_author_block {
+	border-width: 0;
+	border-bottom: 1px solid #d4d4d4;
+}
+body .ow_chat_in_dialog_wrap {
+	border-color: #d4d4d4;
+	border-width: 0 1px 1px;
+}
+body .ow_dialog_date_cap {
+	color: #4c4c4c;
+	background-color: #f4f4f4;
+	border-color: #d4d4d4;
+}
+.ow_chat_message_block {
+	border-width: 0 1px;
+	border-style: solid;
+	border-color: #d4d4d4;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+body .ow_chat_in_dialog,
+body .ow_mailchat_new_message .ow_chat_mailchat_inputarea,
+body .ow_chat_dialog .ow_chat_subject_block input,
+body .ow_mailchat_new_message.ow_chat_dialog .ow_mailchat_select_user.ow_author_block,
+body .ow_mailchat_new_message .ow_mailchat_select_user input {
+	background-color: #fff;
+}
+body .ow_chat_dialog_wrap .ow_chat_message_block .ow_chat_message textarea.invitation,
+body .ow_chat_in_dialog .ow_time_block p span.ow_time_text,
+body .ow_mailchat_new_message.ow_chat_dialog .ow_mailchat_select_user.ow_author_block,
+body .ow_chat_dialog .ow_chat_subject_block input {
+	color: #999;
+}
+.ow_chat_block .ow_dialog_in_item {
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+}
+body .ow_chat_dialog_wrap .ow_attachments a.attach {
+	border: none;
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	background: url(images/wysiwyg.png) no-repeat scroll -241px 1px rgba(0, 0, 0, 0);
+}
+body .ow_chat_dialog_wrap .ow_attachments a.attach.uploading,
+body .ow_chat_preloader,
+body .ow_mailchat_new_message .ow_file_attachment_preload {
+	background-image: url(images/ajax_preloader_button.gif);
+}
+body form .ow_chat_mailchat_inputarea .toolbar,
+body .ow_mailchat_autocomplete ul li a:hover {
+	background-color: #f4f4f4;
+}
+body .ow_chat_dialog .ow_chat_subject_block input,
+.ow_mailchat_new_message.ow_chat_dialog .ow_author_block.ow_mailchat_selected_user {
+	border: none;
+}
+body .ow_mailchat_new_message .ow_chat_mailchat_inputarea,
+body .ow_mailchat_new_message .ow_file_attachment_info {
+	border-color: #d4d4d4;
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+}
+body .ow_chat_mailchat_buttons {
+	border: none;
+	background-color: #36353b;
+}
+body .ow_chat_mailchat_buttons .ow_attachment_btn span.ow_button,
+body .ow_chat_mailchat_buttons .ow_attachment_btn span.ow_button span {
+	border: none;
+	background: #2f94f2;
+	padding: 0;
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	margin: 0;
+}
+body .ow_chat_mailchat_buttons .ow_attachment_btn span.ow_button input[type="submit"], 
+body .ow_chat_mailchat_buttons .ow_attachment_btn span.ow_button input[type="button"] {
+	text-shadow: none;
+	font-family: 'RobotoBold', "Trebuchet MS", "Helvetica CY", sans-serif;
+}
+body .ow_chat_dialog_wrap .ow_attachments .buttons {
+	background-color: #2f94f2;
+}
+body form .ow_chat_mailchat_inputarea .toolbar ul li a {
+	background-image: url(images/wysiwyg.png);
+	border: none;
+}
+body .ow_mailchat_new_message .ow_mailchat_select_user .ow_mailchat_autocomplete {
+	top: 39px;
+	border-top-width: 1px;
+}
+body .ow_chat_dialog .ow_chat_subject_block input {
+	font-size: 13px;
+}
+body .toolbar ul li a {
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+}
+body .ow_mailchat_new_message .ow_file_attachment_close,
+body .ow_mailchat_new_message.ow_chat_dialog.ow_active .ow_author_block .ow_mailchat_delete_receiver {
+	background-image: url(images/tag_close_btn.png);
+}
+body .jspDrag {
+	background-color: #ccc;
+}
 /* ---- Blogs styles ---- */
 
 .ow_blogpost_compose textarea{
@@ -3705,10 +3951,7 @@ html body .ow_console .ow_avatar_label {
     position: relative;
     background: #fafafa;
     border: 1px solid #cccccc;
-    padding: 4px;
-    border-radius: 4px;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;    
+    padding: 4px;   
 }
 
 .ow_avatar_console .ow_avatar_image {
@@ -3851,7 +4094,6 @@ body .ow_photo_list_item_thumb span.ow_lbutton {
 .ow_fw_menu {
     background-color: #f5f5f5;
     border: 1px solid #ebebeb;
-    border-radius: 4px;
     padding: 4px 8px;
     min-height: 24px;
     clear: both;
@@ -4043,12 +4285,6 @@ body input.ow_dropdown_btn {
     left: 0;
     width: 99%;
     margin-left: 0.5%;
-    border-radius-bottom-left: 4px;
-    -moz-border-radius-bottom-left: 4px;
-    -webkit-border-radius-bottom-left: 4px;
-    border-radius-bottom-right: 4px;
-    -moz-border-radius-bottom-right: 4px;
-    -webkit-border-radius-bottom-right: 4px;
     display: none;
 }
 .ow_dropdown_list li {
@@ -4122,17 +4358,11 @@ body ul.ow_newsfeed {
     background: #f0f0f0;
     padding: 5px 10px;
     text-shadow: #fff 1px 1px 0;
-    border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
 }
 .base_cmnt_mark .ow_ipc_info {
 	padding-bottom: 0px;
 }
 .ow_newsfeed_features .ow_tooltip .ow_tooltip_body {
-    border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
     padding: 0;
     border-width: 0 1px 1px 1px;
    	box-shadow: none;
@@ -4141,9 +4371,6 @@ body ul.ow_newsfeed {
 .ow_tooltip.ow_newsfeed_context_tooltip .ow_tooltip_body,
 .ow_photo_context_action .ow_tooltip_body{
 	padding: 4px 0;
-	border-radius: 4px;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
 }
 .ow_newsfeed_features .ow_tooltip.ow_comments_context_tooltip .ow_tooltip_body {
 	border: 1px solid #d4d4d4;
@@ -4214,9 +4441,6 @@ body .ow_newsfeed_control .ow_newsfeed_string {
 	margin-right: 4px;
 	color: #fff;
 	vertical-align: middle;
-	border-radius: 4px;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
     background-color: #2f94f2;
     padding: 1px 5px 1px 1px;
 }
@@ -4251,9 +4475,6 @@ body .ow_newsfeed_control .ow_newsfeed_string {
 }
 .ow_miniic_control {
 	display: inline-block;
-	border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
 	vertical-align: middle;
 	margin-right: 4px;
 }
@@ -4491,9 +4712,6 @@ body .newsfeed-attachment-preview.item_loaded {
 }
 
 .ow_tip_box{
-	border-radius:3px;
-    -webkit-border-radius:3px;
-    -moz-border-radius:3px;
     padding:2px 9px 4px;
 	background-color:#36353b;
 	color: #9b9a9d;
@@ -4520,6 +4738,335 @@ body .ow_table_1 tr td.ow_gateways_td_empty + td {
 	border-bottom-left-radius: 4px;	
 }
 /* ---- End of the Membership Subscribe styles ---- */
+/*========================================================
+        [16] Admin Styles        __admin
+  ========================================================*/
+
+/* - admin_bg_fix - */
+body.ow_admin_area {
+ background: #fff;
+ background-image: none;
+ position: relative;
+ padding-top: 57px;
+ height: auto;
+}
+
+/* - admin footer fix */
+.ow_footer.ow_admin {
+ 	margin-top: 0;
+ 	height: 55px;
+ 	border-color: #d6dde5;
+ 	border-bottom: 1px solid #d6dde5;
+ 	background-color: #fff;
+}
+.ow_footer.ow_admin .ow_canvas {
+	padding: 0 16px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+/* - other styles -*/
+.ow_header.ow_admin_header {
+	position: fixed;
+	width: 100%;
+	background: #fff;
+	padding: 0px;
+	margin:0px;
+	top: 0;
+	left: 0;
+	z-index: 99;
+}
+.ow_admin_header .ow_site_panel {
+	height: 56px;
+	background-color: #ffffff;
+	border-color: #d6dde5;
+}
+.ow_admin_header .ow_console{
+    height: 56px;
+    background-color: #ffffff;
+}
+.ow_admin_header .ow_console_body {
+	padding: 16px 4px 16px 8px;
+	background-color: #ffffff;
+}
+.ow_page_container.ow_admin {
+	border: none;
+	background: #fff;
+	margin: 0px auto;
+}
+.ow_page_container.ow_admin .ow_page
+{
+	min-height: 300px;
+}
+
+.ow_page_container.ow_admin .ow_page .ow_content {
+	float: none;
+}
+
+.ow_admin_header .ow_logo_wrap {
+	padding: 12px 0px 0px 115px;
+}
+
+table.ow_admin_footer
+{
+	margin-top: 15px;
+	font-size: 11px;
+	line-height: 1.25;
+}
+
+table.ow_admin_footer div.group
+{
+	margin-bottom: 20px;
+}
+
+table.ow_admin_footer h3
+{
+	font-size: 11px;
+	color: #fff;
+	text-transform: uppercase;
+	margin-bottom: 5px;
+	margin-top: 0;
+}
+
+table.ow_admin_footer a{
+	color: #aaa;
+	text-decoration: none;
+	display: block;
+	margin-bottom: 2px;
+	margin-right: 1px;
+}
+
+table.ow_admin_footer a:hover{
+	color: #fff;
+	margin-left: 1px;
+	margin-right: 0;
+}
+
+.ow_header .ow_logo_wrap .ow_admin_title {
+	color: #ff7000;
+	margin-left: 5px;
+	padding-left: 12px;
+    background: url(images/miniic_arrow_left.png) no-repeat 0 2px;
+} 
+.css_code
+{
+    font-size: 11px;
+    line-height: 1.3;
+}
+.ow_box_cap_body h3 {
+	margin-bottom: 0;
+}
+.ow_statistics_period {
+	margin-bottom: 16px;
+}
+.ow_statistics_period input[type="text"] {
+	width: 88px;
+	height: 24px;
+}
+.ow_statistics_period_from input[type="text"] {
+	border-right: none;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+.ow_statistics_period_to input[type="text"] {
+	border-left: none;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+.ow_statistics_period_delimiter {
+	display: inline-block;
+	height: 24px;
+	line-height: 24px;
+	position: relative;
+	margin: 0 -3px;
+}
+.ow_statistic_content_type select {
+	max-width: 150px;
+	height: 24px;
+	padding: 0;
+}
+.ow_statistics_diagram_wrap {
+	border-width: 1px 0;
+	height: 112px;
+	padding: 25px;
+	background-image: url(graphic.png);
+	background-size: cover;
+	background-position: center center;
+}
+/* ---- End of Admin Menu styles ---- */
+
+
+/* ---- Admin Content styles ---- */
+
+.ow_admin_content{
+	float: right;
+	width: 830px;
+}
+
+.ow_admin_content .ow_box_cap_2{
+	background: url(images/h2bg.png) repeat-x center;
+	height: 20px;
+	padding-left: 10px;
+	padding-top: 4px;
+}
+
+.ow_admin_content .ow_box_cap_2 h3{
+	background-color: #fff;
+	display: inline;
+	font-size: 15px;
+	padding-right: 5px;
+}
+
+.ow_admin_content .ow_box_2{
+	margin-bottom: 8px;
+}
+
+.ow_admin_content .ow_box{
+	background: #eee;
+	padding: 5px;
+}
+
+.ow_admin_area .ow_page_container .ow_page {
+	border: none;
+	border-radius: 0px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;	
+	padding-bottom: 30px;
+}
+/* ---- End of Admin Content styles ---- */
+
+
+/* ---- Admin Sidebar styles ---- */
+
+.ow_admin_sidebar{
+	float: left;
+	padding: 0;
+	width: 170px;
+	margin: 0;
+}
+
+.ow_admin_sidebar .ow_box_cap{
+	background: #ddd;
+	border-bottom: 1px solid #aaa;
+	height: 16px;
+	padding: 5px 5px 6px 10px;
+}
+
+.ow_admin_menu_cont .ow_box_cap h3{
+	background: none;
+	color: #ff7000;
+	float: left;
+	font-size: 13px;
+    padding-left:0;
+    padding-top:0;
+    line-height:15px;
+	text-transform: none;
+}
+
+.ow_admin_sidebar .ow_box_cap a.close,
+.ow_admin_sidebar .ow_box_cap a.open{
+	background: url(images/icon-arrow-down.png) no-repeat;
+	float: right;
+	height: 16px;
+	margin-top: 1px;
+	width: 16px;
+}
+
+.ow_admin_sidebar .ow_box_cap a.open{
+    background: url(images/ic_arrow-right.png) no-repeat;
+}
+
+.ow_admin_sidebar .ow_box{
+	background: url(images/box-body-bg.png) repeat;
+
+}
+
+/* ---- End of Admin Sidebar styles ---- */
+
+/* ---- Admin Profile Questions styles ---- */
+
+.ow_admin_edit_profile_question{
+}
+
+.ow_admin_edit_profile_question .quest_value{
+    margin: 2px 10px 2px 0px;
+    padding: 2px 5px;
+    background: #ccc;
+}
+
+.ow_admin_edit_profile_question .question_values{
+    padding: 4px 0px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+td.delete_edit_buttons,
+th.delete_edit_buttons{
+    width: 11%;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+th.delete_edit_buttons{
+    line-height: 16px;
+}
+
+.ow_admin_profile_question_dnd_cursor{
+    cursor:move;
+}
+/* ---- End of the Admin Profile Questions styles ---- */
+
+/* ----  Admin Permissions styles ---- */
+.ow_admin_permissions_overflow {
+	overflow-x: auto;
+}
+.ow_admin_permissions .ow_table_2 {
+	margin-bottom: 0px;
+}
+/* ---- End of the Admin Permissions styles ---- */
+
+/* ---- Admin Theme styles ---- */
+.themes_select .active .fake{
+	background:url(images/checked_template.png) no-repeat 4px 4px;
+}
+
+.theme_control_desc{
+	background:url(images/ic_question.png) no-repeat 50% 50%;
+	display:inline-block;
+	width:20px;
+	height: 20px;
+}
+
+.theme_control_desc_body{
+	display:none;
+	background: #ccc;
+	border: 1px solid #000;
+	position: absolute;
+}
+.color_button[type=button] {
+    border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;	
+}
+/* ---- End of the Admin Theme styles ---- */
+
+/* ---- Other Admin styles ---- */
+.ow_admin_search_box {
+	 border-top-left-radius: 6px;
+	-moz-border-top-left-radius: 6px;
+	-webkit-border-top-left-radius: 6px;
+	 border-top-right-radius: 6px;
+	-moz-border-top-right-radius: 6px;
+	-webkit-border-top-right-radius: 6px;
+}
+.ow_admin_area .ow_table_2 .ow_item_set3 {
+	width: auto;
+}
+html body .ow_admin_permissions.ow_superwide {
+	overflow: initial;
+}
+/* ---- End of the Other Admin styles ---- */
 
 /*--------------------------------------------------------------------
 		[?] Custom pages declarations TODO remove
@@ -4535,9 +5082,6 @@ body .ow_table_1 tr td.ow_gateways_td_empty + td {
 	margin-bottom:5px;
 	padding:4px 8px;
 	border: 1px solid #ccc;
-    border-radius: 3px;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
 }
 .ow_navbox a.move{
 	color:#666;
@@ -4606,9 +5150,6 @@ body .ow_table_1 tr td.ow_gateways_td_empty + td {
 	background: #fff;
 	/*padding: 0px 10px 10px;*/
 	margin-top: 5px;
-    border-radius: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
 }
 
 .ow_dashboard_box{
@@ -4619,9 +5160,6 @@ body .ow_table_1 tr td.ow_gateways_td_empty + td {
 
 .ow_dnd_schem_item{
 	background:#F0F0F0 url(images/ic_file.png) no-repeat 10px 50%;
-    border-radius: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
 	border:1px solid #ccc;
 	cursor:move;
 	/*float:left;*/
@@ -4912,9 +5450,6 @@ body .floatbox_canvas .floatbox_container {
 	position: fixed;
 	z-index: 102;
 	width: 300px;
-	-moz-border-radius: 6px;
-	-webkit-border-radius: 6px;
-    border-radius: 6px;
 	-webkit-box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 	-moz-box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 	box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
@@ -4950,11 +5485,6 @@ body .floatbox_canvas .floatbox_container {
 	padding: 0px 16px 16px;
 	text-align: center;
 }
-.floatbox_container .ow_bg_color {
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-    border-radius: 4px;
-}
 
 /* End FloatBox implementation */
 
@@ -4980,9 +5510,6 @@ body .floatbox_canvas .floatbox_container {
 	padding:7px 12px;
 	overflow: auto;
 	position:relative;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
 	-webkit-box-shadow: 0 21px 16px rgba(0,0,0,0.2);
 	-moz-box-shadow: 0 21px 16px rgba(0,0,0,0.2);
 	box-shadow:0 21px 16px rgba(0,0,0,0.2);
@@ -5083,9 +5610,6 @@ span.ic_refresh{
 /* ---- Sort styles ---- */
 .ow_sort_control {
 	padding: 4px;
-	border-radius: 6px;
-	-moz-border-radius: 6px;
-	-webkit-border-radius: 6px;
 	border: 1px solid #e8e8e8;
 }
 .ow_sort_control a {
@@ -5189,15 +5713,14 @@ td.sort_link li.active a:hover{
 }
 .ow_context_more {
     display: inline-block;
-    min-width: 10px;
+    min-width: 12px;
     height: 18px;
-    padding: 0px 5px 0px 0px;
+    padding: 0px 3px 0px 0px;
     background: url(images/photo_view_context.png) no-repeat 0px 7px;
     vertical-align: top;
 }
 .ow_context_action_block .ow_context_action:first-child {
     border-left: 1px solid #ccc;
-    border-radius: 2px 0px 0px 2px;
 }
 .ow_context_action_block .ow_context_action:last-child {
     border-top-right-radius:2px;
@@ -5294,17 +5817,13 @@ td.sort_link li.active a:hover{
 	margin: 8px;
 	padding: 40px 40px 22px 40px;
 	background: #f4f4f4;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	-khtml-border-radius:5px;
-	border-radius: 5px;
 	-webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 	-moz-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 	box-shadow:0 2px 6px rgba(0, 0, 0, 0.2);
 	border:1px solid #e7e7e7;
 }
 .ow_sign_in_wrap form .ow_sign_in{float:left; width:312px;}
-.ow_sign_in_wrap form .ow_sign_up {margin:0px 0 0 342px; color: #585858; padding-top: 7px;}
+.ow_sign_in_wrap form .ow_sign_up {margin:0px 0 0 342px; color: #333; padding-top: 7px;}
 .ow_sign_in_wrap form .ow_sign_up hr{margin:5px 0 15px;}
 
 .ow_sign_in_wrap form .ow_box_cap{
@@ -5332,7 +5851,7 @@ td.sort_link li.active a:hover{
 .ow_sign_in_wrap form .ow_connect_buttons .ow_fb_button {float:left;}
 
 .ow_connect_text {
-	background: url('images/miniic_li.png') no-repeat left center;
+	background: url('images/miniic_li.svg') no-repeat left center;
 	padding: 0px 0 0 16px;
 	margin-right: 16px;
 	float: left;
@@ -5505,7 +6024,6 @@ body .ow_table_2 tr.ow_tr_titles th:last-child, body .ow_table_1 tr.ow_tr_titles
     width: 50%;
 }
 .ow_tr_top_buttons {
-    border-radius: 4px 4px 0 0;
     margin-bottom: -1px;
     width: 100%;
 }
@@ -5526,12 +6044,10 @@ body .ow_table_2 tr.ow_tr_titles th:last-child, body .ow_table_1 tr.ow_tr_titles
 .ow_tr_top_button:first-child {
     float: left;
     border-left: 1px solid #dedede;
-    border-radius: 4px 0 0 0;
     border-right: 1px solid #dedede;
 }
 .ow_tr_top_button:last-child {
     float: right;
-    border-radius: 0 4px 0 0;
     border-right: 1px solid #dedede;
 }
 .ow_tr_top_button_selected {
@@ -5620,11 +6136,6 @@ body .ow_table_2 tr.ow_tr_titles th:last-child, body .ow_table_1 tr.ow_tr_titles
 {
     border-color:#DDDDDD;
     border-width: 1px 1px 1px 0;
-}
-.ow_tr_titles th:first-child {
-	border-top-left-radius: 4px;
-	-moz-border-radius-topleft: 4px;
-	-webkit-border-top-left-radius: 4px;
 }
 
 
@@ -5736,6 +6247,247 @@ body .ow_table_2 tr.ow_tr_titles th:last-child, body .ow_table_1 tr.ow_tr_titles
 .ow_add_match_wrap {
 	cursor: pointer;
 }
+.ow_vertical_nav.ow_vertical_menu,
+body .ow_vertical_nav_item {
+    border-color: #ccc;
+}
+.ow_vertical_nav_item.selected {
+   	background-color: #fff;
+}
+/*Sign in*/
+body.base_sign_in > .ow_page_wrap {
+	padding-top: 0;
+}
+body.base_sign_in .ow_footer {
+	height: 20px;
+	margin-top: -29px;
+}
+body.base_sign_in .ow_footer .ow_page > div {
+	padding-bottom: 0 !important;
+}
+body.ow.base_sign_in {
+	background-color: #36353b;
+}
+body.ow.base_sign_in .ow_page_wrap {
+	background-color: rgba(40,43,48,0.7);
+	background-size: cover;
+	background-position: center center;
+	background-image: url(images/Sign-in-cover.jpg); /** OW_Control type:image, key:SignInBg, section:1. General Settings, label: Sign In Background Image **/
+}
+.ow.base_sign_in .ow_sign_in_wrap {
+	width: 1055px;
+	position: relative;
+	margin: 0 auto;
+	padding-top: 180px;
+	margin-top: 100px;
+	left: auto;
+	top: auto;
+	background-image: url(images/Sign-in-delimeter.png);
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+.ow.base_sign_in .ow_sign_in_cont {
+	background: none;
+}
+.ow.base_sign_in .ow_sign_in_wrap h2 {
+	width: 100%;
+	height: 60px;
+	font-size: 0 !important;
+	background-image: url(images/sign-in-logo.png); /** OW_Control type:image, key:SignInLogo, section:1. General Settings, label: Sign In Logo **/
+	background-repeat: no-repeat;
+	background-position: left center;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 98px;
+	left: 0;
+}
+.ow.base_sign_in .ow_sign_in_wrap form {
+	background: none;
+	padding: 0;
+	margin: 0 auto;
+	border: none;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	width: 350px;
+}
+.ow.base_sign_in form .ow_sign_up {
+	color: #a1a2a3;
+	line-height: 35px;
+	font-size: 18px;
+	margin: 0 0 16px 0;
+	padding: 0;
+}
+.ow.base_sign_in form .ow_sign_in {
+	width: 100%;
+	float: none;
+}
+.ow.base_sign_in form .ow_sign_in .ow_box_cap {
+	display: none;
+}
+.ow.base_sign_in form .ow_sign_in .ow_box {
+	margin: 0 0 16px 0;
+	padding: 0;
+	background: none;
+	border: none;
+}
+.ow.base_sign_in .ow_user_name {
+	margin-bottom: 6px;
+}
+.ow.base_sign_in .ow_user_name input,
+.ow.base_sign_in .ow_password input {
+	background: none;
+	border: 1px solid #97989a;
+	color: #dfe0e0;
+	font-size: 18px;
+	padding: 15px;
+	height: auto;
+	font-family: "RobotoRegular","Lucida Grande","Tahoma","Verdana";
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+}
+.ow.base_sign_in .ow_user_name input.invitation,
+.ow.base_sign_in .ow_password input.invitation {
+	color: #a2a2a4;
+}
+.ow.base_sign_in form .ow_form_options p.ow_remember_me {
+	color: #86878a;
+	font-size: 16px;
+	padding: 0;
+	float: left;
+}
+.ow.base_sign_in form .ow_form_options p.ow_remember_me input {
+	margin: 0 12px 0 0;
+}
+.ow.base_sign_in form .ow_form_options p.ow_forgot_pass {
+	font-size: 16px;
+	float: right;
+}
+.ow.base_sign_in .ow_sign_in > .clearfix a {
+	display: inline-block;
+	float: left;
+	text-align: center;
+	width: 48%;
+	font-family: "RobotoRegular","Lucida Grande","Tahoma","Verdana";
+	font-size: 18px;
+	text-transform: uppercase;
+	line-height: 44px;
+	border: 1px solid #6c6f71;
+	color: #bdbdbe;
+}
+.ow.base_sign_in form .ow_sign_in .ow_join_button:hover {
+	text-decoration: none;
+}
+.ow.base_sign_in form .ow_sign_in span.ow_button {
+	background: none;
+	border: none;
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	padding: 0;
+	float: right;
+	width: 48%;
+}
+.ow.base_sign_in form .ow_sign_in span.ow_button .ow_positive {
+	width: 100%;
+	text-align: center;
+}
+.ow.base_sign_in form .ow_sign_in span.ow_button .ow_positive input {
+	height: auto;
+	line-height: 42px;
+	width: 100%;
+	padding: 0;
+	background: none;
+	border: 1px solid #6c6f71;
+	color: #bdbdbe;
+	font-family: "RobotoRegular","Lucida Grande","Tahoma","Verdana";
+	font-size: 18px;
+}
+.ow.base_sign_in .ow_sign_in_wrap form .ow_connect_buttons {
+	clear: both;
+	padding: 0;
+	margin-top: 20px;
+}
+.ow.base_sign_in .ow_sign_in_wrap form .ow_connect_text {
+	font-family: "RobotoRegular","Lucida Grande","Tahoma","Verdana";
+	font-size: 18px;
+	color: #86878a;
+	background: none;
+	text-align: center;
+	width: 100%;
+	padding: 0;
+	margin: 0 0 20px 0;
+}
+.ow.base_sign_in .ow_sign_in_wrap form .connect_button_list {
+	width: 100%;
+	float: none;
+}
+.ow.base_sign_in .ow_sign_in_wrap form .fb_button {
+	background: none;
+	height: auto;
+	padding: 0;
+	color: rgba(198,198,238,0.8);
+	width: 100%;
+}
+.ow.base_sign_in .ow_sign_in_wrap form .fb_button .fb_connect_wrap {
+	border: none;
+	height: auto;
+	width: 100%;
+}
+.ow.base_sign_in .ow_sign_in_wrap form .fb_button .fb_button_text {
+	border: none;
+	padding: 0;
+	display: inline-block;
+	width: 100%;
+	height: 46px;
+	line-height: 46px;
+	background: rgba(96,92,168,0.6);
+	text-align: center;
+	font-size: 18px;
+	text-transform: uppercase;
+	background-image: url(images/facebook_sign_in.png);
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	font-weight: normal;
+}
+.ow.base_sign_in .ow_sign_up hr {
+	display: none;
+}
+.ow.base_sign_in .ow_sign_up p {
+	margin: 0;
+}
+@media (max-width: 1055px) {
+	.ow.base_sign_in .ow_sign_in_wrap {
+		width: 100%;
+		margin-top: 0;
+		background: none;
+	}
+	.ow.base_sign_in .ow_sign_in_wrap h2 {
+		background-position: center center;
+	}
+}
+@media (max-width: 480px) {
+	.ow.base_sign_in .ow_sign_in_wrap form {
+		width: 100%;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		padding: 0 20px;
+	}
+	.ow.base_sign_in .ow_sign_in_wrap h2 {
+		background-size: 100% auto;
+		left: 10px;
+		right: 10px;
+		width: auto;
+		top: 30px;
+		height: 70px;
+	}
+	.ow.base_sign_in .ow_sign_in_wrap {
+		padding-top: 130px;
+	}
+}
 /* END */
 
 /*Responsive*/
@@ -5744,16 +6496,13 @@ body .ow_table_2 tr.ow_tr_titles th:last-child, body .ow_table_1 tr.ow_tr_titles
 	body, html {
     	min-width: 767px;
     }
-	.ow_site_panel .ow_menu_wrap,
+	body .ow_menu_wrap,
 	.ow_site_panel .ow_logo {
 		display: none;
 	}
-	.ow_console_right {
-		position: static;
-		width: 100%;
-	}
 	.ow_nav_btn {
-		border-width: 0 1px;
+		visibility: visible;
+		opacity: 1;
 	}
 	.ow_page_container, .ow_site_panel_wrap, .ow_footer {
         width: 100%;
@@ -5765,6 +6514,14 @@ body .ow_table_2 tr.ow_tr_titles th:last-child, body .ow_table_1 tr.ow_tr_titles
     	float: none;
     	margin-bottom: 16px;
     }
+    .ow_right {
+    	float: none;
+    }
+    .place_section.ow_right,
+    #photo-list-search,
+    .ow_photo_upload_submit.ow_right {
+    	float: right;
+    }
     .ow_content > .ow_btn_delimiter.ow_right {
     	float: none;
     	margin-bottom: 8px;
@@ -5772,25 +6529,70 @@ body .ow_table_2 tr.ow_tr_titles th:last-child, body .ow_table_1 tr.ow_tr_titles
     .ow_content > .ow_btn_delimiter.ow_right .ow_button {
     	margin-bottom: 8px;
     }
+    .ow_console_dropdown_hover:hover .OW_ConsoleItemContent,
+    .ow_console_dropdown_hover:active .OW_ConsoleItemContent {
+    	display: block !important;
+    }
+    .ow_console_item a.ow_console_item_link {
+		pointer-events: none;
+	}
+	.ow_nav_btn:hover {
+		background-position: 0 -120px;
+		background-color: transparent;
+	}
+	.ow_page_padding {
+		border: none;
+	}
+	body .forum_search_form {
+		display: none;
+	}
+	.ow_forum {
+		word-wrap: break-word;
+	}
+	.ow_page_container .ow_page {
+		padding-top: 16px;
+	}
     /*Photo*/
-    body .ow_photo_list_wrap.ow_photo_no_sidebar div.ow_photo_item_wrap {
-    	width: 25%;
+    body .ow_photo_list_wrap.ow_photo_no_sidebar div.ow_photo_item_wrap,
+    body .ow_photo_list_wrap.ow_photo_no_sidebar .ow_photo_list.ow_photo_pint_mode div.ow_photo_item_wrap,
+    body .ow_photo_list_wrap.ow_photo_no_sidebar div.ow_photo_item_wrap.ow_photo_album {
+    	width: 33.333%;
+    }
+    body .ow_photo_list_wrap.ow_photo_no_sidebar .ow_photo_list.ow_photo_pint_mode div.ow_photo_item_wrap {
+    	height: 270px;
+    	overflow: hidden;
+    }
+    .ow_photo_list.ow_photo_pint_mode .ow_photo_item_wrap .ow_photo_pint_album img {
+    	min-height: 100%;
+    }
+    body .ow_photo_list_wrap div.ow_photo_item,
+    body .ow_photo_pint_album {
+    	height: 100%;
     }
     .ow_photo_list.ow_photo_pint_mode .ow_photo_item_wrap {
     	position: static !important;
-    	left: auto !important;
-    	top: auto !important;
     }
     .ow_photo_list.ow_photo_pint_mode .ow_photo_item_wrap .ow_photo_pint_album {
-    	height: 200px;
     	overflow: hidden;
     	text-align: center;
     }
     .ow_photo_list.ow_photo_pint_mode .ow_photo_item_wrap .ow_photo_pint_album img {
-    	min-height: 100%;
-    	min-width: 100%;
     	width: auto;
     	height: auto;
+    	border-radius: 0;
+    	-moz-border-radius: 0;
+    	-webkit-border-radius: 0;
+    }
+    .ow_photo_item .ow_photo_item_info_description {
+    	display: none !important;
+    }
+	.ow_photo_list_wrap .ow_photo_item_wrap .ow_photo_item_info,
+    body .ow_photo_context_action {
+    	display: none !important;
+    }
+    body .ow_photo_preview_x,
+    body .ow_photo_preview_rotate {
+    	display: block;
     }
     /*Video*/
     .ow_video_list_item {
@@ -5819,7 +6621,7 @@ body .ow_table_2 tr.ow_tr_titles th:last-child, body .ow_table_1 tr.ow_tr_titles
     }
 }
 @media (max-width: 767px) {
-	/*General*/
+	/*-------------------------------------General----------------------------------------------*/
 	.ow_content .ow_superwide, 
 	.ow_content .ow_supernarrow,
 	.ow_content .ow_narrow,
@@ -5839,13 +6641,480 @@ body .ow_table_2 tr.ow_tr_titles th:last-child, body .ow_table_1 tr.ow_tr_titles
     	-moz-box-sizing: border-box;
     	-webkit-box-sizing: border-box;
     }
-    /*Photo*/
+    .ow_ipc_header {
+    	margin-bottom: 4px;
+    }
+    .ow_lp_label br {
+    	margin: 6px 0;
+    }
+    .ow_sign_in_wrap form .ow_sign_in {
+    	width: 100%;
+    	float: none;
+    }
+    .ow_sign_in_wrap {
+    	width: 100%;
+    }
+    .ow_sign_in_wrap form .ow_sign_up {
+    	margin: 16px 0 0 0;
+    	width: 100%;
+    	text-align: center;
+    }
+    .ow_sign_in_wrap form .ow_sign_up p br {
+    	height: 1px;
+    }
+    .floatbox_container .ow_sign_in_wrap form {
+    	padding: 0;
+    }
+    .console_tooltip.ow_tooltip_top_right.ow_tooltip {
+    	top: 45px !important;
+    	right: 2px;
+    }
+    .console_tooltip.ow_tooltip_top_right .ow_tooltip_tail span {
+    	display: none;
+    }
+    body textarea.ow_newsfeed_status_input.invitation {
+    	height: 32px;
+    }
+
+    /*.ow_console_item {
+    	position: static;
+    }*/
+    .ow_console_body {
+    	position: relative;
+    }
+    body .ow_newsfeed_item_content {
+    	width: 100%;
+    	max-width: 100%;
+    }
+    .ow_newsfeed_left {
+    	width: auto;
+    }
+    body .ow_searchbar input[type="text"] {
+    	height: 28px;
+    	line-height: 18px;
+    }
+    iframe {
+    	width: 100% !important;
+    	height: auto; 
+    }
+    body .ow_moderation_wrap {
+    	margin-left: 0;
+    }
+    body .ow_moderation_sticky {
+    	width: 100%;
+    	margin-left: 0;
+    }
+    body .ow_chat_selector {
+    	position: fixed;
+    	left: 0;
+    }
+    body .ow_chat_dialog_wrap {
+    	position: fixed;
+    	left: 0;
+    	width: 100%;
+    }
+    body .ow_chat_dialog {
+    	width: 100% !important;
+    	margin-left: 0;
+    }
+    body .ow_forgot_password {
+    	width: 100%;
+    	box-sizing: border-box;
+    	-moz-box-sizing: border-box;
+    	-webkit-box-sizing: border-box;
+    	padding: 0 20px;
+    }
+    body .customize_box {
+    	display: none;
+    }
+    .ow_header {
+    	position: relative;
+    	height: 300px;
+    }
+    .ow_header img {
+    	display: none;
+    }
+    .ow_header_pic {
+    	display: block;
+    	height: 300px; /** OW_Control type:height, key:headerHeight, section:1. General Settings, label: Mobile header height **/
+    	width: 100%;
+    	background-size: cover;
+    	background-position: center center;
+    }
+    .ow_message_cont {
+    	left: 0;
+    	right: 0;
+    	width: 100%;
+    	margin-left: 0;
+    }
+    /*------------- Messages --------------*/
+    body .ow_mailbox_table {
+        background: transparent;
+        margin-bottom: 20px;
+    }
+    body .ow_mailbox_left {
+        width: 100%;
+        float: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        background-color: #fff;
+    }
+    body .ow_mailbox_left .ow_mailbox_left_body {
+        width: 100% !important;
+        position: static;
+    }
+    body #conversationItemListSub {
+        width: 100% !important;
+    }
+    body .ow_mailbox_right {
+        width: 100%;
+        float: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        background-color: #fff;
+    }
+    .ow_mailbox_left_body .jspContainer {
+        height: 252px !important;
+    }
+    body .ow_mailbox_right {
+        margin-top: 20px;
+    }
+    body .ow_mailbox_username {
+        min-width: 0;
+    }
+    body .ow_mailbox_table .ow_mailbox_left .ow_mailbox_left_body,
+    body .ow_mailbox_table .ow_mailbox_search,
+    body .ow_mailbox_conv_options {
+    	border-right-width: 0;
+    }
+    body .ow_mailbox_table {
+    	border-width: 0;
+    }
+    body .ow_mailbox_table .ow_mailbox_left,
+    body .ow_mailbox_table .ow_mailbox_right {
+    	border: 1px solid #ececec;
+    }
+    body .ow_mailbox_table .ow_mailbox_cap {
+    	height: 82px;
+    }
+    body .ow_mailbox_table .ow_mailbox_right .ow_mailbox_cap {
+    	padding-left: 86px;
+    }
+    body .ow_mailbox_convers_info.mails,
+    body .ow_mailbox_convers_info.chats {
+    	background-position: 8px 36px;
+    }
+    body .ow_mailbox_table .ow_mailbox_cap .ow_mailbox_convers_actions {
+    	margin-top: 30px;
+    }
+    body .ow_mailbox_table .ow_mailbox_search input {
+    	font-size: 90%;
+    	height: 32px;
+    	line-height: 18px;
+    }
+    body .ow_mailbox_search .ow_btn_close_search {
+    	top: 22px;
+    }
+    html body .ow_mailbox_form .ow_mailbox_message_input textarea {
+    	display: none;
+    }
+    html body .ow_mailbox_message_input .jhtmlarea,
+    body .ow_mailbox_form .ow_attachment_btn, 
+    body .ow_mailbox_form .ow_attachment_icons,
+    #conversationTextarea {
+    	display: block !important;
+    }
+    textarea#conversationTextarea {
+    	margin: 0;
+    	border: none;
+    }
+    .ow_mailbox_form .jhtmlarea .input_ws_cont {
+    	display: none;
+    }
+    html body .ow_mailbox_message_input .jhtmlarea {
+    	width: 100% !important;
+    	box-sizing: border-box;
+    	-moz-box-sizing: border-box;
+    	-webkit-box-sizing: border-box;
+    }
+    .ow_mailbox_form div.jhtmlarea {
+    	padding: 0;
+    }
+    .ow_mailbox_request_item .console_list_ipc_item,
+    .ow_chat_request_item .console_list_ipc_item {
+    	padding-left: 20px;
+    	background-position: 2px 27px;
+    }
+    .ow_chat_dialog_wrap .ow_mailchat_new_message.ow_chat_dialog {
+	    bottom: 0;
+	    left: 0;
+	    margin: 0;
+	    position: fixed;
+	    right: 0;
+	    width: 100%;
+	}
+	.ow_mailbox_left_loading .ow_mailbox_left_body {
+		background-position: center 120px;
+	}
+	html body .ow_mailbox_table_empty .ow_mailbox_left div.ow_mailbox_no_content {
+		padding-top: 117px;
+		padding-bottom: 117px;
+	}
+    /*Fonts*/
+    html {
+    	font-size: 14px;
+    }
+    body {
+    	font-size: 1.15rem;
+    }
+    h3 {
+    	font-size: 1.25rem;
+    }
+    .ow_box_menu, ul.ow_bl a {
+    	line-height: 25px;
+    }
+    .ow_box_menu a, ul.ow_bl a {
+    	height: auto;
+    }
+    .ow_box_menu a span{
+    	font-size: 1.1rem;
+    }
+    ul.ow_bl a  {
+    	font-size: 1.1rem;
+    }
+    .ow_ipc_header a {
+    	font-size: 1.1rem;
+    }
+    .ow_small {
+    	font-size: 1.05rem;
+    	line-height: 18px;
+    }
+    .ow_ipc_toolbar,
+    .ow_ipc_toolbar .ow_ipc_date,
+    .ow_ipc_date {
+    	font-size: 1.1rem;
+    }
+    html body a.ow_lbutton, html body span.ow_lbutton {
+    	font-size: 1rem;
+    	line-height: 1.2em;
+    }
+    .ow_comments_item_header a {
+    	font-size: 1.1rem;
+    }
+    html body .ow_sidebar .ow_tiny,
+    html body .ow_console .ow_tiny, 
+    .ow_tiny {
+    	font-size: 1rem;
+    }
+    input[type="text"], 
+    input[type="password"], 
+    textarea, 
+    select, 
+    div.jhtmlarea, 
+    .ow_photo_upload_description, 
+    .ow_photo_preview_edit .CodeMirror {
+    	font-size: 1.15rem;
+    }
+    body .ow_mailbox_convers_info .ow_mailbox_convers_info_string a,
+    body .ow_mailbox_convers_info_date {
+    	font-size: inherit;
+    }
+    body .ow_mailbox_convers_info .ow_mailbox_convers_preview {
+    	font-size: 1.1rem;
+    }
+    body .ow_mailbox_message_header a,
+    body .ow_mailbox_message_content {
+    	font-size: 1.1rem;
+    }
+    body .ow_mailbox_message_date {
+    	font-size: 1rem;
+    }
+    .ow_console,
+    .ow_console_item a,
+	.ow_console_lang_item {
+		font-size: 1.1rem;
+	}
+	ul.ow_console_dropdown .ow_console_dropdown_cont {
+		text-align: right;
+	}
+	.ow_console_dropdown_cont a {
+		line-height: 24px;
+	}
+	.ow_credits_links a {
+		font-size: 1rem;
+	}
+	.ow_supernarrow {
+		font-size: 1.1rem;
+	}
+	.ow_footer_menu {
+		font-size: 1.1rem;
+	}
+	a.ow_context_action_value,
+	.ow_context_action_list a {
+		font-size: 1rem;
+	}
+	input[type="submit"], input[type="button"] {
+		font-size: 1.15rem;
+	}
+	.ow_attachment_btn span.ow_button input[type="submit"], 
+	.ow_attachment_btn span.ow_button input[type="button"] {
+		line-height: 21px;
+	}
+	.ow_content_menu li a {
+		font-size: 1.2rem;
+	}
+	h1 {
+		font-size: 1.7rem;
+		line-height: 30px;
+	}
+	body .ow_explore_photos_show {
+		font-size: 1rem;
+	}
+	body .ow_searchbar input[type="text"] {
+		font-size: 1rem;
+	}
+	body .ow_box_toolbar {
+		font-size: 0.95rem;
+	}
+	.ow_console_mailbox_title {
+		font-size: 1rem;
+	}
+	.ow_console_mailbox_title .ow_mailbox_convers_info_date {
+		font-size: 0.9rem;
+	}
+	.ow_console_mailbox_txt,
+	.ow_chat_request_item .ow_console_mailbox_txt {
+		font-size: 1rem;
+	}
+	a.ow_lbutton, span.ow_lbutton {
+		font-weight: normal;
+	}
+    body .ow_chat_in_dialog .ow_time_block p span.ow_time_text {
+    	font-size: 0.9rem;
+    }
+    body .ow_dialog_date_cap,
+	body .ow_chat_dialog .ow_author_block span.ow_chat_item_author,
+    .ow_top_panel .ow_count_txt,
+    body .ow_chat_block_main .ow_chat_search input[type="text"], 
+    body .ow_chat_block_main .ow_chat_search input[type="password"],
+    body .ow_dialog_in_item p,
+    body span.ow_chat_in_item_author, 
+    body span.ow_chat_in_item_text,
+    body .ow_chat_dialog .ow_chat_subject_block input {
+    	font-size: 1rem;
+    }
+    .ow_mailbox_log .ow_time_block p span.ow_time_text {
+    	font-size: 0.9rem;
+    }
+	/*Buttons*/
+	.ow_attachments a {
+		height: 26px;
+		width: 26px;
+		background-position: -173px 2px;
+	}
+	.ow_attachment_btn span.ow_button input[type="submit"], 
+	.ow_attachment_btn span.ow_button input[type="button"] {
+		height: 26px;
+	}
+	body .ow_chat_mailchat_buttons .ow_attachment_btn span.ow_button input[type="submit"], 
+	body .ow_chat_mailchat_buttons .ow_attachment_btn span.ow_button input[type="button"] {
+
+	}
+    /*Avatar size*/
+    .ow_avatar {
+    	width: 60px;
+    	height: 60px; 
+    }
+    .ow_avatar img {
+    	width: 60px !important;
+    	height: 60px !important;
+    	border-radius: 60px !important;
+    	-moz-border-radius: 60px !important;
+    	-webkit-border-radius: 60px !important;
+    }
+    .ow_ipc_info {
+    	margin-left: 77px;
+    }
+    .ow_canvas .ow_newsfeed_body {
+    	margin-left: 70px;
+    	min-height: 70px;
+    }
+    .ow_user_list_data {
+    	margin-left: 73px;
+    }
+    .ow_mini_ipc_picture img, 
+    .ow_mini_ipc_picture .ow_avatar, 
+    .ow_mini_ipc_picture .ow_avatar img {
+    	width: 52px !important;
+    	height: 52px !important;
+    }
+    .ow_mini_ipc_picture {
+    	width: 62px;
+    	margin-right: -6 2px;	
+    }
+    .ow_mini_ipc_info {
+    	margin-left: 66px;
+    }
+    .ow_feed_comments_input_sticky .ow_comments_item_picture .ow_avatar img,
+    .ow_comments_input_wrap .ow_comments_item_picture .ow_avatar img {
+    	width: 32px !important;
+    	height: 32px !important;
+    }
+    .ow_comments_item .ow_comments_item_picture .ow_avatar img {
+    	width: 52px !important;
+    	height: 52px !important;
+    }
+    body .ow_comments_item .ow_comments_item_picture .ow_avatar {
+    	width: 52px;
+    	height: 52px;
+    }
+    body .ow_comments_item .ow_comments_item_picture {
+    	width: 52px;
+    	margin-right: -52px;
+    }
+    body .ow_comments_item .ow_comments_item_info {
+    	margin-left: 68px;
+    }
+    .ow_comments_item_header {
+    	margin-top: 4px;
+    	margin-bottom: 4px;
+    }
+    body .ow_mailbox_convers_info_body {
+    	margin-left: 77px;
+    }
+    body .ow_mailbox_avatar {
+    	width: 70px;
+    }
+    body .ow_mailbox_cap .ow_mailbox_avatar {
+    	margin-left: -70px;
+    }
+    .ow_console .ow_avatar {
+    	width: 60px;
+    	height: 60px;
+    }
+    .ow_console_ntf_cont, .ow_console_invt_cont {
+    	margin-left: 68px;
+    }
+    .ow_console li.ow_chat_request_item .ow_console_invt_cont, 
+	.ow_console li.ow_mailbox_request_item .ow_console_invt_cont {
+		margin-left: 68px;
+	}
+	.ow_console li.ow_chat_request_item .ow_avatar, 
+	.ow_console li.ow_mailbox_request_item .ow_avatar {
+		width: 60px;
+		height: 60px;
+		margin-right: -60px;
+	}
+    /*--------------------------------------------------Photo---------------------------------------------*/
     body .ow_photo_list_wrap.ow_photo_no_sidebar div.ow_photo_item_wrap,
     body .ow_photo_list_wrap.ow_photo_no_sidebar .ow_photo_list.ow_photo_pint_mode div.ow_photo_item_wrap,
     body .ow_photo_list_wrap.ow_photo_no_sidebar div.ow_photo_item_wrap.ow_photo_album {
-    	width: 33.33%;
+    	width: 50%;
     }
-    .ow_fw_menu .ow_fw_btns + div {
+    body .ow_photo_list_wrap.ow_photo_no_sidebar .ow_photo_list.ow_photo_pint_mode div.ow_photo_item_wrap {
+    	height: 300px;
+    }
+    #photo-list-search {
     	float: none;
     }
     .ow_fw_menu .ow_fw_btns {
@@ -5875,15 +7144,13 @@ body .ow_table_2 tr.ow_tr_titles th:last-child, body .ow_table_1 tr.ow_tr_titles
     	width: 100% !important;
     }
     body .ow_photo_upload_wrap .ow_photo_preview_block_wrap .ow_photo_preview_edit {
-    	width: 33%;
-    	margin-bottom: 10px;
+    	width: 48%;
+    	margin-left: 1% !important;
+    	margin-right: 1% !important;
+    	margin-bottom: 10px !important;
     	box-sizing: border-box;
     	-moz-box-sizing: border-box;
     	-webkit-box-sizing: border-box;
-    }
-    body .ow_photo_upload_wrap .ow_photo_preview_block_wrap .ow_photo_preview_edit:nth-child(3n+2) {
-    	margin-left: 0;
-    	margin-right: 0;
     }
     .ow_photo_preview_action {
     	overflow: hidden;
@@ -5900,6 +7167,18 @@ body .ow_table_2 tr.ow_tr_titles th:last-child, body .ow_table_1 tr.ow_tr_titles
     body .CodeMirror-hscrollbar {
     	display: none !important;
     }
+    .new-album textarea {
+    	margin-bottom: 16px;
+    }
+    .ow_photoview_info_wrap {
+    	display: none !important;
+    }
+    .ow_photoview_stage_wrap {
+        width: 100% !important;
+    }
+    .floatbox_container {
+    	width: 100% !important;
+    }
     /*Forum*/
     .forum_add_post .ow_left,
     .forum_add_post .ow_right {
@@ -5908,188 +7187,8 @@ body .ow_table_2 tr.ow_tr_titles th:last-child, body .ow_table_1 tr.ow_tr_titles
     }
 
 }
-@media (max-width: 480px) {
-	/*General*/
-	body .ow_user_list .ow_item_set3 {
-		width: 100%;
-		border-bottom: 1px solid #e8e8e8;
-	}
-	.ow_user_list .ow_alt1, tr.ow_alt1 td,
-	.ow_user_list .ow_alt2, tr.ow_alt2 td {
-		background-color: #fff;
-	}
-	body .ow_user_list .ow_item_set3:last-child {
-		border-bottom: none;
-	}
-	body, html {
-    	min-width: 320px;
-    }
-    /*Photo*/
-    body .ow_photo_list_wrap.ow_photo_no_sidebar div.ow_photo_item_wrap,
-    body .ow_photo_list_wrap.ow_photo_no_sidebar .ow_photo_list.ow_photo_pint_mode div.ow_photo_item_wrap,
-    body .ow_photo_list_wrap.ow_photo_no_sidebar div.ow_photo_item_wrap.ow_photo_album {
-    	width: 50%;
-    }
-    .ow_photo_dragndrop span {
-    	line-height: 30px;
-    }
-    body .ow_photo_dragndrop {
-    	padding: 16px 4px;
-    }
-     body .ow_photo_upload_wrap .ow_photo_preview_block_wrap .ow_photo_preview_edit {
-    	width: 50%;
-    	margin-bottom: 10px !important;
-    	box-sizing: border-box;
-    	-moz-box-sizing: border-box;
-    	-webkit-box-sizing: border-box;
-    }
-
-}
 
 
-/*    RESPONSIVE    */
-
-/* Landscape phones and down */
-
-/*
-@media (max-width: 480px) {
-    .ow_page_container, .ow_site_panel_wrap, .ow_footer { max-width: 460px; min-width: 300px; }
-    .ow_sidebar { float: none; margin: 0px; width: 100%; }
-    .ow_content { float: none; }
-    .ow_page { margin: 0px; }
-    .ow_content .ow_left, .ow_content .ow_right, .ow_content .ow_superwide, .ow_content .ow_supernarrow { float: none; width: 100% !important; margin-bottom: 10px; }
-    .ow_content > .ow_right { text-align: right; margin-bottom: 15px; }
-    div.ow_menu_wrap { display: block; }
-    ul.ow_main_menu li a { font-size: 11px; padding: 1px 6px 1px; }
-    body a.ow_add_content { background-position: 13px center; padding: 7px 0; text-align: left; text-indent: 40px; width: 47%; }
-    ul.ow_content_menu li { clear: both; margin-top: 5px; border: none; }
-    ul.ow_content_menu li a { font-size: 11px; }
-    ul.ow_content_menu span { padding: 1px 8px 1px 28px; background-position: 5px 2px; }
-    div h1.ow_stdmargin { font-size: 14px; font-weight: normal; margin-bottom: 10px; }
-    body div.floatbox_container { max-width: 93% !important; }
-    .ow_photo_list_item { width: 186px; }
-    div.ow_stdmargin { margin-bottom: 10px; }
-    div.ow_bg_color { padding: 10px; }
-    body .floatbox_container .ow_sign_in_wrap form { padding: 0px; }
-    body .ow_sign_in_wrap { width: auto; }
-    .floatbox_container .ow_sign_in_wrap form .ow_sign_in,
-    .floatbox_container .ow_sign_in_wrap form .ow_sign_up { float: none; width: 100%; margin: 0px; }
-    body .ow_table_1 td, body .ow_table_2 td { padding: 5px; }
-    body input[name=userPhoto] { max-width: 100px; }
-    body form[name=add-topic-form] input[name^=attachments] { max-width: 100px; }
-    body form[name=GROUPS_CreateGroupForm] input[name=image] { max-width: 100px; }
-    body form[name=event_add] input[name=image] { max-width: 100px; }
-    body form[name=photoUploadForm] input[name^=photos] { max-width: 100px; }
-    div[class^=captchaField_input_] > div.ow_automargin { width: 210px !important; }
-    span.ow_signin_label { margin: 1px 0; }
-    div.ow_box_cap h3, div.ow_box_cap_empty h3 { font-size: 11px; padding: 6px 0 6px 32px; }
-    div.ow_box_cap_empty .ow_box_cap_body { height: 26px; }
-    .ow_photo_info { max-width: 300px; margin: 0px auto; }
-    .ow_photo_info .ow_left, .ow_photo_info .ow_right { float: none; width: 100%; }
-
-    .ow_notification_list .ow_tooltip_top_right.ow_tooltip { right: -10px; }
-    .ow_mailbox_items_list .ow_tooltip_top_right.ow_tooltip { left: -15px; right: auto; }
-    .ow_friend_request_list .ow_tooltip_top_right.ow_tooltip, .ow_invitation_list .ow_tooltip_top_right.ow_tooltip { left: 0px; right: auto; }
-    .ow_mailbox_items_list .ow_tooltip_top_right .ow_tooltip_tail { padding-left: 15px; text-align: left; }
-    .ow_friend_request_list .ow_tooltip_top_right .ow_tooltip_tail, .ow_invitation_list .ow_tooltip_top_right .ow_tooltip_tail { text-align: left; padding-left: 5px; }
-    .ow_notification_list .ow_console .ow_tooltip .ow_tooltip_body { max-width: 195px; }
-    .ow_mailbox_items_list .ow_console .ow_tooltip .ow_tooltip_body { max-width: 215px; }
-    .ow_friend_request_list .ow_console .ow_tooltip .ow_tooltip_body, .ow_invitation_list .ow_console .ow_tooltip .ow_tooltip_body { max-width: 235px; }
-    .ow_notification_list .ow_console_list_wrapper { max-width: 185px; }
-    .ow_mailbox_items_list .ow_console_list_wrapper { max-width: 205px; }
-    .ow_friend_request_list .ow_console_list_wrapper, .ow_invitation_list .ow_console_list_wrapper { max-width: 225px; }
-    div.ow_invitation_list .ow_console_invt_txt { width: 115px; }
-    div.ow_console_invt_no_img .ow_console_invt_txt { width: 132px; }
-
-    div.ow_console_item { padding: 0 3px; margin: 0px; height: 17px; line-height: 15px; }
-    span.ow_console_more { height: 19px; padding-left: 1px; }
-    html body div.ow_console_item a { font-size: 10px; }
-    div.ow_user_list .ow_item_set3 { width: 100%; }
-    div .ow_console span.ow_count_wrap { padding-top: 1px; margin-right: -2px; }
-    .ow_console_item span.ow_ico_signin { margin: 1px 0 0 2px; }
-    span.ow_ico_signin:last-child { margin-right: -2px; }
-    div.ow_message_cont { width: 270px; margin-left: -135px; }
-    body input[type="submit"], body input[type="button"] { font-size: 11px; height: 29px; }
-    div.ow_box_toolbar { white-space: normal; }
-    .buttons span.ow_button { margin-bottom: 5px; }
-    .ow_change_avatar .ow_wide { width: 90%; }
-    div.ow_change_avatar .avatar_current, div.ow_change_avatar .ow_avatar_preview { border: none; }
-    body table.ow_mailbox td.mail_info { white-space: normal !important; width: 30px; }
-    body table.ow_mailbox  td, body table.ow_mailbox td { padding: 3px; }
-    table.ow_mailbox { font-size: 11px; }
-    .ow_mailbox .ow_blitem { margin-bottom: 3px; }
-    div.ow_sign_in_wrap { top: 20px; margin: 0px 15px; left: 0px !important; }
-    div.ow_sign_in_wrap form { padding: 15px; }
-    div.ow_sign_in_wrap form .ow_sign_in { float: none; width: 100%; }
-    div.ow_sign_in_wrap form .ow_sign_up { width: 100%; margin: 0px !important; }
-    div.ow_sign_in_wrap h2 { font-size: 17px; line-height: 20px; padding: 0 10px; }
-    #mailbox-add-message-form .ow_submit_auto_click { display: block; }
-    .ow_forum th.ow_name { width: auto; }
-    .ow_forum th { padding: 3px; font-size: 11px; }
-}
-
-*/
-
-/* Landscape phone to portrait tablet */
-/*
-@media (min-width: 481px) and (max-width: 767px) {
-    .ow_page_container, .ow_site_panel_wrap, .ow_footer { max-width: 700px; }
-    .ow_sidebar { float: none; margin: 0px; width: 100%; }
-    .ow_content { float: none; }
-    .ow_content .ow_left, .ow_content .ow_right, .ow_content .ow_superwide, .ow_content .ow_supernarrow { float: none; width: 100% !important; }
-    .ow_content > .ow_right { text-align: right; margin-bottom: 15px; }
-    .ow_page { margin: 0px; }
-    ul.ow_main_menu li a { font-size: 11px; padding: 1px 6px 1px; }
-    a.ow_add_content { background-position: 13px center; padding: 7px 0; text-align: left; text-indent: 40px; width: 48%; }
-    ul.ow_content_menu li { clear: both; margin-top: 5px; border: none; }
-    body div.floatbox_container { max-width: 93% !important; }
-    body .floatbox_container .ow_sign_in_wrap form { padding: 0px; }
-    body .ow_sign_in_wrap { width: auto; }
-    .floatbox_container .ow_sign_in_wrap form .ow_sign_in,
-    .floatbox_container .ow_sign_in_wrap form .ow_sign_up { float: none; width: 100%; margin: 0px; }
-    .ow_mailbox_items_list .ow_tooltip_top_right.ow_tooltip, .ow_friend_request_list .ow_tooltip_top_right.ow_tooltip,
-    .ow_invitation_list .ow_tooltip_top_right.ow_tooltip { left: 0px; right: auto; }
-    .ow_mailbox_items_list .ow_tooltip_top_right .ow_tooltip_tail, .ow_friend_request_list .ow_tooltip_top_right .ow_tooltip_tail,
-    .ow_invitation_list .ow_tooltip_top_right .ow_tooltip_tail { padding-left: 5px; text-align: left; }
-    .ow_notification_list .ow_console .ow_tooltip .ow_tooltip_body { max-width: 255px; }
-    .ow_mailbox_items_list .ow_console .ow_tooltip .ow_tooltip_body { max-width: 265px; }
-    .ow_notification_list .ow_console_list_wrapper { max-width: 245px; }
-    .ow_mailbox_items_list .ow_console_list_wrapper { max-width: 255px; }
-    div.ow_message_cont { width: 470px; margin-left: -235px; }
-    #joinForm { margin-bottom: 10px; }
-    .ow_photo_info { max-width: 460px; margin: 0px auto; }
-    div.ow_sign_in_wrap { top: 20px; margin: 0px 15px; left: 0px !important; }
-    div.ow_sign_in_wrap form { padding: 15px; }
-    div.ow_sign_in_wrap form .ow_sign_in { float: none; width: 100%; }
-    div.ow_sign_in_wrap form .ow_sign_up { width: 100%; margin: 0px !important; }
-    div.ow_sign_in_wrap h2 { font-size: 17px; line-height: 20px; padding: 0 10px; }
-    #mailbox-add-message-form .ow_submit_auto_click { display: block; }
-}
-
-*/
-
-/* Portrait tablet to landscape and desktop */
-/*
-@media (min-width: 768px) and (max-width: 979px) {
-    .ow_page_container, .ow_site_panel_wrap, .ow_footer {
-        max-width: 760px;
-    }
-    ul.ow_main_menu li a { font-size: 11px; padding: 1px 6px 1px; }
-    .ow_content .ow_left, .ow_content .ow_right, .ow_content .ow_superwide, .ow_content .ow_supernarrow { float: none; width: 100% !important; }
-    .ow_content > .ow_right { float: none; text-align: right; margin-bottom: 15px; }
-    .ow_content_menu_wrap { clear: both; margin-top: 5px; }
-}
-
-*/
-
-/* Large desktop */
-/*
-@media (min-width: 1000px) {
-    .ow_page_container, .ow_site_panel_wrap, .ow_footer {
-        max-width: 1000px;
-    }
-}
-*/
 
 
-/*.ow_video_player iframe { max-width: 100%; }*/
+
