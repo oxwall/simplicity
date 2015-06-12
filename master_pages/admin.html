@@ -1,0 +1,200 @@
+{style}
+    #console-notifications-wrapper {
+        position: absolute; 
+        z-index: 100; 
+        display: block;
+    }
+
+    #console-notifications-wrapper .console_tooltip {
+        opacity: 1; 
+        top: 22px !important; 
+        display: none;
+    }
+
+    #console-notifications-wrapper .ow_count_wrap {
+        width: auto;
+    }
+
+    #console-notifications-wrapper .ow_count_wrap .ow_count {
+        right: 0px;
+    }
+    
+    #console-notifications-wrapper .ow_console_list li {
+        margin: 0 0 4px;
+        border: 1px solid #ececec;
+        border-radius: 2px;
+    }
+
+    .ow_footer .ow_canvas .ow_page {
+        padding: 20px 0;
+    }
+
+    .ow_footer .ow_canvas .ow_page .ow_remark_wrapper{
+        float:left;
+    }
+
+    .ow_footer .ow_canvas .ow_page .ow_powered_by{
+        float:right;
+        line-height:15px;
+        font-size:11px;
+    }
+{/style}
+
+<!-- head wrapper -->
+<div class="ow_header ow_admin_header clearfix">
+    {component class='BASE_CMP_Console'}
+    <div class="ow_site_panel clearfix">
+        <a class="ow_admin_home_btn ow_admin_menu_item home ow_left" href="{$siteUrl}">
+            <span class="ow_admin_menu_item_label">{$siteName}</span>
+        </a>
+        <div class="ow_admin_console_update">
+            <a id="admin_console_update_link" class="ow_admin_console_update_link" href="#"></a>
+            {if !empty($warnings) || !empty($notifications)}           
+                <span class="ow_count_wrap">
+                    <span class="ow_count_bg">
+                        <span class="ow_count ow_count_active">{count($warnings) + count($notifications)}</span>
+                    </span>
+                </span>
+            {/if}
+            <div id="console-notifications-wrapper" class="OW_ConsoleItemContent">
+                {block_decorator name="tooltip" addClass="console_tooltip ow_tooltip_top_left"}
+                    <div class="ow_console_list_wrapper">
+                        {if !empty($warnings) || !empty($notifications)}
+                            <ul class="ow_console_list">
+                                {foreach from=$warnings item='warning'}
+                                    <li class="ow_console_list_item ow_admin_config_item ow_console_new_message ow_console_list_item_warning">
+                                        <div class="ow_admin_notification_pic"></div>
+                                        <div class="ow_admin_notification_text ow_left ow_small">{$warning}</div>
+                                    </li>
+                                {/foreach}
+
+                                {foreach from=$notifications item='notification'}
+                                    <li class="ow_console_list_item ow_admin_config_item ow_console_new_message ow_console_list_item_notification">
+                                        <div class="ow_admin_notification_pic"></div>
+                                        <div class="ow_admin_notification_text ow_left ow_small">{$notification}</div>
+                                    </li>
+                                {/foreach}
+                            </ul>
+                        {else}
+                            <div class="ow_nocontent">{text key="base+no_items"}</div>
+                        {/if}
+                    </div>
+                {/block_decorator}
+            </div>            
+        </div>
+    </div>
+</div>
+<!-- end of head wrapper -->
+
+<!-- left menu wrapper -->
+<div id="main_left_menu" class="ow_admin_menu_wrap sticky">
+    <div class="ow_admin_menu">
+        {foreach from=$menuArr key='key' item='item'}
+            <div class="ow_admin_menu_item {$item.key}{if $item.isActive} active{/if}">
+                <span class="ow_admin_menu_item_label">{$item.label}</span>
+                <div class="ow_admin_menu_arrow"></div>
+                {$item.sub_menu}
+            </div>
+            {if $item.isActive}
+                {$item.active_sub_menu}
+            {/if}
+        {/foreach}
+
+
+       <!-- <div class="ow_admin_menu_item active dashboard">
+            <span class="ow_admin_menu_item_label">Dashboard</span>
+            <div class="ow_admin_menu_arrow"></div>
+            <ul class="ow_admin_submenu_hover">
+                <li class="ow_admin_submenu_title">Dashboard</li>
+                <li><a href="#">Main</a></li>
+                <li><a href="#">Finance</a></li>
+            </ul>
+        </div>
+        <ul class="ow_admin_submenu">
+            <li class="active"><a href="#">Main</a></li>
+            <li><a href="#">Finance</a></li>
+        </ul>
+
+        <div href="#" class="ow_admin_menu_item users">
+            <span class="ow_admin_menu_item_label">Users</span>
+            <div class="ow_admin_menu_arrow"></div>
+            <ul class="ow_admin_submenu_hover">
+                <div class="ow_admin_submenu_title">Users</div>
+                <li><a href="#">Browse Users</a></li>
+                <li><a href="#">Moderators</a></li>
+                <li><a href="#">User Roles</a></li>
+            </ul>
+        </div>
+-->
+
+    </div>
+</div>
+<!-- end of left menu wrapper -->
+
+<!-- content wrapper -->
+<div class="ow_page_container ow_admin ">
+    {$content}
+</div>
+<!-- end of content wrapper -->
+
+<!-- footer wrapper -->
+<div class="ow_footer ow_admin">
+    <div class="ow_canvas">
+        <div class="ow_page clearfix">
+            <div class="ow_remark_wrapper">
+                {if empty($ow_plugin_xp)}
+                    <div class="ow_right ow_small ow_remark">{$softVersion}</div>
+                {/if}			
+            </div>
+            <div class="ow_powered_by">
+                {$bottomPoweredByLink}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end of footer wrapper -->
+
+{script}
+    // process main menu height
+    var $mainLeftMenu = $("#main_left_menu > .ow_admin_menu");
+    if ( $mainLeftMenu.innerHeight() > $(window).innerHeight() ) {
+        $mainLeftMenu.parent().removeClass("sticky");
+    }
+
+    $(document).ready(function(){
+        // console
+        var $tooltip = $("#console-notifications-wrapper .ow_tooltip");
+        var $consoleLink = $("#admin_console_update_link");
+
+        $consoleLink.on("click", function(e) 
+        {
+            e.preventDefault();
+
+            // show the notifications
+            if (!$tooltip.hasClass("active")) {
+                $tooltip.addClass("active").show();
+                OW.addScroll("#console-notifications-wrapper .ow_console_list_wrapper");
+
+                return;
+            }
+
+            // hide the notifications
+            $tooltip.removeClass("active").hide();
+            OW.removeScroll("#console-notifications-wrapper .ow_console_list_wrapper");
+        });
+
+        $(document).mouseup(function(e)
+        {
+            if ($(e.target).parents("#console-notifications-wrapper").length 
+                    || $consoleLink.is(e.target)) {
+
+                return;
+            }
+
+            if ($tooltip.is(":visible")) {
+                $tooltip.removeClass("active").hide();
+                OW.removeScroll("#console-notifications-wrapper .ow_console_list_wrapper");
+            }
+        });
+    });
+{/script}
