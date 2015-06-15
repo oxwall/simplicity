@@ -62,16 +62,16 @@
                         {if !empty($warnings) || !empty($notifications)}
                             <ul class="ow_console_list">
                                 {foreach from=$warnings item='warning'}
-                                    <li class="ow_console_list_item ow_admin_config_item ow_console_new_message ow_console_list_item_warning">
+                                    <li class="ow_console_list_item ow_admin_config_item ow_console_{$warning.iconClass}">
                                         <div class="ow_admin_notification_pic"></div>
-                                        <div class="ow_admin_notification_text ow_left ow_small">{$warning}</div>
+                                        <div class="ow_admin_notification_text ow_left ow_small">{$warning.message}</div>
                                     </li>
                                 {/foreach}
 
                                 {foreach from=$notifications item='notification'}
-                                    <li class="ow_console_list_item ow_admin_config_item ow_console_new_message ow_console_list_item_notification">
+                                    <li class="ow_console_list_item ow_admin_config_item ow_console_{$notification.iconClass}">
                                         <div class="ow_admin_notification_pic"></div>
-                                        <div class="ow_admin_notification_text ow_left ow_small">{$notification}</div>
+                                        <div class="ow_admin_notification_text ow_left ow_small">{$notification.message}</div>
                                     </li>
                                 {/foreach}
                             </ul>
@@ -91,7 +91,7 @@
     <div class="ow_admin_menu">
         {foreach from=$menuArr key='key' item='item'}
             <div class="ow_admin_menu_item {$item.key}{if $item.isActive} active{/if}">
-                <span class="ow_admin_menu_item_label">{$item.label}</span>
+                <span class="ow_admin_menu_item_label"><a href="{$item.firstLink}">{$item.label}</a></span>
                 <div class="ow_admin_menu_arrow"></div>
                 {$item.sub_menu}
             </div>
@@ -99,34 +99,6 @@
                 {$item.active_sub_menu}
             {/if}
         {/foreach}
-
-
-       <!-- <div class="ow_admin_menu_item active dashboard">
-            <span class="ow_admin_menu_item_label">Dashboard</span>
-            <div class="ow_admin_menu_arrow"></div>
-            <ul class="ow_admin_submenu_hover">
-                <li class="ow_admin_submenu_title">Dashboard</li>
-                <li><a href="#">Main</a></li>
-                <li><a href="#">Finance</a></li>
-            </ul>
-        </div>
-        <ul class="ow_admin_submenu">
-            <li class="active"><a href="#">Main</a></li>
-            <li><a href="#">Finance</a></li>
-        </ul>
-
-        <div href="#" class="ow_admin_menu_item users">
-            <span class="ow_admin_menu_item_label">Users</span>
-            <div class="ow_admin_menu_arrow"></div>
-            <ul class="ow_admin_submenu_hover">
-                <div class="ow_admin_submenu_title">Users</div>
-                <li><a href="#">Browse Users</a></li>
-                <li><a href="#">Moderators</a></li>
-                <li><a href="#">User Roles</a></li>
-            </ul>
-        </div>
--->
-
     </div>
 </div>
 <!-- end of left menu wrapper -->
@@ -153,6 +125,8 @@
     </div>
 </div>
 <!-- end of footer wrapper -->
+
+{decorator name='floatbox'}
 
 {script}
     // process main menu height
