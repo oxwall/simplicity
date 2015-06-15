@@ -49,27 +49,20 @@
         </a>
         <div class="ow_admin_console_update">
             <a id="admin_console_update_link" class="ow_admin_console_update_link" href="#"></a>
-            {if !empty($warnings) || !empty($notifications)}           
+            {if !empty($notifications)}           
                 <span class="ow_count_wrap">
                     <span class="ow_count_bg">
-                        <span class="ow_count ow_count_active">{count($warnings) + count($notifications)}</span>
+                        <span class="ow_count ow_count_active">{count($notifications)}</span>
                     </span>
                 </span>
             {/if}
             <div id="console-notifications-wrapper" class="OW_ConsoleItemContent">
                 {block_decorator name="tooltip" addClass="console_tooltip ow_tooltip_top_left"}
                     <div class="ow_console_list_wrapper">
-                        {if !empty($warnings) || !empty($notifications)}
+                        {if !empty($notifications)}
                             <ul class="ow_console_list">
-                                {foreach from=$warnings item='warning'}
-                                    <li class="ow_console_list_item ow_admin_config_item ow_console_{$warning.iconClass}">
-                                        <div class="ow_admin_notification_pic"></div>
-                                        <div class="ow_admin_notification_text ow_left ow_small">{$warning.message}</div>
-                                    </li>
-                                {/foreach}
-
                                 {foreach from=$notifications item='notification'}
-                                    <li class="ow_console_list_item ow_admin_config_item ow_console_{$notification.iconClass}">
+                                    <li class="ow_console_list_item ow_admin_config_item ow_admin_console_type_{$notification.type}">
                                         <div class="ow_admin_notification_pic"></div>
                                         <div class="ow_admin_notification_text ow_left ow_small">{$notification.message}</div>
                                     </li>
