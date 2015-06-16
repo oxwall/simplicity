@@ -98,7 +98,18 @@
 
 <!-- content wrapper -->
 <div class="ow_page_container ow_admin ">
-    {$content}
+    <div class="ow_canvas">
+        <div class="ow_page">
+            {if !empty($heading)}
+                <h1 class="ow_stdmargin {$heading_icon_class}">
+                    {$heading}
+                </h1>
+            {/if}
+            <div class="ow_content">
+                {$content}
+            </div>
+        </div>
+    </div>
 </div>
 <!-- end of content wrapper -->
 
