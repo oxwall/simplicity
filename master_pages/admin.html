@@ -84,7 +84,7 @@
     <div class="ow_admin_menu">
         {foreach from=$menuArr key='key' item='item'}
             <div class="ow_admin_menu_item {$item.key}{if $item.isActive} active{/if}">
-                <span class="ow_admin_menu_item_label"><a href="{$item.firstLink}">{$item.label}</a></span>
+                <a href="{$item.firstLink}" class="ow_admin_menu_item_label">{$item.label}</a>
                 <div class="ow_admin_menu_arrow"></div>
                 {$item.sub_menu}
             </div>
