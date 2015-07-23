@@ -5,13 +5,13 @@
     <key>portfolio</key>
     <version>1.0</version>
     <compatibility>1.7 and higher</compatibility>
-    <description>Use better WEB with portfolio responsive</description>
-    <author>Aesthetic team</author>
-    <authorEmail>info@aestheticstudio.org</authorEmail>
-    <authorUrl>aestheticstudio.org/oxwall</authorUrl>
+    <description>Use better WEB with Portfolio</description>
+    <author>Oxwall Foundation</author>
+    <authorEmail>themes@oxwall.org</authorEmail>
+    <authorUrl>http://www.oxwall.org/foundation</authorUrl>
     <developerKey>f3289fc408b184ccb078e4c43971508e</developerKey>
     <build>1005</build>
-    <copyright>(C) 2015 aesthetic team. All rights reserved.</copyright>
+    <copyright>(C) 2012 Oxwall Foundation. All rights reserved.</copyright>
     <license>The OSCL License</license>
     <licenseUrl>http://www.oxwall.org/store/oscl</licenseUrl>
 </theme>
