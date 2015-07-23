@@ -8,7 +8,8 @@
   *     -- FILE STRUCTURE: --
   *
   *     [ 1] CSS Defaults Reset          __reset
-  *     [ 2] Base Elements               __base
+  *		[ 2] Clearfix                    __clearfix
+  *     [ 3] Base Elements               __base
   *     [ 3] Masterpage & Page Layout    __layout
   *     [ 4] Forms                       __forms
   *     [ 5] Common Blocks               __blocks
@@ -26,7 +27,32 @@
   *
   *
  ********************************************************************************/
-
+/********************************************************************************
+  *
+  *     Filename:        base.css
+  *     Description:     Portfolio Mobile Theme Base CSS File
+  *     Version:         1.0.0
+  *
+  *     -- FILE STRUCTURE: --
+  *
+  *     [ 1] CSS Defaults Reset          __reset
+  *     [ 2] Clearfix                    __clearfix
+  *     [ 3] Base Elements               __base
+  *     [ 4] Typography                  __typography
+  *     [ 5] Masterpage & Page Layout    __layout
+  *     [ 6] Menus                       __menus
+  *     [ 7] Pagination                  __pagination
+  *     [ 8] Content Items               __content items
+  *     [ 9] Common Blocks               __blocks
+  *     [10] Forms                       __forms
+  *     [11] Tables                      __tables
+  *     [12] Standard Listings           __listings
+  *     [13] Thumbnails & Icons          __icons
+  *     [14] Notifications               __messages
+  *     [15] Plugin Styles               __plugins
+  *     [16] Misc                        __misc
+  *
+ ********************************************************************************/
 /*========================================================
         [1] CSS Defaults Reset      __reset
   ========================================================*/
@@ -48,10 +74,10 @@ table, caption, tbody, tfoot, thead, tr, th, td{
 	background: transparent;
 }
 body {
-	line-height: 1; /* TODO delete */
+	line-height: 1;
 }
 ol, ul {
-	list-style: none; /* TODO delete */
+	list-style: none; 
 }
 blockquote, q {
 	quotes: none;
@@ -65,11 +91,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-/* remember to define focus styles! */
 :focus {
 	outline: 0;
 }
-/* remember to highlight inserts somehow! */
 ins {
 	text-decoration: none;
 }
@@ -77,14 +101,29 @@ del {
 	text-decoration: line-through;
 }
 /*========================================================
-        [2] Base Elements       __base
+        [2] Clearfix        __clearfix
+  ========================================================*/
+.clearfix{zoom: 1;}
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+.clearfix {display: inline-block;}
+html[xmlns] .clearfix {display: block;}
+*html .clearfix {height: 1%;}
+/*========================================================
+        [3] Base Elements       __base
   ========================================================*/
 body {
-	background-color: #f4f4f4; /** OW_Control type:color, section:1. General Settings, key:bodyColor, label: Page background color **/	
+	background-color: #f9fbfd; /** OW_Control type:color, section:1. General Settings, key:bodyColor, label: Page background color **/	
 }
 body, html {
 	font-family: 'RobotoRegular',"Lucida Grande", "Tahoma", "Verdana";
-	color: #333; /** OW_Control type:color, section:2. Colors, key:textColor, label: - Text **/
+	color: #3b3c3c; /** OW_Control type:color, section:2. Colors, key:textColor, label: - Text **/
 	font-size: 13px;
 	line-height: 18px;
 	height: 100%;
@@ -105,10 +144,11 @@ p {
 	margin-bottom: 4px;
 }
 h1, h2, h3, h4, h5 {
-	color: #4c4c4c; 
+	color: #67727d; 
 	margin: 0;
 	padding: 0;
-	font-weight: bold;
+	font-weight: normal;
+	font-family: 'RobotoBold',"Trebuchet MS","Helvetica CY",sans-serif;
 }
 h1 {
 	font-size: 20px;
@@ -151,13 +191,36 @@ th {
     background-color: #fff;
 }
 hr {
-	background-color: #ccc;
+	background-color: #dddfeb;
 	border: none;
 	height: 1px;
 	margin: 5px 5px 15px 5px;
 }
 /*========================================================
-        [3] Masterpage & Page Layout        __layout
+        [4] Typography        __typography
+  ========================================================*/
+@font-face {
+    font-family: 'RobotoBold';
+    src: url(images/roboto_bold/Roboto-Bold-webfont.eot);
+    src: url(images/roboto_bold/Roboto-Bold-webfont.eot?#iefix) format('embedded-opentype'),
+         url(images/roboto_bold/Roboto-Bold-webfont.woff) format('woff'),
+         url(images/roboto_bold/Roboto-Bold-webfont.ttf) format('truetype'),
+         url(images/roboto_bold/Roboto-Bold-webfont#RobotoBold) format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'RobotoRegular';
+    src: url(images/roboto_regular/Roboto-Regular-webfont.eot);
+    src: url(images/roboto_regular/Roboto-Regular-webfont.eot?#iefix) format('embedded-opentype'),
+         url(images/roboto_regular/Roboto-Regular-webfont.woff) format('woff'),
+         url(images/roboto_regular/Roboto-Regular-webfont.ttf) format('truetype'),
+         url(images/roboto_regular/Roboto-Regular-webfont.svg#RobotoRegular) format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/*========================================================
+        [5] Masterpage & Page Layout        __layout
   ========================================================*/
 /* ---- Page Layout, Content styles ---- */
 /*Opera Fix*/
@@ -177,14 +240,17 @@ html body div .ow_page h1 {
 	background-position: left center; 
 }
 .ow_bg_color{
-	background-color: #f4f4f4;/** OW_Control type:color, section:1. General Settings, key:bodyColor, label: Page background color **/	
+	background-color: #f9fbfd;/** OW_Control type:color, section:1. General Settings, key:bodyColor, label: Page background color **/	
+}
+.ow_border {
+    border-style: solid;
+    border-color: #b9c7d5;
 }
 body > .ow_page_wrap {
 	min-height: 100%;
 	padding-top: 60px;
 }
 .ow_page_padding {
-	border-top: 1px solid #cecece;
 	padding-bottom: 99px;
 } 
 .ow_canvas {
@@ -192,7 +258,7 @@ body > .ow_page_wrap {
 	width: 996px;
 	word-wrap: break-word;
 }
-body .ow_footer .ow_canvas {
+.ow_footer .ow_canvas {
 	width: 100%;
 }
 .ow_page {
@@ -215,10 +281,11 @@ body .ow_footer .ow_canvas {
 .ow_content a {
 	color: #2f94f2; /** OW_Control type:color, key:linkColor, section:2. Colors, label: - Links **/
 }
+/* Footer */
 .ow_footer {
     color: #aaa;
     padding:1px 0px;
-	border-top: 1px solid #d4d4d4;
+	border-top: 1px solid #b9c7d5;
 	background: #f5f5f5; /** OW_Control type:color, section:1. General Settings, key:footerColor, label:Footer background **/	
 	height: 96px;
 	position: relative;
@@ -235,6 +302,7 @@ h1.page_title{
     margin-bottom: 20px;
     padding-left: 22px;
 }
+/* Columns */
 .ow_column {
 	width: 49%;
     overflow: hidden;	
@@ -256,6 +324,7 @@ h1.page_title{
     font-size: 11px;
     overflow: hidden;
 }
+/* Float */
 .ow_left {
     float: left;
 }
@@ -268,6 +337,7 @@ td.ow_left {
 .ow_center {
     text-align: center;
 }
+/* Text align */
 .ow_txtleft,
 table td.ow_txtleft {
     text-align: left;
@@ -295,10 +365,10 @@ div.ow_nomargin {
 .ow_nowrap {
     white-space: nowrap;
 }
-ul.ow_regular {
+.ow_regular {
 	margin-bottom: 12px;
 }
-ul.ow_regular li {
+.ow_regular li {
 	line-height: 17px;
 	margin: 0 0 3px 0px;
 	padding: 0px 0px 0px 16px;
@@ -329,8 +399,9 @@ ul.ow_regular li {
 .ow_page_layout_scheme a.active,
 .ow_page_layout_scheme a:hover {
     background-color: #CCFFCC;
-    border: 1px solid #CCCCCC;
+    border: 1px solid #b9c7d5;
 }
+/* Avatar list (Groups, Googgle popup)*/
 .ow_item_set2 { 
 	width: 49%; 
 }
@@ -343,6 +414,13 @@ ul.ow_regular li {
 .ow_item_set5 { 
 	width: 20%; 
 }
+/* Cursor */
+.ow_cursor_pointer {
+	cursor: pointer;
+}
+.ow_cursor_default {
+	cursor: default;
+}
 /* ---- End of the Page Layout, Content styles ---- */
 /* ---- Header styles ---- */
 .ow_top {
@@ -351,17 +429,16 @@ ul.ow_regular li {
 	min-height: 105px;
 	padding-top: 50px;
 }
-a.ow_logo {
-	background-image: url(images/SiteLogo.png); /** OW_Control type:image, key:navLogo, section:1. General Settings, label: Navigation Logo **/
+.ow_logo {
+	background-image: url(images/logo.png); /** OW_Control type:image, key:navLogo, section:1. General Settings, label: Navigation Logo **/
 	background-size: auto 100%;
 	background-repeat: no-repeat;
 	background-color: #2f94f2;
 	color: #fff;
 	display: inline-block;
 	height: 60px;
-	width: 140px;
+	width: 115px;
 	letter-spacing: -0.7px;
-	border-right: 1px solid #49484e;
 	transition: margin 0.3s ease-in;
 	-moz-transition: margin 0.3s ease-in;
 	-webkit-transition: margin 0.3s ease-in;
@@ -373,55 +450,27 @@ a.ow_logo:hover {
     float: right;
     padding: 5px;
 }
-/* ---- End of the Header styles ---- */
-/* ---- Console styles ---- */
-.ow_console .wackwall_link{
-    background: url(images/console-w.png) no-repeat 50% 50%;
-    display: block;
-    height: 30px;
-    width: 35px;
+.ow_header_img {
+    width: 100%;
 }
-.ow_console .wackwall_link:hover{
-    text-decoration:none;
-}
-.ow_console .common_shortcuts a{
-    background-position:50% 50%;
+.ow_header_pic {
+    background-image: url(images/header_image.jpg); /** OW_Control type:image, key:headerImage, section:1. General Settings, label: Header image **/
     background-repeat: no-repeat;
-    display:inline-block;
-    height:30px;
-    width:25px;
+    background-position: center center;
+    background-size: 100%;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    display: none;
 }
-.ow_console .common_shortcuts a:hover{
-    text-decoration:none;
+.ow_header_pic img {
+	height: 0px;
 }
-.ow_console .notification_shortcut{
-    padding:0 7px;
-}
-.ow_console .notification_shortcut a{
-    background-position:0 50%;
-    background-repeat:no-repeat;
-    display:block;
-    padding: 5px 0 5px 20px;
-    text-decoration:none;
-}
-.ow_site_panel {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 60px;
-	background: #36353b;
-	z-index: 99;
-}
-.ow_console {
-	font-size: 11px;
-	height: 60px;
-    color: #666;
-    float: right;
-}
-.ow_console_right {
-	background-color: #36353b;
-}
+/* ---- End of the Header styles ---- */
+
+/*========================================================
+        [6] Menus        __menus
+  ========================================================*/
+/* ---- Navigation on the left ---- */
 .ow_nav_btn {
 	visibility: hidden;
 	position: relative;
@@ -506,21 +555,25 @@ body.ow_menu_active {
 .ow_menu_fullpage_wrap .ow_main_menu li a:hover {
 	background-color: rgba(22,22,23,0.2);
 }
-.ow_header_img {
-    width: 100%;
-
+/* ---- End of the Navigation on the left ---- */
+/* ---- Console styles ---- */
+.ow_site_panel {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 60px;
+	background: #4b4e61;
+	z-index: 99;
 }
-.ow_header_pic {
-    background-image: url(images/header_image.jpg); /** OW_Control type:image, key:headerImage, section:1. General Settings, label: Header image **/
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 100%;
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    display: none;
+.ow_console {
+	font-size: 11px;
+	height: 60px;
+    color: #666;
+    float: right;
 }
-.ow_header_pic img {
-	height: 0px;
+.ow_console_right {
+	background-color: #4b4e61;
 }
 .ow_console_body  {
 	box-sizing: border-box;
@@ -538,42 +591,25 @@ body.ow_menu_active {
 	text-align: left;
 	cursor: pointer;
 }
+.ow_console_item:hover {
+	border-color: #999;
+	cursor: pointer;
+}
 .ow_console_item:last-child {
 	margin-right: 0;
 	padding-right: 0;
 }
-.ow_console_item a,
-.ow_console_lang_item {
-	color: #9b9a9d;
+.ow_console_item a {
+	color: #9aa1ba;
 	font-size: 13px;
 }
-.ow_console_lang_item {
-	margin-top: -2px;
-}
-body .ow_console_lang_item span {
-	background-position: 0 2px;
+.ow_console_item a:hover {
+	text-decoration: none;
 }
 .ow_console_block {
 	display: inline-block;
 	text-align: left;
 	vertical-align: top;
-}
-.ow_console_item:hover {
-	border-color: #999;
-	cursor: pointer;
-}
-.ow_console_dropdown_hover:hover a,
-.ow_console_dropdown_pressed a {
-	color: #fff;
-}
-.ow_console_dropdown .ow_dropdown_menu_item a {
-	color: #5a5a5a;
-}
-.ow_console_dropdown .ow_dropdown_menu_item a:hover {
-	color: #2f94f2;
-}
-.ow_console_item a:hover {
-	text-decoration: none;
 }
 .ow_console_more {
     display: none;
@@ -615,13 +651,13 @@ body .ow_console_dropdown_pressed.ow_console_item a.ow_console_item_link {
 }
 /*Console select language styles*/
 .ow_console_lang_item {
+	margin-bottom: 1px;
+	margin-top: -2px;
+	color: #5a5a5a;
 	text-transform: uppercase;
 }
 li.ow_console_lang_item {
 	padding: 3px 8px;
-	border: 1px solid transparent;
-	margin-bottom: 1px;
-	color: #5a5a5a;
 }
 li.ow_console_lang_item:hover {
 	color: #2f94f2;
@@ -629,9 +665,14 @@ li.ow_console_lang_item:hover {
 .ow_console_lang_item span {
 	display: inline-block;
 	padding-left: 23px;
+	font-size: 13px;
+	background-position: 0 2px;
 }
-/*End Console select language styles*/
-body .ow_console .ow_tooltip_top_right {
+div.ow_console_lang_item > span {
+	color: #9aa1ba;
+} 
+/* Console tooltip */
+.ow_console .ow_tooltip_top_right.ow_tooltip {
 	top: 31px !important;
 	padding-top: 2px;
 	right: 8px;
@@ -639,11 +680,18 @@ body .ow_console .ow_tooltip_top_right {
 .ow_console .ow_tooltip_top_right .ow_tooltip_tail span {
 	background-position: 1px -6px;
 }
+.ow_console .ow_tooltip .ow_tooltip_body {
+	max-width: 340px;
+	background-color: #fff;
+}
+.console_tooltip {
+	z-index: 100;
+}
+/* Console counter */
 .ow_console span.ow_count_wrap {
 	position: absolute;
 	top: 2px;
 	right: 2px;
-
 }
 .ow_console span.ow_count_bg {
 	border-radius: 8px;
@@ -655,6 +703,7 @@ body .ow_console .ow_tooltip_top_right {
 	top: 0px;
 	line-height: 13px;
 }
+/* Console list*/
  .ow_console_list_wrapper {
 	width: 330px;
 	overflow-y: auto;
@@ -677,7 +726,7 @@ body .ow_console .ow_tooltip_top_right {
 	border-color: #e4e4e4;
 }
 .ow_console_list li.ow_console_new_message:hover {
-	border-color: #ccc;
+	border-color: #b9c7d5;
 }
 .ow_mailbox_items_list li.ow_mailbox_request_item,
 .ow_mailbox_items_list li.ow_chat_request_item {
@@ -686,6 +735,7 @@ body .ow_console .ow_tooltip_top_right {
 .ow_console_list li:last-child {
 	margin-bottom: 0px;
 }
+/* Console avatar */
 .ow_console .ow_avatar {
 	float: left;
 	margin-right: -40px;
@@ -698,26 +748,34 @@ body .ow_console .ow_tooltip_top_right {
 	height: 40px;
 	width: 40px;
 }
-.ow_console_ntf_txt, .ow_console_invt_txt {
-	display: block;
-	line-height: 16px;
-	color: #666;
-}
-.ow_console_invt_txt a {
-	color: #2A80AE;
-}
+/* Console View all btn */
 .ow_console_view_all_btn_wrap {
 	padding-top: 4px;
-	background: #FAFAFA;
 }
 .ow_console_view_all_btn {
 	text-decoration: none;
 	display: block;
-	line-height: 11px;
-	padding: 8px 0px;
+	line-height: 25px;
 	text-align: center;
-	border: 1px solid #ccc;
-	background: url(images/console_item_bg.png) repeat-x;
+	border: 1px solid #b9c7d5;
+	background: #fff;
+}
+.ow_console_view_all_btn_wrap .ow_console_view_all_btn {
+	color: #5a5a5a;
+}
+.ow_console_view_all_btn:hover {
+	color: #2f94f2;
+}
+/* Console dropdown menu */
+.ow_console_dropdown_hover:hover a,
+.ow_console_dropdown_pressed a {
+	color: #fff;
+}
+.ow_console_dropdown .ow_dropdown_menu_item a {
+	color: #5a5a5a;
+}
+.ow_console_dropdown .ow_dropdown_menu_item a:hover {
+	color: #2f94f2;
 }
 ul.ow_console_dropdown {
 	min-width: 110px;
@@ -737,32 +795,31 @@ ul.ow_console_dropdown .ow_console_dropdown_cont a {
 ul.ow_console_dropdown li:last-child .ow_console_dropdown_cont {
 	margin-bottom: 0px;
 }
-.ow_console .ow_tooltip .ow_tooltip_body {
-	max-width: 340px;
-	background-color: #fff;
-}
-.console_tooltip {
-	z-index: 100;
-}
+/* Console content */
 .ow_console_ntf_cont, .ow_console_invt_cont {
 	display: block;
 	margin: 0px 57px 0px 45px;
 	line-height: 16px;
 	color: #666;
 }
-.ow_console_ntf_txt, .ow_console_invt_txt {
+.ow_console_invt_cont .ow_lbutton:hover {
+	text-decoration: none;
+}
+.ow_console_ntf_txt, 
+.ow_console_invt_txt {
 	min-height: 19px;
 	padding: 0px 0px 3px 0px;
+	display: block;
+	line-height: 16px;
+	color: #666;
 }
 .ow_console_invt_txt {
 	width: 211px;
 	word-wrap: break-word;
 }
+.ow_console_invt_txt a,
 .ow_console_invt_cont a {
 	color: #2A80AE;
-}
-.ow_console_invt_cont .ow_lbutton:hover {
-	text-decoration: none;
 }
 .ow_console_invt_img {
 	float: right;
@@ -781,19 +838,14 @@ ul.ow_console_dropdown li:last-child .ow_console_dropdown_cont {
 .ow_console_invt_no_img {
 	margin-right: 0px;
 }
+/* Console divider */
 .ow_console_divider {
 	line-height: 1px;
 	height: 1px;
 	background: #dedede;
 	margin: 3px 0px 2px;
 }
-.ow_cursor_pointer {
-	cursor: pointer;
-}
-.ow_cursor_default {
-	cursor: default;
-}
-/* Messages notifications */
+/* Console messages notifications */
 .ow_console_mailbox_txt {
 	font-size: 12px;
 }
@@ -845,13 +897,13 @@ ul.ow_console_dropdown li:last-child .ow_console_dropdown_cont {
 	width: 100%;
 	padding-right: 0;
 }
-body .ow_console_messages_btns .ow_console_messages_viewall a {
+.ow_console_messages_btns .ow_console_messages_viewall a,
+.ow_console_messages_btns .ow_console_messages_send a {
 	display: inline-block;
 	width: 100%;
 	line-height: 25px;
 	text-align: center;
-	border: 1px solid #cccccc;
-	border-right: none;
+	border: 1px solid #b9c7d5;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-wenkit-box-sizing: border-box;
@@ -859,21 +911,11 @@ body .ow_console_messages_btns .ow_console_messages_viewall a {
 	background: #fff;
 	color: #5a5a5a;
 }
-body .ow_console_messages_btns .ow_console_messages_send a {
-	display: inline-block;
-	width: 100%;
-	line-height: 25px;
-	text-align: center;
-	border: 1px solid #cccccc;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-wenkit-box-sizing: border-box;
-	font-size: 12px;
-	background: #fff;
-	color: #5a5a5a;
+.ow_console_messages_btns .ow_console_messages_viewall a {
+	border-right: none;	
 }
-body .ow_console_messages_btns .ow_console_messages_viewall a:hover,
-body .ow_console_messages_btns .ow_console_messages_send a:hover {
+.ow_console_messages_btns .ow_console_messages_viewall a:hover,
+.ow_console_messages_btns .ow_console_messages_send a:hover {
 	color: #2f94f2;
 }
 .ow_console li.ow_chat_request_item .ow_avatar,
@@ -891,9 +933,136 @@ body .ow_console_messages_btns .ow_console_messages_send a:hover {
 .ow_console li.ow_mailbox_request_item .ow_console_invt_cont {
 	margin-left: 38px;
 }
-/*End of Messages notifications*/
 /* ---- End of Console styles ---- */
+/* ---- Main Menu styles ---- */
+.ow_menu_wrap {
+	padding: 0;
+	margin: 0 auto;
+}
+.ow_main_menu{
+	font-family: 'RobotoRegular', "Trebuchet MS", "Helvetica CY", sans-serif;
+}
+.ow_main_menu li {
+    padding: 0;
+	display: inline-block;
+}
+.ow_main_menu li a {
+    color: #5b646a; /** OW_Control type:color, key:menuColor, section:2. Colors, label:Menu text color **/
+    display: inline-block;
+	font-size: 16px;
+    padding: 0 15px;
+    text-decoration: none;
+	text-transform: none;
+	font-weight: normal;
+}
+.ow_main_menu li:first-child a {
+	margin-left: 15px;
+}
+.ow_main_menu li a span {
+	line-height: 60px;
+}
+.ow_main_menu li.active a {
+}
 
+.ow_main_menu li.active a,
+.ow_main_menu li a:hover {
+	color: #2db395; 
+}
+/* ---- End of Main Menu styles ---- */
+/* ---- Box Menu styles ---- */
+.ow_box_menu {
+	font-size: 0px;
+	line-height: 21px;
+	margin-bottom: 16px;
+}
+.ow_box .ow_box_menu {
+	text-align: left;
+}
+.ow_box_menu a {
+	background: #fafafa;
+	display: inline-block;
+	color: #999;
+	font-size:12px;
+	height: 22px;
+	padding: 0px 6px 0 7px;
+	border-style: solid;
+	border-color: #b9c7d5;
+	border-width: 1px 1px 1px 1px;
+	margin: 0px 0px 0px -1px;
+	outline: 0;
+}
+.ow_box_menu a:first-child {
+	border-left-width: 1px;
+    border-top-left-radius: 2px;
+    -moz-border-top-left-radius: 2px;
+    -webkit-border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    -moz-border-bottom-left-radius: 2px;
+    -webkit-border-bottom-left-radius: 2px;
+}
+.ow_box_menu a:last-child {
+    border-top-right-radius: 2px;
+    -moz-border-top-right-radius: 2px;
+    -webkit-border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    -moz-border-bottom-right-radius: 2px;
+    -webkit-border-bottom-right-radius: 2px;
+}
+.ow_box_empty .ow_box_menu{
+	float: left;
+	padding-left: 5px;
+}
+
+.ow_box_menu a.active,
+.ow_box_menu a:hover{
+	color:#2f94f2; 
+	text-decoration:none;
+	background: #fff;
+}
+/* ---- End of Box Menu styles ---- */
+/* ---- Content Menu styles ---- */
+.ow_content_menu{
+	font-size: 0px;
+	font-family: 'RobotoBold', "Trebuchet MS", "Helvetica CY", sans-serif;
+	text-transform: uppercase;
+	font-weight: normal;
+}
+.ow_content_menu_wrap{
+	margin-bottom:20px;
+}
+.ow_content_menu li{
+    float: left;
+    border-top: 2px solid #aaaaaa;
+}
+.ow_content_menu li a{
+    display: block;
+	padding: 3px 3px 0px 5px;
+	font-size: 13px;
+	color: #626060;
+	border-right: 1px solid #e8e8e8;
+}
+.ow_content_menu li:first-child a {
+	border-left: 1px solid #e8e8e8;
+}
+.ow_content_menu span{
+    background-image: url(images/ic_file.png);
+    background-position: 5px 9px;
+    background-repeat: no-repeat;
+    padding: 10px 8px 8px 28px;
+    display: block;
+}
+.ow_content_menu li.active {
+    border-top: 2px solid #2f94f2;
+}
+.ow_content_menu li.active a {
+    color: #2f94f2; 
+    text-decoration: none;
+}
+.ow_content_menu li a:hover {
+    color: #2f94f2; 
+    text-decoration: none;
+}
+/* ---- End of Content Menu styles ---- */
 /*========================================================
         [4] Forms        __forms
   ========================================================*/
@@ -909,7 +1078,7 @@ div.jhtmlarea,
 	-moz-box-shadow: inset 0px 1px 4px 0px rgba(0,0,0,0.06);
 	box-shadow: inset 0px 1px 4px 0px rgba(0,0,0,0.06);
 	background-color: #f4f4f4;
-    border: 1px solid #d4d4d4;
+    border: 1px solid #b9c7d5;
     color: #585858;
     font-family: "Lucida Grande", "Verdana";
     font-size: 13px;
@@ -947,7 +1116,6 @@ body.htmlarea_styles {
 select{
     background-image: none;
 }
-
 textarea{
     height: 100px;
     width: 100%;
@@ -956,7 +1124,6 @@ textarea{
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;    
 }
-
 input[type=text],
 input[type=password]{
     width: 100%;
@@ -966,11 +1133,6 @@ input[type=password]{
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;    
 }
-
-/*.ow_supernarrow input[type=text],
-.ow_supernarrow input[type=password]{
-    width: 95%;
-}*/
 input[type=submit],
 input[type=button]{
 	background-color: transparent;
@@ -1007,13 +1169,12 @@ span.ow_button {
 	display: inline-block;
 	background-color: #fafafa;
 	padding: 0px 8px;
-	border: 1px solid #ccc;
+	border: 1px solid #b9c7d5;
 }
 span.ow_button:hover {
 	border-color: #b6b6b6;
 	background-color: #fff;
 }
-
 span.ow_button span.ow_button {
     border-radius: none;
     -moz-border-radius: none;
@@ -1115,8 +1276,6 @@ form br.ow_no_height{
 .ow_multiselect input[type=button]{
     padding-left: 20px;
 }
-
-
 .form_auto_click .ow_submit_auto_click{
     display:none;
 }
@@ -1136,7 +1295,6 @@ body:not(:-moz-handler-blocked) .ow_negative input[type=submit],
 body:not(:-moz-handler-blocked) .ow_negative input[type=button] {
 	padding-right: 2px;
 }
-
 /* ---- End of Positive and Negative buttons ---- */
 
 html body div .ow_green {
@@ -1182,24 +1340,19 @@ input[type=button].ow_mild_red  {
 }
 
 /* wysiwyg styles */
-
 body.htmlarea_styles{
     font-family: "Lucida Grande", "Verdana", "Tahoma"; /** key:commonFontFamily  **/
     color: #333;
     font-size: 13px; /** key:commonFontSize **/
     line-height: 18px;
-
 }
 
 body.htmlarea_styles a{
-
 }
 
 body.htmlarea_styles p{
     margin:0;
 }
-
-
 /* wysiwyg styles end */
 
 /* tag styles */
@@ -1210,7 +1363,6 @@ div.tagsinput {
 /* tag styles end */
 
 /* ---- End of Form Elements styles ---- */
-/* ---- End of Form Table styles ---- */
 /* -------Attachments styles----------*/
 .ow_attachment_btn {
     float: right;
@@ -1264,7 +1416,6 @@ div.tagsinput {
 	display: inline-block;
 	text-align: center;
 }
-
 .ow_attachment_btn span.ow_button span {
 	display: inline-block;
     background-color: #2f94f2;
@@ -1552,7 +1703,7 @@ body .ow_attachments a.video {
 .ow_comments_form_wrap,
 .ow_newsfeed_features .ow_tooltip .ow_tooltip_body {
 	background-color: #f4f4f4;
-	border-color: #d4d4d4;
+	border-color: #b9c7d5;
 	border-style: solid;
 }
 .ow_comments_item {
@@ -1778,18 +1929,15 @@ body textarea.ow_newsfeed_status_input.invitation {
 	background: none;
 	border-width: 2px 0 0 0;
 	border-style: solid;
-	border-color: #aaa;
+	border-color: #b9c7d5;
     border-radius: 0;
 	margin-bottom: 8px;
 }
-
 .ow_box_cap_empty .ow_box_cap_right {
 }
-
 .ow_box_cap_empty .ow_box_cap_body {
 	min-height: 32px;
 }
-
 .ow_box_cap h3,
 .ow_box_cap_empty h3{
     background-image: url(images/ic_file.png);
@@ -1803,22 +1951,20 @@ body textarea.ow_newsfeed_status_input.invitation {
 	font-weight: normal;
 	font-family: 'RobotoBold', "Trebuchet MS", "Helvetica CY", sans-serif;
 }
-
 .ow_box_cap {
-	background: #fafafa;
-	border-top: 2px solid #aaa;
-	border-left: 1px solid #ccc;
+	background: #fff;
+	border-top: 2px solid #b9c7d5;
+	border-left: 1px solid #dddfeb;
 	border-bottom: none;
-	border-right: 1px solid #ccc;
+	border-right: 1px solid #dddfeb;
     border-radius: 0;
 }
-
 .ow_box_cap .ow_box_cap_body {
 	min-height: 32px;
 }
 .ow_box {
-    background-color: #fafafa;
-    border: 1px solid #cccccc;
+    background-color: #fff;
+    border: 1px solid #dddfeb;
     border-top: none;
     margin-bottom: 8px;
     padding: 8px 8px 8px 8px;
@@ -1827,36 +1973,36 @@ body textarea.ow_newsfeed_status_input.invitation {
     border-bottom-right-radius: 0;
 }
 .ow_forum_topic_posts .ow_box {
-	border-top: 1px solid #ccc;
+	border-top: 1px solid #dddfeb;
 }
 .ow_box_empty{
 	position: relative;
 }
 .ow_box .bottom_toolbar, .ow_box_mod .bottom_toolbar{
 	margin-top: 10px;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #dddfeb;
     font-size: 10px;
     padding: 0 5px;
     text-align: right;
 }
 
 .ow_sidebar .ow_box_bottom_shadow,
-.ow_supernarrow .ow_box_bottom_shadow
-{
+.ow_supernarrow .ow_box_bottom_shadow {
 	background-image: url('images/box-shadow-small.png');
 	bottom: -12px;
 }
-
+.ow_box.ow_no_cap {
+	border-top: 1px solid #dddfeb;
+}
 /*========================================================
         [6] Standard Listings        __listings
   ========================================================*/
-
-.ow_canvas .ow_avatar img,
+/*.ow_canvas .ow_avatar img,
 .ow_canvas .ow_lp_avatars img,
 .ow_canvas .ow_newsfeed_avatar img {
     width: 40px;
     height: 40px;
-}
+}*/
 /* ---- Item Picture Content ---- */
 .ow_ipc {
 	margin-top: 16px;
@@ -1889,7 +2035,6 @@ body textarea.ow_newsfeed_status_input.invitation {
     padding: 0px 0px 10px 0px;
 	border-bottom: 1px solid #ededed;   
 }
-
 .ow_ipc_header{
     padding: 0px 0px 0px;
     margin: 0px 0px 0px;
@@ -1974,10 +2119,10 @@ th,
 .ow_page .ow_highbox,
 .ow_sidebar,
 .ow_table_3 td {
-	border-color: #ccc;
+	border-color: #b9c7d5;
 }
 .ow_page td.ow_highbox {
-	border-color: #ccc;
+	border-color: #b9c7d5;
 }
 
 .ow_box_toolbar {
@@ -1991,7 +2136,7 @@ th,
 }
 .ow_box_toolbar span.ow_nowrap a {
 	display: inline-block;
-	border: 1px solid #ccc;
+	border: 1px solid #b9c7d5;
 	background: #fafafa;
 	padding: 0px 6px 0px;
 	line-height: 21px;
@@ -2044,7 +2189,7 @@ th,
 .ow_tooltip .ow_tooltip_body {
     background:#f4f4f4;
     padding:4px;
-	border: 1px solid #cccccc;
+	border: 1px solid #b9c7d5;
 	/*max-width: 250px;*/
 }
 .ow_forum_search_context_menu .ow_tooltip .ow_tooltip_body {
@@ -2119,10 +2264,7 @@ body .forum_search_wrap input {
     display:block;
 	margin-right: 4px;
 }
-
-
 /* ---- End of Tooltip  ---- */
-
 /* ---- Counter  ---- */
 .ow_count_wrap {
     text-align: center;
@@ -2138,8 +2280,11 @@ body .forum_search_wrap input {
  	overflow: hidden;
 }
 .ow_count {
+	display: inline-block;
+	padding: 0px 1px 0px 0px;
+	min-height: 15px;
+	min-width: 15px;
     color: #fff;
-    padding: 0 4px 0 4px;
 }
 .ow_count_active {
     background: none repeat scroll 0 0 #e23e4d;
@@ -2338,7 +2483,7 @@ a.avatar_list_more_icon{
 .ow_photo_list .ow_alt1,
 .ow_photo_list .ow_alt2 {
 	border-style: solid;
-	border-color: #ccc;
+	border-color: #b9c7d5;
 }
 .ow_table_1 tr td,
 .ow_table_2 tr td {
@@ -2452,7 +2597,7 @@ a.avatar_list_more_icon{
 .ow_table_1 th,
 .ow_table_2 th {
 	border-style: solid;
-	border-color: #e8e8e8  #e8e8e8 #ccc #e8e8e8;
+	border-color: #e8e8e8  #e8e8e8 #b9c7d5 #e8e8e8;
 	border-width: 0px 1px 1px;
 	_border-width: 1px;
 }
@@ -2463,7 +2608,7 @@ a.avatar_list_more_icon{
 .ow_table_1 tr.ow_tr_first th,
 .ow_table_2 tr.ow_tr_first th {
 	border-width: 2px 0px 1px 0;
-	border-color: #ccc;
+	border-color: #b9c7d5;
 }
 .ow_table_1 tr.ow_tr_first th:first-child,
 .ow_table_1 tr.ow_tr_first td:first-child,
@@ -2495,7 +2640,7 @@ a.avatar_list_more_icon{
 }
 .ow_table_1 tr.ow_tr_first th:last-child,
 .ow_table_2 tr.ow_tr_first th:last-child {
-   	border-right-color: #ccc;
+   	border-right-color: #b9c7d5;
 }
 .ow_table_1 td,
 .ow_table_2 td{
@@ -2736,168 +2881,24 @@ span.ow_icon{
 }
 
 
-/*========================================================
-        [10] Menus        __menus
-  ========================================================*/
 
-/* ---- Main Menu styles ---- */
-
-body .ow_menu_wrap {
-	padding: 0;
-	margin-bottom: 0;
-}
-.ow_main_menu{
-	font-family: 'RobotoRegular', "Trebuchet MS", "Helvetica CY", sans-serif;
-	text-align: center;
-}
-.ow_main_menu li {
-    padding: 0;
-	display: inline-block;
-}
-
-.ow_main_menu li a {
-    color: #555555; /** OW_Control type:color, key:menuColor, section:2. Colors, label:Menu text color **/
-    display: inline-block;
-	font-size: 16px;
-    padding: 0 15px;
-    text-decoration: none;
-	text-transform: none;
-	font-weight: normal;
-}
-.ow_main_menu li:first-child a {
-	margin-left: 15px;
-}
-.ow_main_menu li a span {
-	line-height: 60px;
-}
-.ow_main_menu li.active a {
-}
-
-.ow_main_menu li.active a,
-.ow_main_menu li a:hover {
-	color: #2f94f2; 
-}
-.ow_box_menu {
-	font-size: 0px;
-	line-height: 21px;
-	margin-bottom: 16px;
-}
-.ow_box .ow_box_menu {
-	text-align: left;
-}
-
-.ow_box_menu a {
-	background: #fafafa;
-	display: inline-block;
-	color: #999;
-	font-size:12px;
-	height: 22px;
-	padding: 0px 6px 0 7px;
-	border-style: solid;
-	border-color: #ccc;
-	border-width: 1px 1px 1px 1px;
-	margin: 0px 0px 0px -1px;
-	outline: 0;
-
-}
-.ow_box_menu a:first-child {
-	border-left-width: 1px;
-    border-top-left-radius: 2px;
-    -moz-border-top-left-radius: 2px;
-    -webkit-border-top-left-radius: 2px;
-    border-bottom-left-radius: 2px;
-    -moz-border-bottom-left-radius: 2px;
-    -webkit-border-bottom-left-radius: 2px;
-}
-.ow_box_menu a:last-child {
-    border-top-right-radius: 2px;
-    -moz-border-top-right-radius: 2px;
-    -webkit-border-top-right-radius: 2px;
-    border-bottom-right-radius: 2px;
-    -moz-border-bottom-right-radius: 2px;
-    -webkit-border-bottom-right-radius: 2px;
-}
-.ow_box_empty .ow_box_menu{
-	float: left;
-	padding-left: 5px;
-}
-
-.ow_box_menu a.active,
-.ow_box_menu a:hover{
-	color:#2f94f2; 
-	text-decoration:none;
-	background: #fff;
-}
-
-/* ---- End of Main Menu styles ---- */
-
-
-/* ---- Content Menu styles ---- */
-
-.ow_content_menu{
-	font-size: 0px;
-	font-family: 'RobotoBold', "Trebuchet MS", "Helvetica CY", sans-serif;
-	text-transform: uppercase;
-	font-weight: normal;
-}
-
-.ow_content_menu_wrap{
-	margin-bottom:20px;
-}
-
-.ow_content_menu li{
-    float: left;
-    border-top: 2px solid #aaaaaa;
-}
-.ow_content_menu li a{
-    display: block;
-	padding: 3px 3px 0px 5px;
-	font-size: 13px;
-	color: #626060;
-	border-right: 1px solid #e8e8e8;
-}
-.ow_content_menu li:first-child a {
-	border-left: 1px solid #e8e8e8;
-}
-.ow_content_menu span{
-    background-image: url(images/ic_file.png);
-    background-position: 5px 9px;
-    background-repeat: no-repeat;
-    padding: 10px 8px 8px 28px;
-    display: block;
-}
-.ow_content_menu li.active {
-    border-top: 2px solid #2f94f2;
-}
-.ow_content_menu li.active a {
-    color: #2f94f2; 
-    text-decoration: none;
-}
-
-.ow_content_menu li a:hover {
-    color: #2f94f2; 
-    text-decoration: none;
-}
-/* ---- End of Content Menu styles ---- */
 
 
 /* ---- Button List styles ---- */
 
-ul.ow_bl{
+.ow_bl{
     padding: 0;
 }
 
-ul.ow_bl li{
-    float: right;
+.ow_bl li{
 	list-style: none;
     margin-left: 4px;
-    margin-bottom: 4px;
 }
 
-ul.ow_bl a{
+.ow_bl a{
     display: block;
 	background: #fafafa;
-	border: 1px solid #ccc;
+	border: 1px solid #b9c7d5;
 	color: #999;
 	padding: 0px 8px;
 	line-height: 21px;
@@ -2906,14 +2907,14 @@ ul.ow_bl a{
 	font-size: 12px;
 }
 
-ul.ow_bl a:hover {
+.ow_bl a:hover {
     border-color: #e6e6e6;
     background-color: #fff;
 }
 
 span.ow_blitem {
 	background: url(images/btnl_bg.png) repeat-x center left;
-	border: 1px solid #ccc;
+	border: 1px solid #b9c7d5;
 	color: #626060;
 	padding: 0px 0px;
 	line-height: 20px;
@@ -3032,31 +3033,7 @@ html[xmlns] .ow_paging.clearfix {
 }
 
 
-/*========================================================
-        [12] Typography        __typography
-  ========================================================*/
-@font-face {
-    font-family: 'RobotoBold';
-    src: url(images/roboto_bold/Roboto-Bold-webfont.eot);
-    src: url(images/roboto_bold/Roboto-Bold-webfont.eot?#iefix) format('embedded-opentype'),
-         url(images/roboto_bold/Roboto-Bold-webfont.woff) format('woff'),
-         url(images/roboto_bold/Roboto-Bold-webfont.ttf) format('truetype'),
-         url(images/roboto_bold/Roboto-Bold-webfont#RobotoBold) format('svg');
-    font-weight: normal;
-    font-style: normal;
 
-}
-@font-face {
-    font-family: 'RobotoRegular';
-    src: url(images/roboto_regular/Roboto-Regular-webfont.eot);
-    src: url(images/roboto_regular/Roboto-Regular-webfont.eot?#iefix) format('embedded-opentype'),
-         url(images/roboto_regular/Roboto-Regular-webfont.woff) format('woff'),
-         url(images/roboto_regular/Roboto-Regular-webfont.ttf) format('truetype'),
-         url(images/roboto_regular/Roboto-Regular-webfont.svg#RobotoRegular) format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
 
 .ow_small{
     font-size: 12px;
@@ -3141,7 +3118,7 @@ span.ow_lbutton {
     padding: 0px 3px 0px;
 	line-height: 13px;
     text-transform: uppercase;
-	border: 1px solid #ccc;
+	border: 1px solid #b9c7d5;
     text-shadow: none;
 	display: inline-block;
 	font-weight: bold;
@@ -3203,35 +3180,6 @@ textarea.ow_inputready {
 .ow_column_equal_fix{
    padding-bottom: 20001px !important;
    margin-bottom: -20000px !important;
-}
-
-/*========================================================
-        [14] Clearfix        __clearfix
-  ========================================================*/
-
-.clearfix{
-    zoom: 1;
-}
-
-.clearfix:after {
-    content: ".";
-    display: block;
-    clear: both;
-    visibility: hidden;
-    line-height: 0;
-    height: 0;
-}
-
-.clearfix {
-    display: inline-block;
-}
-
-html[xmlns] .clearfix {
-    display: block;
-}
-
-*html .clearfix {
-    height: 1%;
 }
 
 
@@ -3311,13 +3259,13 @@ body.htmlarea_styles blockquote.ow_quote,
 blockquote.ow_quote{
     margin: 10px 0 10px 40px;
     background: #f0f0f0;
-    border-left: 2px solid #ccc;
+    border-left: 2px solid #b9c7d5;
     padding: 2px 5px;
 }
 
 body.htmlarea_styles blockquote.ow_quote .ow_author,
 blockquote.ow_quote .ow_author{
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #b9c7d5;
     font-size: 11px;
     display: inline-block;
     padding: 2px 0;
@@ -3480,7 +3428,7 @@ body .ow_chat_in_block {
 	border-bottom: 0;
 }
 body .ow_chat_in_block {
-	border-left: 1px solid #d4d4d4;
+	border-left: 1px solid #b9c7d5;
 }
 body span.ow_btn_sort_users span {
 	background-image: url(images/chat_btn_sort.png);
@@ -3509,6 +3457,7 @@ body .ow_chat_dialog_wrap .ow_count,
 body .ow_chat .ow_count {
 	color: #fff;
 	line-height: 14px;
+	padding: 0px 1px 0px 0px;
 }
 body a.ow_btn_sound:hover span, 
 body span.ow_btn_sort_users:hover span {
@@ -3517,7 +3466,7 @@ body span.ow_btn_sort_users:hover span {
 }
 body .ow_chat_block .ow_chat_search {
 	border-top: none;
-	border-color: #d4d4d4;
+	border-color: #b9c7d5;
 }
 body .ow_chat_block_main .ow_chat_search input[type="text"], 
 body .ow_chat_block_main .ow_chat_search input[type="password"] {
@@ -3571,7 +3520,7 @@ body .ow_mailchat_new_message .ow_mailchat_select_user a.ow_chat_minimize_btn {
 .ow_chat_block .ow_bot_panel,
 .ow_top_panel {
 	border-style: solid;
-	border-color: #d4d4d4;
+	border-color: #b9c7d5;
 }
 body span.ow_chat_item_author, 
 body span.ow_chat_item_text,
@@ -3593,7 +3542,7 @@ body .ow_chat_dialog,
 }
 body .ow_mailchat_new_message.ow_chat_dialog {
 	background: transparent;
-	border: 1px solid #d4d4d4;
+	border: 1px solid #b9c7d5;
 }
 body .ow_diagonal_puller {
 	background-image: url(images/diagonal_puller.png);
@@ -3618,25 +3567,25 @@ html body .ow_chat_dialog .ow_chat_block {
 body .ow_chat_dialog .ow_author_block {
 	border-width: 1px 1px 0 1px;
 	border-style: solid;
-	border-color: #d4d4d4;
+	border-color: #b9c7d5;
 }
 body .ow_chat_dialog .ow_mailchat_select_user.ow_author_block {
 	border-width: 0;
-	border-bottom: 1px solid #d4d4d4;
+	border-bottom: 1px solid #b9c7d5;
 }
 body .ow_chat_in_dialog_wrap {
-	border-color: #d4d4d4;
+	border-color: #b9c7d5;
 	border-width: 0 1px 1px;
 }
 body .ow_dialog_date_cap {
 	color: #4c4c4c;
 	background-color: #f4f4f4;
-	border-color: #d4d4d4;
+	border-color: #b9c7d5;
 }
 .ow_chat_message_block {
 	border-width: 0 1px;
 	border-style: solid;
-	border-color: #d4d4d4;
+	border-color: #b9c7d5;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -3681,7 +3630,7 @@ body .ow_chat_dialog .ow_chat_subject_block input,
 }
 body .ow_mailchat_new_message .ow_chat_mailchat_inputarea,
 body .ow_mailchat_new_message .ow_file_attachment_info {
-	border-color: #d4d4d4;
+	border-color: #b9c7d5;
 	border-radius: 0;
 	-moz-border-radius: 0;
 	-webkit-border-radius: 0;
@@ -3869,16 +3818,16 @@ body .jspDrag {
 /* ---- Avatar styles ---- */
 
 .ow_change_avatar .avatar_current{
-    border-right: 1px solid #CCCCCC;
+    border-right: 1px solid #b9c7d5;
     padding-right: 3px;
 }
 
 .ow_change_avatar .ow_avatar_preview{
-    border-left: 1px solid #CCCCCC;
+    border-left: 1px solid #b9c7d5;
 }
 
 .ow_change_avatar .avatar_crop{
-    border-bottom: 1px solid #CCCCCC;
+    border-bottom: 1px solid #b9c7d5;
 }
 
 .ow_avatar_crop .jcrop-holder{
@@ -3950,7 +3899,7 @@ html body .ow_console .ow_avatar_label {
 .ow_avatar_console{
     position: relative;
     background: #fafafa;
-    border: 1px solid #cccccc;
+    border: 1px solid #b9c7d5;
     padding: 4px;   
 }
 
@@ -4001,7 +3950,7 @@ body .ow_avatar_console .avatar_console_label {
     position: static;
 }
 .ow_photo_upload_wrap .ow_photo_preview_block_wrap .ow_photo_preview_edit {
-    border: 1px solid #ccc;
+    border: 1px solid #b9c7d5;
 }
 .ow_photo_preview_image {
     background-color: #fafafa;
@@ -4126,7 +4075,7 @@ body .ow_photo_list_wrap div.ow_photo_item {
     border-bottom: 1px solid #e8e8e8;
 }
 .ow_photo_album_cover {
-    border-color: #cccccc;
+    border-color: #b9c7d5;
 }
 body .ow_photo_album_info_wrap .ow_photo_album_info .ow_photo_album_description_textarea,
 body .ow_photo_album_info_wrap .ow_photo_album_info .ow_photo_album_description {
@@ -4221,7 +4170,7 @@ body .ow_photoview_stage_wrap .ow_photo_context_action .ow_context_action .ow_co
 }
 /*Searchbar*/
 .ow_searchbar_ac {
-    border: 1px solid #ccc;
+    border: 1px solid #b9c7d5;
 }
 .ow_searchbar_ac li {
     background-color: #fafafa;
@@ -4323,7 +4272,7 @@ li.ow_dropdown_delimeter {
 }
 /*-----button_list narrow---------*/
 ul.ow_bl_narrow{
-	border-top: 1px solid #ccc;
+	border-top: 1px solid #b9c7d5;
     padding: 0;
 }
 
@@ -4333,7 +4282,7 @@ ul.ow_bl_narrow li{
 
 ul.ow_bl_narrow li a{
 	background: none;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #b9c7d5;
     display: block;
     padding: 5px 7px;
 	text-decoration: none;
@@ -4373,7 +4322,7 @@ body ul.ow_newsfeed {
 	padding: 4px 0;
 }
 .ow_newsfeed_features .ow_tooltip.ow_comments_context_tooltip .ow_tooltip_body {
-	border: 1px solid #d4d4d4;
+	border: 1px solid #b9c7d5;
 }
 .ow_newsfeed_features .ow_tooltip .ow_tooltip_tail span {
     height: 5px;
@@ -4738,335 +4687,6 @@ body .ow_table_1 tr td.ow_gateways_td_empty + td {
 	border-bottom-left-radius: 4px;	
 }
 /* ---- End of the Membership Subscribe styles ---- */
-/*========================================================
-        [16] Admin Styles        __admin
-  ========================================================*/
-
-/* - admin_bg_fix - */
-body.ow_admin_area {
- background: #fff;
- background-image: none;
- position: relative;
- padding-top: 57px;
- height: auto;
-}
-
-/* - admin footer fix */
-.ow_footer.ow_admin {
- 	margin-top: 0;
- 	height: 55px;
- 	border-color: #d6dde5;
- 	border-bottom: 1px solid #d6dde5;
- 	background-color: #fff;
-}
-.ow_footer.ow_admin .ow_canvas {
-	padding: 0 16px;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-}
-
-/* - other styles -*/
-.ow_header.ow_admin_header {
-	position: fixed;
-	width: 100%;
-	background: #fff;
-	padding: 0px;
-	margin:0px;
-	top: 0;
-	left: 0;
-	z-index: 99;
-}
-.ow_admin_header .ow_site_panel {
-	height: 56px;
-	background-color: #ffffff;
-	border-color: #d6dde5;
-}
-.ow_admin_header .ow_console{
-    height: 56px;
-    background-color: #ffffff;
-}
-.ow_admin_header .ow_console_body {
-	padding: 16px 4px 16px 8px;
-	background-color: #ffffff;
-}
-.ow_page_container.ow_admin {
-	border: none;
-	background: #fff;
-	margin: 0px auto;
-}
-.ow_page_container.ow_admin .ow_page
-{
-	min-height: 300px;
-}
-
-.ow_page_container.ow_admin .ow_page .ow_content {
-	float: none;
-}
-
-.ow_admin_header .ow_logo_wrap {
-	padding: 12px 0px 0px 115px;
-}
-
-table.ow_admin_footer
-{
-	margin-top: 15px;
-	font-size: 11px;
-	line-height: 1.25;
-}
-
-table.ow_admin_footer div.group
-{
-	margin-bottom: 20px;
-}
-
-table.ow_admin_footer h3
-{
-	font-size: 11px;
-	color: #fff;
-	text-transform: uppercase;
-	margin-bottom: 5px;
-	margin-top: 0;
-}
-
-table.ow_admin_footer a{
-	color: #aaa;
-	text-decoration: none;
-	display: block;
-	margin-bottom: 2px;
-	margin-right: 1px;
-}
-
-table.ow_admin_footer a:hover{
-	color: #fff;
-	margin-left: 1px;
-	margin-right: 0;
-}
-
-.ow_header .ow_logo_wrap .ow_admin_title {
-	color: #ff7000;
-	margin-left: 5px;
-	padding-left: 12px;
-    background: url(images/miniic_arrow_left.png) no-repeat 0 2px;
-} 
-.css_code
-{
-    font-size: 11px;
-    line-height: 1.3;
-}
-.ow_box_cap_body h3 {
-	margin-bottom: 0;
-}
-.ow_statistics_period {
-	margin-bottom: 16px;
-}
-.ow_statistics_period input[type="text"] {
-	width: 88px;
-	height: 24px;
-}
-.ow_statistics_period_from input[type="text"] {
-	border-right: none;
-	border-top-right-radius: 0;
-	border-bottom-right-radius: 0;
-}
-.ow_statistics_period_to input[type="text"] {
-	border-left: none;
-	border-top-left-radius: 0;
-	border-bottom-left-radius: 0;
-}
-.ow_statistics_period_delimiter {
-	display: inline-block;
-	height: 24px;
-	line-height: 24px;
-	position: relative;
-	margin: 0 -3px;
-}
-.ow_statistic_content_type select {
-	max-width: 150px;
-	height: 24px;
-	padding: 0;
-}
-.ow_statistics_diagram_wrap {
-	border-width: 1px 0;
-	height: 112px;
-	padding: 25px;
-	background-image: url(graphic.png);
-	background-size: cover;
-	background-position: center center;
-}
-/* ---- End of Admin Menu styles ---- */
-
-
-/* ---- Admin Content styles ---- */
-
-.ow_admin_content{
-	float: right;
-	width: 830px;
-}
-
-.ow_admin_content .ow_box_cap_2{
-	background: url(images/h2bg.png) repeat-x center;
-	height: 20px;
-	padding-left: 10px;
-	padding-top: 4px;
-}
-
-.ow_admin_content .ow_box_cap_2 h3{
-	background-color: #fff;
-	display: inline;
-	font-size: 15px;
-	padding-right: 5px;
-}
-
-.ow_admin_content .ow_box_2{
-	margin-bottom: 8px;
-}
-
-.ow_admin_content .ow_box{
-	background: #eee;
-	padding: 5px;
-}
-
-.ow_admin_area .ow_page_container .ow_page {
-	border: none;
-	border-radius: 0px;
-	-moz-border-radius: 0px;
-	-webkit-border-radius: 0px;	
-	padding-bottom: 30px;
-}
-/* ---- End of Admin Content styles ---- */
-
-
-/* ---- Admin Sidebar styles ---- */
-
-.ow_admin_sidebar{
-	float: left;
-	padding: 0;
-	width: 170px;
-	margin: 0;
-}
-
-.ow_admin_sidebar .ow_box_cap{
-	background: #ddd;
-	border-bottom: 1px solid #aaa;
-	height: 16px;
-	padding: 5px 5px 6px 10px;
-}
-
-.ow_admin_menu_cont .ow_box_cap h3{
-	background: none;
-	color: #ff7000;
-	float: left;
-	font-size: 13px;
-    padding-left:0;
-    padding-top:0;
-    line-height:15px;
-	text-transform: none;
-}
-
-.ow_admin_sidebar .ow_box_cap a.close,
-.ow_admin_sidebar .ow_box_cap a.open{
-	background: url(images/icon-arrow-down.png) no-repeat;
-	float: right;
-	height: 16px;
-	margin-top: 1px;
-	width: 16px;
-}
-
-.ow_admin_sidebar .ow_box_cap a.open{
-    background: url(images/ic_arrow-right.png) no-repeat;
-}
-
-.ow_admin_sidebar .ow_box{
-	background: url(images/box-body-bg.png) repeat;
-
-}
-
-/* ---- End of Admin Sidebar styles ---- */
-
-/* ---- Admin Profile Questions styles ---- */
-
-.ow_admin_edit_profile_question{
-}
-
-.ow_admin_edit_profile_question .quest_value{
-    margin: 2px 10px 2px 0px;
-    padding: 2px 5px;
-    background: #ccc;
-}
-
-.ow_admin_edit_profile_question .question_values{
-    padding: 4px 0px;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-}
-
-td.delete_edit_buttons,
-th.delete_edit_buttons{
-    width: 11%;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-th.delete_edit_buttons{
-    line-height: 16px;
-}
-
-.ow_admin_profile_question_dnd_cursor{
-    cursor:move;
-}
-/* ---- End of the Admin Profile Questions styles ---- */
-
-/* ----  Admin Permissions styles ---- */
-.ow_admin_permissions_overflow {
-	overflow-x: auto;
-}
-.ow_admin_permissions .ow_table_2 {
-	margin-bottom: 0px;
-}
-/* ---- End of the Admin Permissions styles ---- */
-
-/* ---- Admin Theme styles ---- */
-.themes_select .active .fake{
-	background:url(images/checked_template.png) no-repeat 4px 4px;
-}
-
-.theme_control_desc{
-	background:url(images/ic_question.png) no-repeat 50% 50%;
-	display:inline-block;
-	width:20px;
-	height: 20px;
-}
-
-.theme_control_desc_body{
-	display:none;
-	background: #ccc;
-	border: 1px solid #000;
-	position: absolute;
-}
-.color_button[type=button] {
-    border-radius: 3px;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;	
-}
-/* ---- End of the Admin Theme styles ---- */
-
-/* ---- Other Admin styles ---- */
-.ow_admin_search_box {
-	 border-top-left-radius: 6px;
-	-moz-border-top-left-radius: 6px;
-	-webkit-border-top-left-radius: 6px;
-	 border-top-right-radius: 6px;
-	-moz-border-top-right-radius: 6px;
-	-webkit-border-top-right-radius: 6px;
-}
-.ow_admin_area .ow_table_2 .ow_item_set3 {
-	width: auto;
-}
-html body .ow_admin_permissions.ow_superwide {
-	overflow: initial;
-}
-/* ---- End of the Other Admin styles ---- */
 
 /*--------------------------------------------------------------------
 		[?] Custom pages declarations TODO remove
@@ -5081,7 +4701,7 @@ html body .ow_admin_permissions.ow_superwide {
 	margin-right:5px;
 	margin-bottom:5px;
 	padding:4px 8px;
-	border: 1px solid #ccc;
+	border: 1px solid #b9c7d5;
 }
 .ow_navbox a.move{
 	color:#666;
@@ -5160,7 +4780,7 @@ html body .ow_admin_permissions.ow_superwide {
 
 .ow_dnd_schem_item{
 	background:#F0F0F0 url(images/ic_file.png) no-repeat 10px 50%;
-	border:1px solid #ccc;
+	border:1px solid #b9c7d5;
 	cursor:move;
 	/*float:left;*/
 	height:30px;
@@ -5240,15 +4860,14 @@ html body .ow_admin_permissions.ow_superwide {
 }
 
 .ow_dnd_clonable_components {
-   border-left: 1px solid #ccc;
+   border-left: 1px solid #b9c7d5;
    padding: 10px 0 10px 10px;
    width: 24%;
 }
 
 /* Dnd Slider */
 .ow_dnd_slider {
-    /*background:url(images/h2bg.png) repeat-x center;*/
-    height: 6px;
+	height: 6px;
     background-color: #ddd;
     position: relative;
     margin: 10px 3px 0;
@@ -5594,16 +5213,6 @@ span.ic_refresh{
 	width: 100%;
 	height: 50px;
 }
-
-.ow_border {
-    border-style: solid;
-    border-color: #d4d4d4;
-}
-
-.ow_cursor_pointer {
-    cursor: pointer;
-}
-
 .ow_break_word{
     word-wrap:break-word;
 }
@@ -5664,21 +5273,6 @@ span.ic_refresh{
 	padding: 0px 8px 0px 6px;
 }
 
-/*td.sort_link{
-    width:100%;
-}
-td.sort_link li{
-   display:inline;
-   padding: 0 15px 0 0;
-}
-td.sort_link li.active a {
-	font-weight:bold;
-	color:#333;
-}
-td.sort_link li.active a:hover{
-	text-decoration:none;
-}*/
-
 /* ---- End of Sort styles ---- */
 
 /* ---- Context Action styles ---- */
@@ -5696,9 +5290,9 @@ td.sort_link li.active a:hover{
     font-size: 11px;
     height: 18px;
     padding: 0px 0px 0px 5px;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    border-right: 1px solid #ccc;
+    border-top: 1px solid #b9c7d5;
+    border-bottom: 1px solid #b9c7d5;
+    border-right: 1px solid #b9c7d5;
     vertical-align: top;
     zoom: 1;
 }
@@ -5720,7 +5314,7 @@ td.sort_link li.active a:hover{
     vertical-align: top;
 }
 .ow_context_action_block .ow_context_action:first-child {
-    border-left: 1px solid #ccc;
+    border-left: 1px solid #b9c7d5;
 }
 .ow_context_action_block .ow_context_action:last-child {
     border-top-right-radius:2px;
@@ -5884,7 +5478,7 @@ td.sort_link li.active a:hover{
     color: #9b9a9d;
 }
 .ow_signin_delimiter {
-    border-right: 1px solid #CCCCCC;
+    border-right: 1px solid #b9c7d5;
     padding: 0 7px 0 0;
 }
 .ow_console_item .ow_ico_signin {
@@ -6249,7 +5843,7 @@ body .ow_table_2 tr.ow_tr_titles th:last-child, body .ow_table_1 tr.ow_tr_titles
 }
 .ow_vertical_nav.ow_vertical_menu,
 body .ow_vertical_nav_item {
-    border-color: #ccc;
+    border-color: #b9c7d5;
 }
 .ow_vertical_nav_item.selected {
    	background-color: #fff;
