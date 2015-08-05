@@ -985,7 +985,7 @@ ul.ow_console_dropdown li:last-child .ow_console_dropdown_cont {
 .ow_main_menu li a:hover {
 	color: #2db395; 
 }
-.ow_main_menu_more_active.ow_menu_wrap {
+.ow_main_menu_more_active {
 	padding-right: 70px;
 }
 .ow_menu_more_wrap {
