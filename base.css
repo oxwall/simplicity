@@ -522,6 +522,7 @@ a.ow_logo:hover {
 	transition: opacity 0.3s ease-out 0.15s;
 	-moz-transition: opacity 0.3s ease-out 0.15s;
 	-webkit-transition: opacity 0.3s ease-out 0.15s;
+	display: none;
 }
 .ow_nav_btn:hover,
 .ow_menu_active .ow_nav_btn {
@@ -605,17 +606,14 @@ body.ow_menu_active {
 	z-index: 99;
 }
 .ow_console {
-	height: 60px;
-    float: right;
 }
 .ow_console_right {
-	background-color: #fff;
+    float: right;
 }
 .ow_console_body  {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
-	height: 60px;
 	padding: 14px 14px 0 0;
 }
 .ow_console_item {
@@ -953,11 +951,13 @@ ul.ow_console_dropdown li:last-child .ow_console_dropdown_cont {
 /* ---- Main Menu styles ---- */
 .ow_menu_wrap {
 	padding: 0;
+	display: table;
 	position: relative;
-	height: 70px;
 }
-.ow_main_menu{
+.ow_main_menu {
 	font-family: 'core_sans_e45_regular', "Trebuchet MS", "Helvetica CY", sans-serif;
+	height: 70px;
+	overflow: hidden;
 }
 .ow_main_menu li {
     padding: 0;
@@ -971,6 +971,9 @@ ul.ow_console_dropdown li:last-child .ow_console_dropdown_cont {
     text-decoration: none;
 	text-transform: uppercase;
 	font-weight: normal;
+}
+.ow_main_menu li:first-child a {
+	padding-left: 0px;
 }
 .ow_main_menu li a span {
 	line-height: 70px;
@@ -6203,14 +6206,14 @@ body.ow.base_sign_in .ow_page_wrap {
 	body, html {
     	min-width: 767px;
     }
-	body .ow_menu_wrap,
+	/*body .ow_menu_wrap,
 	.ow_site_panel .ow_logo {
 		display: none;
 	}
 	.ow_nav_btn {
 		visibility: visible;
 		opacity: 1;
-	}
+	}*/
 	.ow_page_container, .ow_site_panel_wrap, .ow_footer {
         width: 100%;
     }
