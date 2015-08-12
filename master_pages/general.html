@@ -1,6 +1,6 @@
 <div class="ow_page_wrap">
 	<div class="ow_menu_fullpage">
-		<div class="ow_menu_fullpage_wrap">{*$main_menu*}</div>
+		<div class="ow_menu_fullpage_wrap">{$main_menu}</div>
 	</div>
 	<div class="ow_site_panel clearfix">
 			<a class="ow_logo ow_left" href="{$siteUrl}"></a>
@@ -8,7 +8,7 @@
 			<div class="ow_console_right">
 				{component class='BASE_CMP_Console'}
 			</div>
-			<div class="ow_menu_wrap">{$main_menu}</div>
+			<div class="ow_menu_wrap">{component class='BASE_CMP_MainMenu' responsive=true}</div>
 	</div>
 	{if isset($imageControlValues.headerImage.src)}
 	<div class="ow_header">
