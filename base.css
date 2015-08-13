@@ -573,18 +573,18 @@ body.ow_menu_active {
 	height: 100%;
 	width: 100%;
 }
-.ow_menu_fullpage_wrap ul.ow_menu {
+.ow_menu_fullpage_wrap ul.ow_main_menu {
 	display: table-cell;
 	vertical-align: middle;
 	overflow: visible;
 	height: auto;
 }
-.ow_menu_fullpage_wrap ul.ow_menu li {
+.ow_menu_fullpage_wrap ul.ow_main_menu li {
 	width: 100%;
 	display: block;
 	text-align: center;
 }
-.ow_menu_fullpage_wrap .ow_menu li a {
+.ow_menu_fullpage_wrap .ow_main_menu li a {
 	text-transform: uppercase;
 	font-size: 30px;
 	line-height: 62px;
@@ -593,17 +593,17 @@ body.ow_menu_active {
 	padding: 0;
 	font-family: 'core_sans_e35_light', "Trebuchet MS", "Helvetica CY", sans-serif;
 }
-.ow_menu_fullpage_wrap .ow_menu li a:hover {
+.ow_menu_fullpage_wrap .ow_main_menu li a:hover {
 	color: #5b646a;
 	text-decoration: none;
 }
-.ow_menu_fullpage_wrap .ow_menu li.active a {
+.ow_menu_fullpage_wrap .ow_main_menu li.active a {
 	color: #36D0AE;
 }
-.ow_menu_fullpage_wrap .ow_menu li:first-child a {
+.ow_menu_fullpage_wrap .ow_main_menu li:first-child a {
 	margin-left: 0;
 }
-.ow_menu_fullpage_wrap .ow_menu li a:hover {
+.ow_menu_fullpage_wrap .ow_main_menu li a:hover {
 	background-color: rgba(22,22,23,0.2);
 }
 /* ---- End of the Navigation on the left ---- */
@@ -775,6 +775,10 @@ div.ow_console_lang_item:hover > span {
 .ow_console span.ow_count {
 	position: relative;
 	top: 0px;
+}
+.ow_console_dropdown span.ow_count_wrap {
+	position: static;
+	margin-top: 5px;
 }
 /* Console list*/
  .ow_console_list_wrapper {
@@ -3990,6 +3994,14 @@ blockquote.ow_quote .ow_author{
 .ow_forum_status{
     font-style: italic;
 }
+/* First post in topic */
+.ow_forum_topic_posts > .ow_box.ow_no_cap {
+	border: none;
+	padding: 0px;
+}
+.ow_forum_topic_posts > .ow_box.ow_no_cap .ow_ipc_info {
+	border-color: #ccd6de;
+}
 /* ---- Forum sortable ---- */
 .forum_placeholder{
 	border: 1px dashed #999;
@@ -4009,10 +4021,6 @@ tr.forum_placeholder td{
 }
 .forum_section_tr{
 	height: 41px;
-}
-.ow_forum_topic_posts .ow_box .ow_ipc_info {
-	border: none;
-	padding: 0px;
 }
 body .ow_forum_attachment_icon {
 	width: 18px;
@@ -4156,13 +4164,16 @@ body .ow_dialog_in_item p{
 /* ---- End of Mailbox styles ---- */
 /* ---- Chat styles ---- */
 body .ow_chat_block_wrap {
-	background-color: #36353b;
+	background-color: #fff;
 	border-radius: 0;
 	-moz-border-radius: 0;
 	-webkit-border-radius: 0;
 	box-shadow: none;
 	-moz-box-shadow: none;
 	-webkit-box-shadow: none;
+}
+body .ui-draggable-disabled ~ .ow_chat_block_wrap {
+	background-color: #36353b;
 }
 html body .ow_chat_block {
 	border: none;
@@ -4190,6 +4201,8 @@ body .ow_btn_close_search {
 }
 .ow_count_block span.ow_count_txt {
 	color: #9b9a9d;
+	font-weight: normal;
+	font-size: 14px;
 }
 body .ow_chat_dialog_wrap .ow_count_bg, 
 body .ow_chat .ow_count_bg {
@@ -4284,12 +4297,16 @@ body .ow_mailchat_new_message.ow_chat_dialog.ow_chat_dialog_active .ow_mailchat_
 body .ow_author_block span.ow_chat_item_author {
 	color:#9b9a9d;
 }
-body .ow_chat_dialog,
-.ow_mailchat_new_message.ow_chat_dialog .ow_author_block.ow_mailchat_selected_user {
+body .ow_chat_dialog {
 	background-color: #36353b;
 }
+body .ow_chat_dialog.ow_active {
+	background-color: #fff;
+}
+/*.ow_mailchat_new_message.ow_chat_dialog .ow_author_block.ow_mailchat_selected_user {
+	background-color: #36353b;
+}*/
 body .ow_mailchat_new_message.ow_chat_dialog {
-	background: transparent;
 	border: 1px solid #eff2f5;
 }
 body .ow_diagonal_puller {
@@ -4361,7 +4378,8 @@ body .ow_chat_dialog_wrap .ow_attachments a.attach {
 	border-radius: 0;
 	-moz-border-radius: 0;
 	-webkit-border-radius: 0;
-	background: url(images/wysiwyg.png) no-repeat scroll -241px 1px rgba(0, 0, 0, 0);
+	width: 22px;
+	background: url(images/wysiwyg.png) no-repeat scroll -241px 5px rgba(0, 0, 0, 0);
 }
 body .ow_chat_dialog_wrap .ow_attachments a.attach.uploading,
 body .ow_chat_preloader,
@@ -4389,25 +4407,33 @@ body .ow_mailchat_new_message .ow_file_attachment_info {
 }
 body .ow_chat_mailchat_buttons {
 	border: none;
-	background-color: #36353b;
+	background-color: #fff;
 }
 body .ow_chat_mailchat_buttons .ow_attachment_btn span.ow_button,
 body .ow_chat_mailchat_buttons .ow_attachment_btn span.ow_button span {
 	border: none;
-	background: #2f94f2;
+	background: transparent;
 	padding: 0;
 	border-radius: 0;
 	-moz-border-radius: 0;
 	-webkit-border-radius: 0;
 	margin: 0;
 }
+body .ow_chat_mailchat_buttons .ow_attachment_btn span.ow_button:hover {
+	background-color: #4C5358;
+}
 body .ow_chat_mailchat_buttons .ow_attachment_btn span.ow_button input[type="submit"], 
 body .ow_chat_mailchat_buttons .ow_attachment_btn span.ow_button input[type="button"] {
 	text-shadow: none;
 	font-family: 'core_sans_e55_medium', "Trebuchet MS", "Helvetica CY", sans-serif;
+	color: #a2acb3;
+}
+body .ow_chat_mailchat_buttons .ow_attachment_btn span.ow_button input[type="submit"]:hover, 
+body .ow_chat_mailchat_buttons .ow_attachment_btn span.ow_button input[type="button"]:hover {
+	color: #fff;
 }
 body .ow_chat_dialog_wrap .ow_attachments .buttons {
-	background-color: #2f94f2;
+	background-color: #fff;
 }
 body form .ow_chat_mailchat_inputarea .toolbar ul li a {
 	background-image: url(images/wysiwyg.png);
@@ -5148,7 +5174,7 @@ body .newsfeed-attachment-preview.item_loaded {
 .group-NEWSFEED_CMP_EntityFeedWidget .ow_box_cap_empty,
 .index-NEWSFEED_CMP_SiteFeedWidget .form_auto_click,
 .index-NEWSFEED_CMP_SiteFeedWidget .ow_box_cap_empty {
-	padding-left: 53px;
+	padding-left: 56px;
 }
 .profile-NEWSFEED_CMP_UserFeedWidget .ow_status_update_btn_block .ow_attachments a,
 .dashboard-NEWSFEED_CMP_MyFeedWidget .ow_status_update_btn_block .ow_attachments a,
