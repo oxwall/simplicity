@@ -601,7 +601,7 @@ input.owm_sidebar_profile_logout {
 /* ========= Logo styles  ======== */
 .owm_logo {
     margin: 15px 5px;
-    background-image: url(images/logo.png);/** OW_Control type:image, key:logoImagemobile, section:1. General Settings, label: Mobile logo **/
+    background-image: url(images/logo.png);/** OW_Control type:image, key:logoImagemobile, section:1. General Settings, label: 5. Mobile logo **/
     background-repeat: no-repeat;
     background-position: center center;
     height: 93px;

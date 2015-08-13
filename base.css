@@ -91,18 +91,18 @@ html[xmlns] .clearfix {display: block;}
         [3] Base Elements       __base
   ========================================================*/
 body {
-	background-color: #fff; /** OW_Control type:color, section:1. General Settings, key:bodyColor, label: Page background color **/	
+	background-color: #fff; /** OW_Control type:color, section:1. General Settings, key:bodyColor, label:1. Page background color **/
 }
 body, html {
 	font-family: 'core_sans_e45_regular',"Lucida Grande", "Tahoma", "Verdana";
-	color: #828894; /** OW_Control type:color, section:2. Colors, key:textColor, label: - Text **/
+	color: #828894; /** OW_Control type:color, section:2. Colors, key:textColor, label:1. Text **/
 	font-size: 14px;
 	line-height: 18px;
 	height: 100%;
 	min-width: 1000px;
 }
 a {
-	color: #5b646a; /** OW_Control type:color, key:linkColor, section:2. Colors, label: - Links **/
+	color: #5b646a; /** OW_Control type:color, key:linkColor, section:2. Colors, label:3. Links **/
 	text-decoration: none;
 }
 a:hover {
@@ -131,7 +131,7 @@ h1 {
 	font-size: 20px;
 	line-height: 19px;
     padding-left: 0px;
-	color: #5b646a; /** OW_Control type: color, key: titleColor, label: - Title, section: 2. Colors **/
+	color: #5b646a; /** OW_Control type: color, key: titleColor, section: 2. Colors, label:2. Title **/
 	text-transform: uppercase;
 	margin-left: 0px;
 	background-repeat: no-repeat;
@@ -230,7 +230,7 @@ html body div .ow_page h1 {
     background: none;
 }
 .ow_bg_color{
-	background-color: #fff;/** OW_Control type:color, section:1. General Settings, key:bodyColor, label: Page background color **/	
+	background-color: #fff;/** OW_Control type:color, section:1. General Settings, key:bodyColor, label:1. Page background color **/	
 }
 .ow_border {
     border-style: solid;
@@ -267,7 +267,7 @@ body > .ow_page_wrap {
 /* Footer */
 .ow_footer {
     padding:1px 0px;
-	background: #fff; /** OW_Control type:color, section:1. General Settings, key:footerColor, label:Footer background **/	
+	background: #fff; /** OW_Control type:color, section:1. General Settings, key:footerColor, label:4. Footer background color **/	
 	height: 96px;
 	position: relative;
 	margin-top: -99px;
@@ -323,7 +323,7 @@ body > .ow_page_wrap {
 	padding-top: 50px;
 }
 .ow_logo {
-	background-image: url(images/logo.png); /** OW_Control type:image, key:navLogo, section:1. General Settings, label: Navigation Logo **/
+	background-image: url(images/logo.png); /** OW_Control type:color, key:logoImage, section:1. General Settings, label: 3. Logo image **/
 	background-size: auto 41px;
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -338,7 +338,7 @@ a.ow_logo:hover {
     width: 100%;
 }
 .ow_header_pic {
-    background-image: none; /** OW_Control type:image, key:headerImage, section:1. General Settings, label: Header image **/
+    background-image: none; /** OW_Control type:image, key:headerImage, section:1. General Settings, label:2. Header background image **/
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 100%;
@@ -542,7 +542,6 @@ input[type=text].ow_settings_input{
 }
 .ow_menu_active .ow_nav_btn,
 .ow_menu_active .ow_nav_btn:hover {
-	background-color: #36d0ae;
 	background-position: 4px 5px;
 	transition: background-position 0.2s ease;
 	-moz-transition: background-position 0.2s ease;
@@ -558,11 +557,8 @@ body.ow_menu_active {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: rgba(54,53,59,0.91);
+	background-color: rgba(255,255,255,0.91);
 	display: none;
-}
-.ow_menu_active .ow_site_panel {
-	background-color: #36353b;
 }
 .ow_menu_active .ow_site_panel .ow_logo,
 .ow_menu_active .ow_site_panel .ow_menu_wrap {
@@ -595,12 +591,14 @@ body.ow_menu_active {
 	width: 100%;
 	display: inline-block;
 	padding: 0;
-	color: #99989a;
+	font-family: 'core_sans_e35_light', "Trebuchet MS", "Helvetica CY", sans-serif;
 }
-.ow_menu_fullpage_wrap .ow_menu li a:hover,
-.ow_menu_fullpage_wrap .ow_menu li.active a {
-	color: #fff;
+.ow_menu_fullpage_wrap .ow_menu li a:hover {
+	color: #5b646a;
 	text-decoration: none;
+}
+.ow_menu_fullpage_wrap .ow_menu li.active a {
+	color: #36D0AE;
 }
 .ow_menu_fullpage_wrap .ow_menu li:first-child a {
 	margin-left: 0;
@@ -993,7 +991,7 @@ ul.ow_console_dropdown li:last-child .ow_console_dropdown_cont {
 	display: inline-block;
 }
 .ow_main_menu li a {
-    color: #5b646a; /** OW_Control type:color, key:menuColor, section:2. Colors, label:Menu text color **/
+    color: #5b646a; /** OW_Control type:color, key:menuColor, section:2. Colors, label:4. Menu text color **/
     display: inline-block;
 	font-size: 15px;
     padding: 0 1vw;
@@ -1448,7 +1446,7 @@ body .forum_search_wrap input {
 }
 .ow_count_bg {
 	display: inline-block;
-    background: #2db395;
+    background: #5b646a;
  	min-height: 15px; 
  	overflow: hidden;
 }
@@ -1463,7 +1461,7 @@ body .forum_search_wrap input {
     font-family: Arial, Helvetica, sans-serif;
 }
 .ow_count_active {
-    background: none repeat scroll 0 0 #e23e4d;
+    background: none repeat scroll 0 0 #2db395;
 }
 /* ---- End of Counter  ---- */
 /* ---- Info tooltip styles ---- */
@@ -3663,55 +3661,51 @@ body .ow_avatar_console .ow_avatar_label {
 }
 .ow_message_node{
 	font-size:14px;
-	font-weight:bold;
-	font-family: Arial, Helvetica, sans-serif;
-	color: #fff;
+	color: #5b646a;
 	text-align:center;
-	text-shadow: 0px 1px 0 rgba(0,0,0,0.4);
 	line-height: 24px;
 	margin:15px;
 	padding:7px 12px;
 	overflow: auto;
 	position:relative;
-	-webkit-box-shadow: 0 21px 16px rgba(0,0,0,0.2);
-	-moz-box-shadow: 0 21px 16px rgba(0,0,0,0.2);
-	box-shadow:0 21px 16px rgba(0,0,0,0.2);
+	text-transform: uppercase;
 }
 .ow_message_node div div{
 	padding-right:24px;
 }
 .ow_message_node a.close_button {
 	display:block;
-	width:12px;
+	width:13px;
 	height:13px;
 	float:right;
 	position:absolute;
-	top:14px; right:14px;
+	top:13px; 
+	right:14px;
 	background:url(images/message_btn_close.png) no-repeat 50% 50%;
 }
 /*info*/
 .ow_message_cont .ow_message_node.info {
-	background: #37ce5a;
-	border-top:1px solid #37ce5a;
-	border-right:1px solid #37ce5a;
-	border-bottom:1px solid #37ce5a;
-	border-left:1px solid #37ce5a;
+	background: #fff;
+	border-top:1px solid #36d0ae;
+	border-right:1px solid #36d0ae;
+	border-bottom:1px solid #36d0ae;
+	border-left:1px solid #36d0ae;
 }
 /*warning*/
 .ow_message_cont .ow_message_node.warning {
-	background: #feae47;
-	border-top:1px solid #feae47;
-	border-right:1px solid #feae47;
-	border-bottom:1px solid #feae47;
-	border-left:1px solid #feae47;
+	background: #fff;
+	border-top:1px solid #f4b111;
+	border-right:1px solid #f4b111;
+	border-bottom:1px solid #f4b111;
+	border-left:1px solid #f4b111;
 }
 /*error*/
 .ow_message_cont .ow_message_node.error {
-	background: #e23e4d;
-	border-top:1px solid #e23e4d;
-	border-right:1px solid #e23e4d;
-	border-bottom:1px solid #e23e4d;
-	border-left:1px solid #e23e4d;
+	background: #fff;
+	border-top:1px solid #dc3c65;
+	border-right:1px solid #dc3c65;
+	border-bottom:1px solid #dc3c65;
+	border-left:1px solid #dc3c65;
 }
 /* ---- End of the Message (Feedback) styles ---- */
 /*========================================================
@@ -3818,7 +3812,7 @@ div.ow_nomargin {
     background: #aaffaa;
 }
 .ow_outline {
-    color: #0072dd; /** OW_Control type:color, section:2. Colors, key:txtValue, label:Numeric values **/
+    color: #2db395; /** OW_Control type:color, section:2. Colors, key:txtValue, label:5. Numeric values **/
     font-family: 'core_sans_e55_medium', "Trebuchet MS", "Helvetica CY", sans-serif;
 }
 .ow_lightweight {
@@ -3826,7 +3820,7 @@ div.ow_nomargin {
 }
 .ow_txt_value {
     font-family: 'core_sans_e55_medium', "Trebuchet MS", "Helvetica CY", sans-serif;
-    color: #949a9d; /** OW_Control type:color, section:2. Colors, key:txtValue, label:Numeric values **/
+    color: #949a9d; /** OW_Control type:color, section:2. Colors, key:txtValue, label:5. Numeric values **/
 }
 .ow_remark {
 	color: #828894; 
@@ -3851,7 +3845,7 @@ tr.ow_alt2 td{
 	padding:10px;
 }
 .outline{
-    color: #FF7000;
+    color: #2db395;
     font-family: 'core_sans_e55_medium', "Trebuchet MS", "Helvetica CY", sans-serif;
 }
 .ow_highbox_table .ow_highbox,
@@ -4206,7 +4200,7 @@ body .ow_chat .ow_count_bg {
 }
 body .ow_chat_dialog_wrap .ow_count_active, 
 body .ow_chat .ow_count_active {
-	background-color: #e23e4d;
+	background-color: #2db395;
 }
 body .ow_chat_dialog_wrap .ow_count, 
 body .ow_chat .ow_count {
@@ -5287,7 +5281,7 @@ body.ow.base_sign_in {
 	width: 1055px;
 	position: relative;
 	margin: 0 auto;
-	padding-top: 180px;
+	padding-top: 230px;
 	left: auto;
 	top: auto;
 }
@@ -5300,7 +5294,7 @@ body.ow.base_sign_in {
 	margin: 0;
 	padding: 0;
 	position: absolute;
-	top: 106px;
+	top: 156px;
 	left: 0;
 	text-align: center;
 	text-transform: uppercase;

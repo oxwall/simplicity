@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <theme>
-    <name>portfolio</name>
-    <key>portfolio</key>
+    <name>simplicity</name>
+    <key>simplicity</key>
     <version>1.0</version>
     <compatibility>1.7 and higher</compatibility>
-    <description>Use better WEB with Portfolio</description>
+    <description>The Simplicity theme</description>
     <author>Oxwall Foundation</author>
     <authorEmail>themes@oxwall.org</authorEmail>
     <authorUrl>http://www.oxwall.org/foundation</authorUrl>
