@@ -338,13 +338,13 @@ a.ow_logo:hover {
     width: 100%;
 }
 .ow_header_pic {
-    background-image: none; /** OW_Control type:image, key:headerImage, section:1. General Settings, label:2. Header background image **/
+    background-image: url(images/header.jpg); /** OW_Control type:image, key:headerImage, section:1. General Settings, label:2. Header background image **/
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: 100%;
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    display: none;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    height: 300px;
 }
 .ow_header_pic img {
 	height: 0px;
@@ -776,7 +776,7 @@ div.ow_console_lang_item:hover > span {
 	position: relative;
 	top: 0px;
 }
-.ow_console_dropdown span.ow_count_wrap {
+.ow_console .ow_tooltip_body span.ow_count_wrap {
 	position: static;
 	margin-top: 5px;
 }
@@ -1210,6 +1210,9 @@ ul.ow_console_dropdown li:last-child .ow_console_dropdown_cont {
 .ow_vertical_nav.ow_vertical_menu,
 body .ow_vertical_nav_item {
     border-color: #eff2f5;
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
 }
 .ow_vertical_nav_item.selected {
    	background-color: #fff;
@@ -1453,13 +1456,16 @@ body .forum_search_wrap input {
     background: #5b646a;
  	min-height: 15px; 
  	overflow: hidden;
+ 	border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;	
 }
 .ow_count {
 	display: inline-block;
 	padding: 0px 0px 0px 0px;
 	min-height: 15px;
 	min-width: 16px;
-	line-height: 14px;
+	line-height: 15px;
     color: #fff;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;

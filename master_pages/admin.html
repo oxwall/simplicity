@@ -47,6 +47,7 @@
         <a class="ow_admin_home_btn ow_admin_menu_item home ow_left" href="{$siteUrl}">
             <span class="ow_admin_menu_item_label">{$siteName}</span>
         </a>
+        {add_content key='admin.site_panel_left_content'}
         <div class="ow_admin_console_update">
             <a id="admin_console_update_link" class="ow_admin_console_update_link" href="#"></a>
             {if !empty($notifications)}           
@@ -73,8 +74,9 @@
                         {/if}
                     </div>
                 {/block_decorator}
-            </div>            
+            </div>
         </div>
+        {add_content key='admin.site_panel_right_content'}
     </div>
 </div>
 <!-- end of head wrapper -->
@@ -106,7 +108,9 @@
                 </h1>
             {/if}
             <div class="ow_content">
-                {$content}
+                {add_content key='admin.add_page_top_content'}
+                    {$content}
+                {add_content key='admin.add_page_bottom_content'}
             </div>
         </div>
     </div>
@@ -120,7 +124,7 @@
             <div class="ow_remark_wrapper">
                 {if empty($ow_plugin_xp)}
                     <div class="ow_right ow_small ow_remark">{$softVersion}</div>
-                {/if}			
+                {/if}
             </div>
             <div class="ow_powered_by">
                 {$bottomPoweredByLink}
