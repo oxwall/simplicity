@@ -630,8 +630,8 @@ body.ow_menu_active {
 .ow_console_item {
 	display: inline-block;
     position: relative;
-    margin: 0 2px 0 0px;
-    padding: 5px 8px 0 6px;
+    margin: 0 10px 0 6px;
+    padding: 5px 0px 0 0px;
 	vertical-align: middle;
 	text-align: left;
 	cursor: pointer;
@@ -749,7 +749,7 @@ div.ow_console_lang_item:hover > span {
 .ow_console .ow_tooltip_top_right.ow_tooltip {
 	top: 32px !important;
 	padding-top: 2px;
-	right: 8px;
+	right: 0px;
 }
 .ow_console .ow_tooltip_top_right .ow_tooltip_tail span {
 	background-position: 1px -6px;
@@ -765,7 +765,7 @@ div.ow_console_lang_item:hover > span {
 .ow_console span.ow_count_wrap {
 	position: absolute;
 	top: 2px;
-	right: 2px;
+	right: -8px;
 }
 .ow_console span.ow_count_bg {
 	border-radius: 8px;
@@ -778,7 +778,7 @@ div.ow_console_lang_item:hover > span {
 }
 .ow_console .ow_tooltip_body span.ow_count_wrap {
 	position: static;
-	margin-top: 5px;
+	margin-top: 2px;
 }
 /* Console list*/
  .ow_console_list_wrapper {
@@ -1281,6 +1281,7 @@ body .forum_search_wrap {
 }
 body .forum_search_wrap input {
 	box-shadow: none;
+	line-height: 19px;
 }
 /* ---- Top Right Tooltip  ---- */
 .ow_tooltip_top_right.ow_tooltip {
@@ -1374,8 +1375,12 @@ body .forum_search_wrap input {
     min-width: 15px;
     height: 18px;
     padding: 0px 3px 0px 0px;
-    background: url(images/context_action_arrow.svg) no-repeat 0px 7px;
+    background: url(images/context_action_arrow.svg) no-repeat 0px 6px;
     vertical-align: top;
+}
+body .ow_context_action_value_block .ow_context_action .ow_context_more,
+body .ow_context_action_value_block .ow_context_action:hover .ow_context_more {
+	background-position: right 8px;
 }
 .ow_context_action:hover,
 .ow_context_action.active {
@@ -1668,6 +1673,9 @@ html body .ow_box_cap_empty .ow_box_cap_body h3 {
 .ow_box.ow_no_cap {
 	border-top: 1px solid #eff2f5;
 }
+.ow_box_empty .ow_box_toolbar_cont {
+	border-bottom: 2px solid #eff2f5;
+}
 .ow_box_toolbar {
 	margin-top: 16px;
 	float: right;
@@ -1847,7 +1855,7 @@ input[type=button]{
     color: #a2acb3;
     font-weight: normal;
     cursor: pointer;
-    height: 30px;
+    height: 40px;
 	font-family: 'core_sans_e45_regular', "Trebuchet MS", "Helvetica CY", sans-serif;
 	text-transform: uppercase;
 	font-size: 15px;
@@ -1881,7 +1889,7 @@ html body.ow input[type=button]{
 span.ow_button {
 	display: inline-block;
 	background-color: transparent;
-	padding: 0px 8px;
+	padding: 0px 10px;
 	border: none;
 }
 span.ow_button:hover {
@@ -2147,7 +2155,7 @@ html body span.ow_lbutton {
 .ow_attachment_btn span.ow_button input[type="button"] {
 	padding: 1px 8px 4px;
 	height: 22px;
-	line-height: 17px;
+	line-height: 19px;
 	background: none;
 }
 /*Video, links embed*/
@@ -2450,7 +2458,7 @@ body .ow_attachments a.video {
     border-top-width: 1px;
 }
 .ow_comments_form_wrap {
-	padding: 6px 6px 4px 6px;
+	padding: 6px 16px 4px 6px;
 	border-width: 1px;
 	min-height: 42px;
 }
@@ -2486,6 +2494,7 @@ body .ow_attachments a.video {
 }
 .ow_comments_item_info {
     margin-left: 56px;
+    padding-top: 8px;
 }
 .ow_comments_item_info textarea.ow_smallmargin {
 	margin-bottom: 6px;
@@ -2598,16 +2607,17 @@ body textarea.ow_newsfeed_status_input.invitation {
 	width: 100%;
 	word-wrap: break-word;
 }
-.ow_comments_input_wrap .ow_comments_input {
-	padding-top: 4px;
+.ow_comments_form_wrap .ow_comments_input_wrap .ow_comments_input {
+	padding-top: 0px;
 	position: relative;
+	margin-top: -2px;
 }
 .ow_comments_input_wrap .ow_comments_input .comments_fake_autoclick {
 	margin-top: 0;
 }
 .ow_comments_input_wrap .ow_comments_input .ow_attachment_icons {
 	position: absolute;
-	top: 9px;
+	top: 5px;
 	right: 4px;
 }
 .ow_comments_input .ow_attachments a {
@@ -2651,8 +2661,31 @@ body textarea.ow_newsfeed_status_input.invitation {
 }
 .ow_bl a:hover {
     border-color: #eff2f5;
-    color: #5b646a;
+    color: #828894;
 }
+.ow_dnd_widget .ow_box_empty .ow_bl.ow_box_toolbar li {
+	margin-bottom: 8px;
+}
+/* Button list in empty box toolbar 
+.ow_dnd_widget .ow_box_empty .ow_box_toolbar_cont {
+	position: relative;
+	min-height: 44px;
+}
+.ow_dnd_widget .ow_box_empty .ow_box_toolbar {
+	position: absolute;
+	bottom: -2px;
+	right: 0px;
+}
+
+.ow_dnd_widget .ow_box_empty .ow_bl.ow_box_toolbar li a {
+	border-bottom-width: 2px;
+	height: 27px;
+}
+.ow_dnd_widget .ow_box_empty .ow_bl.ow_box_toolbar li a:hover {
+	border-color: transparent transparent #2db395 transparent;
+	color: #828894;
+}*/
+/* Blitem */
 span.ow_blitem {
 	background: none;
 	border: 1px solid transparent;
@@ -2685,7 +2718,7 @@ span.ow_blitem input[type="button"] {
 span.ow_blitem:hover,
 span.ow_blitem input:hover {
     border-color: #eff2f5;
-    color: #5b646a;
+    color: #828894;
 }
 /* Button List Cover Image */
 .ow_bg_controls span.ow_blitem{
@@ -3110,12 +3143,12 @@ table.ow_form td.ow_submit{
 	margin-bottom: 12px;
 }
 .ow_regular li {
-	line-height: 17px;
+	line-height: 23px;
 	margin: 0 0 3px 0px;
-	padding: 0px 0px 0px 16px;
+	padding: 0px 0px 0px 26px;
 	background-repeat: no-repeat;
 	background-image: url(images/miniic_li.svg);
-	background-position: left 5px;
+	background-position: left 2px;
 }
 /* ---- End of the Regular listing ---- */
 /* ---- Item Picture Content ---- */
@@ -3671,7 +3704,7 @@ body .ow_avatar_console .ow_avatar_label {
 }
 .ow_message_node{
 	font-size:14px;
-	color: #5b646a;
+	color: #fff;
 	text-align:center;
 	line-height: 24px;
 	margin:15px;
@@ -3695,7 +3728,7 @@ body .ow_avatar_console .ow_avatar_label {
 }
 /*info*/
 .ow_message_cont .ow_message_node.info {
-	background: #fff;
+	background: #36d0ae;
 	border-top:1px solid #36d0ae;
 	border-right:1px solid #36d0ae;
 	border-bottom:1px solid #36d0ae;
@@ -3703,7 +3736,7 @@ body .ow_avatar_console .ow_avatar_label {
 }
 /*warning*/
 .ow_message_cont .ow_message_node.warning {
-	background: #fff;
+	background: #f4b111;
 	border-top:1px solid #f4b111;
 	border-right:1px solid #f4b111;
 	border-bottom:1px solid #f4b111;
@@ -3711,11 +3744,11 @@ body .ow_avatar_console .ow_avatar_label {
 }
 /*error*/
 .ow_message_cont .ow_message_node.error {
-	background: #fff;
-	border-top:1px solid #dc3c65;
-	border-right:1px solid #dc3c65;
-	border-bottom:1px solid #dc3c65;
-	border-left:1px solid #dc3c65;
+	background: #dc3c56;
+	border-top:1px solid #dc3c56;
+	border-right:1px solid #dc3c56;
+	border-bottom:1px solid #dc3c56;
+	border-left:1px solid #dc3c56;
 }
 /* ---- End of the Message (Feedback) styles ---- */
 /*========================================================
@@ -3765,6 +3798,11 @@ table td.ow_txtleft {
 .ow_ajax_floatbox_preloader {
 	width: 100%;
 	height: 50px;
+}
+.ow_side_preloader_wrap .ow_side_preloader {
+	width: 22px;
+	height: 22px;
+	margin-top: 0;
 }
 /* */
 .info {
@@ -4119,6 +4157,9 @@ body .ow_mailbox_convers_info_new.chats .ow_mailbox_convers_info_string a {
 .ow_mailbox_log .ow_dialog_item.odd i {
     display: none;
 }
+.ow_mailbox_log_message .ow_mailbox_convers_info_body {
+	padding-top: 8px;
+}
 .ow_mailbox_convers_actions .ow_miniic_control {
 	margin-right: 0px;
 	border:1px solid transparent;
@@ -4166,6 +4207,22 @@ body .ow_mailbox_log .ow_dialog_item.even .ow_dialog_in_item {
 }
 body .ow_dialog_in_item p{
 	line-height: 15px;
+}
+body .ow_mailbox_right .ow_mailbox_username .ow_chat_status {
+	vertical-align: initial;
+	margin-left: -18px;
+}
+body .ow_mailbox_username,
+body .userisonline .ow_mailbox_username {
+	padding: 4px 0 0 4px;
+}
+body .ow_mailbox_cap .ow_mailbox_avatar {
+	margin-top: 3px;
+}
+.ow_mailbox_table .ow_mailbox_search input {
+	-moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
 }
 /* ---- End of Mailbox styles ---- */
 /* ---- Chat styles ---- */
@@ -4272,7 +4329,7 @@ body .ow_mailchat_new_message .ow_mailchat_select_user a.ow_chat_minimize_btn {
 }
 body .ow_count_block a:hover {
 	background-image: url(images/photo_view_context_up.png);
-	background-position: 233px 5px;
+	background-position: 233px 7px;
 }
 body .ow_mailchat_new_message .ow_mailchat_select_user a.ow_chat_minimize_btn {
 	background-position: center 7px;
@@ -4284,19 +4341,16 @@ body .ow_mailchat_new_message .ow_mailchat_select_user a.ow_chat_minimize_btn {
 .ow_chat_block.ow_active .ow_bot_panel {
 	border-width: 0 0 0 1px;
 }
-.ow_chat_block .ow_bot_panel,
-.ow_top_panel {
+.ow_chat_block .ow_top_panel {
 	border-style: solid;
 	border-color: #eff2f5;
 }
 body span.ow_chat_item_author, 
 body span.ow_chat_item_text,
 body .ow_chat_dialog_wrap .ow_chat_message_block .ow_chat_message textarea,
-body .ow_chat_dialog_wrap .ow_dialog_in_item p,
 body .ow_mailchat_new_message.ow_chat_dialog.ow_active .ow_mailchat_select_user input,
 html body .ow_chat_dialog .ow_chat_subject_block input,
-body .ow_mailchat_autocomplete_inner span.ow_chat_item_author .ow_chat_in_item_author,
-body .ow_mailchat_new_message.ow_chat_dialog.ow_chat_dialog_active .ow_mailchat_select_user .ow_mailchat_new_message_title {
+body .ow_mailchat_autocomplete_inner span.ow_chat_item_author .ow_chat_in_item_author {
 	color:#4c4c4c;
 	font-weight: normal;
 }
@@ -4309,9 +4363,6 @@ body .ow_chat_dialog {
 body .ow_chat_dialog.ow_active {
 	background-color: #fff;
 }
-/*.ow_mailchat_new_message.ow_chat_dialog .ow_author_block.ow_mailchat_selected_user {
-	background-color: #36353b;
-}*/
 body .ow_mailchat_new_message.ow_chat_dialog {
 	border: 1px solid #eff2f5;
 }
@@ -4349,8 +4400,8 @@ body .ow_chat_in_dialog_wrap {
 	border-width: 0 1px 1px;
 }
 body .ow_dialog_date_cap {
-	color: #4c4c4c;
-	background-color: #f4f4f4;
+	color: #828894;
+	background-color: #fff;
 	border-color: #eff2f5;
 }
 .ow_chat_message_block {
@@ -4372,12 +4423,27 @@ body .ow_chat_dialog_wrap .ow_chat_message_block .ow_chat_message textarea.invit
 body .ow_chat_in_dialog .ow_time_block p span.ow_time_text,
 body .ow_mailchat_new_message.ow_chat_dialog .ow_mailchat_select_user.ow_author_block,
 body .ow_chat_dialog .ow_chat_subject_block input {
-	color: #999;
+	color: #828894;
 }
-.ow_chat_block .ow_dialog_in_item {
-	border-radius: 0;
-	-moz-border-radius: 0;
-	-webkit-border-radius: 0;
+body .ow_mailchat_new_message.ow_chat_dialog_active .ow_mailchat_select_user.ow_author_block {
+	background-color: #36353b;
+}
+.ow_mailchat_new_message.ow_chat_dialog.ow_chat_dialog_active .ow_mailchat_select_user .ow_mailchat_new_message_title {
+	color: #9b9a9d;
+}
+body .ow_chat_dialog_active.ow_mailchat_new_message .ow_mailchat_select_user.ow_author_block {
+	border-bottom-color: #36353b;
+}
+.ow_chat_block .ow_dialog_item.even .ow_dialog_in_item,
+.ow_chat_block .ow_dialog_item.odd .ow_dialog_in_item {
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	background: #cad4dd;
+	border-color: #cad4dd;
+}
+body .ow_chat_dialog_wrap .ow_dialog_in_item p {
+	color: #fff;
 }
 body .ow_chat_dialog_wrap .ow_attachments a.attach {
 	border: none;
@@ -4393,8 +4459,8 @@ body .ow_mailchat_new_message .ow_file_attachment_preload {
 	background-image: url(images/ajax_preloader_button.gif);
 }
 body .ow_chat_preloader {
-	height: 20px;
-	width: 20px;
+	height: 22px;
+	width: 22px;
 }
 body form .ow_chat_mailchat_inputarea .toolbar,
 body .ow_mailchat_autocomplete ul li a:hover {
@@ -4433,6 +4499,7 @@ body .ow_chat_mailchat_buttons .ow_attachment_btn span.ow_button input[type="but
 	text-shadow: none;
 	font-family: 'core_sans_e55_medium', "Trebuchet MS", "Helvetica CY", sans-serif;
 	color: #a2acb3;
+	height: 24px;
 }
 body .ow_chat_mailchat_buttons .ow_attachment_btn span.ow_button input[type="submit"]:hover, 
 body .ow_chat_mailchat_buttons .ow_attachment_btn span.ow_button input[type="button"]:hover {
@@ -4463,6 +4530,18 @@ body .ow_mailchat_new_message.ow_chat_dialog.ow_active .ow_author_block .ow_mail
 }
 body .jspDrag {
 	background-color: #ccc;
+}
+.ow_chat .ow_chat_block .ow_count_block a {
+	height: 20px;
+}
+.ow_chat_block .ow_count_wrap {
+	vertical-align: text-bottom;
+}
+.ow_chat .ow_chat_block .ow_bot_panel .ow_count_block {
+	padding-top: 2px;
+}
+body .ow_chat_dialog_wrap .ow_dialog_item i {
+	display: none;
 }
 /* ---- End of Chat styles ---- */
 /* ---- Blogs styles ---- */
@@ -4846,10 +4925,20 @@ body .ow_photo_list.ow_photo_pint_mode .ow_photo_item {
 	-webkit-border-radius: 0px;
 }
 /*Searchbar*/
+.ow_searchbar {
+	border:1px solid #eff2f5;
+	padding: 2px 4px 2px 6px;
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	background: #fff;
+	margin-top: -8px;
+}
 .ow_searchbar .ow_searchbar_ac {
     border: 1px solid #eff2f5;
-    left: 0;
+    left: 9px;
     right: 0;
+    top: 2px;
 }
 .ow_searchbar_ac li {
     background-color: #fff;
@@ -4858,6 +4947,15 @@ body .ow_photo_list.ow_photo_pint_mode .ow_photo_item {
 .ow_searchbar_ac li:hover {
     background-color: #cad4dd;
     color: #fff;
+}
+.ow_searchbar .ow_searchbar_btn {
+	background-position: center;
+}
+.ow_searchbar .ow_searchbar_input input[type="text"] {
+	border: none;
+	background: none;
+	line-height: 14px;
+	font-size: 12px;
 }
 /*Rates*/
 .ow_photoview_info_wrap .ow_photoview_info .ow_rates_wrap {
@@ -5013,7 +5111,6 @@ body ul.ow_newsfeed {
 	float: right;
 	text-align: right;
 	line-height: 24px;
-	color: #828894;
 }
 .ow_newsfeed_context_menu {
     display: none;
@@ -5023,6 +5120,10 @@ body ul.ow_newsfeed {
 }
 .ow_newsfeed_control {
 	display: inline-block;
+	font-size: 14px;
+}
+.ow_newsfeed_control > a {
+	margin-right: 12px;
 }
 body .ow_newsfeed_control .ow_newsfeed_string {
 	display: inline-block;
@@ -5196,6 +5297,9 @@ body .newsfeed-attachment-preview.item_loaded {
 .index-NEWSFEED_CMP_SiteFeedWidget .ow_status_update_btn_block .ow_attachments a:hover {
 	background-position: 0 -43px;
 }
+.ow_status_update_btn_block {
+	line-height: 22px;
+}
 /* ---- Group styles ---- */
 body .ow_group_brief_info .details {
 	padding-left: 8px;
@@ -5274,10 +5378,10 @@ body .ow_table_1 tr td.ow_gateways_td_empty + td {
 
 .ow_connect_text {
 	background: url('images/miniic_li.svg') no-repeat left center;
-	padding: 0px 0 0 16px;
+	padding: 0px 0 0 26px;
 	margin-right: 16px;
 	float: left;
-	line-height: 22px;
+	line-height: 23px;
 }
 .ow_sign_in .connect_button_list {
 	padding: 0px;
@@ -5638,6 +5742,12 @@ span.ic_refresh{
 	display: inline-block;
 }
 /* ---- End of the Eye for hidden field styles ---- */
+/* ---- Facebook button styles */
+.fb_button:hover {
+	color: #fff
+}
+/* ---- End of the Facebook button styles */
+
 .maintenance_cont h1 {
 	padding-left: 23px;
 	background-position: left center; 
@@ -6117,6 +6227,13 @@ h1.page_title{
 	.ow_attachment_btn span.ow_button input[type="button"] {
 		line-height: 21px;
 	}
+	.ow_content_menu{
+		border-bottom: none;
+	}
+	.ow_content_menu li {
+		display: block;
+		float: none;
+	}
 	.ow_content_menu li a {
 		font-size: 1.2rem;
 	}
@@ -6289,6 +6406,7 @@ h1.page_title{
     	padding: 0;
     }
     .ow_fw_menu .ow_searchbar {
+    	margin-top: 4px;
     	padding-right: 24px;
     	width: 100%;
     	display: inline-block !important;
