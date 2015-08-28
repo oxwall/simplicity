@@ -3853,8 +3853,9 @@ div.ow_nomargin {
 .ow_tiny {
     font-size: 12px;
 }
-.ow_disabled{
-    background: #ccc;
+body .ow_disabled{
+    background: #fff;
+    opacity: 0.3;
 }
 .ow_highlight{
     background: #aaffaa;
@@ -3888,7 +3889,7 @@ tr.ow_alt2 td{
     background-color: #fff;
 }
 .ow_anno {
-	background:#fff url(images/ic_warning.png) no-repeat scroll 15px 45%;
+	background:#fff url(images/ic_warning.svg) no-repeat scroll 15px 45%;
 	border:1px solid #ccd6de;
 	padding:10px;
 }

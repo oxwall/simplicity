@@ -21,7 +21,7 @@
 	</div>
 </div>
 <div id="main" class="clearfix">
-	<header>
+	<header id="header">
 		 <nav id="head-navigation">
 			<a href="{$buttonData.left.href}" class="owm_nav_menu{if !empty($buttonData.left.class)} {$buttonData.left.class}{/if}" id="{$buttonData.left.id}"{$buttonData.left.extraString}></a>
 			<a href="{$buttonData.right.href}" class="owm_nav_profile{if !empty($buttonData.left.class)} {$buttonData.right.class}{/if}" id="{$buttonData.right.id}"{$buttonData.right.extraString}></a>
@@ -31,7 +31,7 @@
 			<div class="owm_top_title" id="owm_heading">{$heading}</div>
 		 </nav>
 	</header>
-	<section>{$content}</section>
+	<section id="content">{$content}</section>
 	<div class="owm_overlay" id="owm_overlay" style="display:none;"></div>
 </div>
 {decorator name='floatbox' heading=$heading}
