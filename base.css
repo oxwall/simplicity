@@ -1092,10 +1092,11 @@ ul.ow_console_dropdown li:last-child .ow_console_dropdown_cont {
     100% {opacity: 1;} 
 } 
 .ow_menu_more_list a {
-	display: inline-block;
+	display: block;
 	padding: 0px 24px 14px;
 	font-size: 15px;
 	text-transform: uppercase;
+	white-space: nowrap;
 }
 .ow_menu_more_list a:hover {
 	text-decoration: none;
@@ -1832,7 +1833,8 @@ textarea{
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;    
 }
-input ~ label{
+input[type=checkbox] ~ label,
+input[type=radio] ~ label {
 	vertical-align: top;
 }
 input[type=text],
