@@ -1065,7 +1065,7 @@ ul.ow_console_dropdown li:last-child .ow_console_dropdown_cont {
 	position: absolute;
 	top: 0px;
 	right: -1px;
-	padding: 25px 24px 10px;
+	padding: 25px 0px 10px;
 	background-color: #fff;
 	border: 1px solid #eff2f5;
 	display: none;
@@ -1091,10 +1091,9 @@ ul.ow_console_dropdown li:last-child .ow_console_dropdown_cont {
     0% {opacity: 0;} 
     100% {opacity: 1;} 
 } 
-.ow_menu_more_list li {
-	margin-bottom: 14px;
-}
 .ow_menu_more_list a {
+	display: inline-block;
+	padding: 0px 24px 14px;
 	font-size: 15px;
 	text-transform: uppercase;
 }
