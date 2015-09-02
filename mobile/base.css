@@ -4753,11 +4753,6 @@ body a.owm_suitup-control.active {
     color: #4d4d4d;
 }
 /* ======== End of the Winks styles ======== */
-/* ======== Index styles ======== */
-.owm_index_promo_img {
-    background-image: none; /** OW_Control type:image, key:promoImagemobile, section:3. Mobile, label: Index promo **/
-}
-/* ========  End of the Index styles ======== */
 /* ======== Search styles ======== */
 .owm_user_search_form {
     padding-top: 10px;

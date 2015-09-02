@@ -323,7 +323,7 @@ body > .ow_page_wrap {
 	padding-top: 50px;
 }
 .ow_logo {
-	background-image: url(images/logo.png); /** OW_Control type:color, key:logoImage, section:1. General Settings, label: 3. Logo image **/
+	background-image: url(images/logo.png); /** OW_Control type:image, key:logoImage, section:1. General Settings, label: 3. Logo image **/
 	background-size: auto 41px;
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -1929,12 +1929,6 @@ span.ow_button span {
 .ow_btn_delimiter span.ow_button span.ow_button {
 	margin: 0px;
 }
-html body.ow span.ow_button {
-}
-body.ow input.ow_inprogress,
-body.ow .ow_inprogress {
-    background-image: url(images/ajax_preloader_button.gif);
-}
 *+html input[type=submit],
 *+html input[type=button]{
     overflow: visible;
@@ -1996,16 +1990,28 @@ body:not(:-moz-handler-blocked) .ow_negative input[type=button] {
 }
 /* ---- End of Positive and Negative buttons ---- */
 /* Color buttons */
-html body div .ow_green {
-    color: #3ac565;
+html body div .ow_green,
+span.ow_blitem.ow_green input[type=submit],
+span.ow_blitem.ow_green input[type=button],
+.ow_bl a.ow_green:hover {
+    color: #57ba98;
 }
-html body div .ow_red{
-    color: #f55e55;
-}
-html body div .ow_mild_red {
+html body div .ow_red,
+span.ow_blitem.ow_red input[type=submit],
+span.ow_blitem.ow_red input[type=button],
+.ow_bl a.ow_red:hover {
     color: #ee3d32;
 }
-html body div .ow_mild_green {
+html body div .ow_mild_red,
+span.ow_blitem.ow_mild_red input[type=submit],
+span.ow_blitem.ow_mild_red input[type=button],
+.ow_bl a.ow_mild_red:hover {
+    color: #ee3d32;
+}
+html body div .ow_mild_green,
+span.ow_blitem.ow_mild_green input[type=submit],
+span.ow_blitem.ow_mild_green input[type=button],
+.ow_bl a.ow_mild_green:hover {
 	color: #57ba98;
 }
 html body .ow_button.ow_red,
@@ -2078,6 +2084,7 @@ span.ow_lbutton {
 	display: inline-block;
 	font-family: 'core_sans_e55_medium', "Trebuchet MS", "Helvetica CY", sans-serif;
 	vertical-align: text-bottom;
+	color: #5b646a;
 }
 html body a.ow_lbutton,
 html body span.ow_lbutton {
@@ -2085,7 +2092,6 @@ html body span.ow_lbutton {
 }
 .ow_lbutton:hover{
 	border-color: #eff2f5;
-	color: #5b646a;
 	cursor: pointer;
     text-decoration: none;
 }
@@ -3508,6 +3514,11 @@ html body .ow_button:hover .ow_ic_warning{background-image: url(data:image/svg+x
 html body .ow_button:hover .ow_ic_write{background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20enable-background%3D%22new%200%200%2020%2020%22%3E%3Cg%20fill%3D%22%23fff%22%3E%3Cpath%20d%3D%22m4.851%2017.978c-2.851.022-2.851.022-2.851.022s0%200%20.022-2.852c.002-.321.906-.906.906-.906l2.829%202.828c.001%200-.586.905-.906.908%22/%3E%3Cpath%20d%3D%22m16.932%203.068c-.78-.781-1.312-1.516-2.094-.734l-1.346%201.346%202.828%202.828%201.346-1.346c.781-.782.047-1.313-.734-2.094%22/%3E%3Cpath%20transform%3D%22matrix%28.7071-.7071.7071.7071-4.533%209.839%29%22%20d%3D%22m3.401%208.39h12.417v4h-12.417z%22/%3E%3C/g%3E%3C/svg%3E);}
 html body .ow_button:hover .ow_ic_close{background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20enable-background%3D%22new%200%200%2020%2020%22%3E%3Cg%20fill%3D%22%23fff%22%3E%3Cpath%20d%3D%22m2.301%203.756c-.391-.391-.391-1.024-.001-1.414.391-.391%201.023-.391%201.414%200l13.913%2013.914c.39.391.391%201.023%200%201.414-.391.391-1.024.391-1.415%200l-13.911-13.914%22/%3E%3Cpath%20d%3D%22m16.14%202.401c.43-.43%201.095-.462%201.485-.072.391.391.358%201.055-.071%201.485l-13.822%2013.822c-.429.429-1.094.462-1.485.071-.39-.391-.358-1.057.071-1.485l13.822-13.821%22/%3E%3C/g%3E%3C/svg%3E);}
 /*---- End of the Icons on hover for buttons styles ----*/
+html body.ow div input.ow_inprogress,
+html body.ow div .ow_inprogress,
+html body div .ow_button:hover .ow_inprogress {
+    background-image: url(images/ajax_preloader_button.gif);
+}
 html body div .ow_button span,
 html body div .ow_button span.ow_negative,
 html body div .ow_button:hover span.ow_negative,
@@ -3515,6 +3526,9 @@ html body div .ow_button:hover span.ow_negative input,
 html body div .ow_button span.ow_negative .ow_inprogress {
 	background-image: none;
 	background-repeat: no-repeat;
+}
+html body div span.ow_button:hover span {
+	background-image: none !important;
 }
 .ow_no_cap span.ow_ic_up_arrow {
 	width: 20px;
@@ -5904,7 +5918,7 @@ h1.page_title{
     	min-width: 480px;
     }
     .ow_site_panel {
-		min-width: 480px;
+		min-width: 320px;
 	}
     .floatbox_container {
     	max-width: 100%;
