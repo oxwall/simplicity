@@ -3087,7 +3087,7 @@ html body div .ow_bg_controls .ow_green{
     border-left-style: solid;
     vertical-align: top;
 }
-.ow_table_3 td.ow_label{
+.ow_content .ow_table_3 td.ow_label{
     border: none;
     color: #5b646a;
     text-align: right;
@@ -3514,10 +3514,13 @@ html body .ow_button:hover .ow_ic_warning{background-image: url(data:image/svg+x
 html body .ow_button:hover .ow_ic_write{background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20enable-background%3D%22new%200%200%2020%2020%22%3E%3Cg%20fill%3D%22%23fff%22%3E%3Cpath%20d%3D%22m4.851%2017.978c-2.851.022-2.851.022-2.851.022s0%200%20.022-2.852c.002-.321.906-.906.906-.906l2.829%202.828c.001%200-.586.905-.906.908%22/%3E%3Cpath%20d%3D%22m16.932%203.068c-.78-.781-1.312-1.516-2.094-.734l-1.346%201.346%202.828%202.828%201.346-1.346c.781-.782.047-1.313-.734-2.094%22/%3E%3Cpath%20transform%3D%22matrix%28.7071-.7071.7071.7071-4.533%209.839%29%22%20d%3D%22m3.401%208.39h12.417v4h-12.417z%22/%3E%3C/g%3E%3C/svg%3E);}
 html body .ow_button:hover .ow_ic_close{background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20enable-background%3D%22new%200%200%2020%2020%22%3E%3Cg%20fill%3D%22%23fff%22%3E%3Cpath%20d%3D%22m2.301%203.756c-.391-.391-.391-1.024-.001-1.414.391-.391%201.023-.391%201.414%200l13.913%2013.914c.39.391.391%201.023%200%201.414-.391.391-1.024.391-1.415%200l-13.911-13.914%22/%3E%3Cpath%20d%3D%22m16.14%202.401c.43-.43%201.095-.462%201.485-.072.391.391.358%201.055-.071%201.485l-13.822%2013.822c-.429.429-1.094.462-1.485.071-.39-.391-.358-1.057.071-1.485l13.822-13.821%22/%3E%3C/g%3E%3C/svg%3E);}
 /*---- End of the Icons on hover for buttons styles ----*/
-html body.ow div input.ow_inprogress,
-html body.ow div .ow_inprogress,
-html body div .ow_button:hover .ow_inprogress {
+html body.ow div .ow_inprogress {
     background-image: url(images/ajax_preloader_button.gif);
+}
+html body.ow div input.ow_inprogress,
+html body div .ow_button:hover .ow_inprogress {
+    background-image: url(images/ajax_preloader_button.svg);
+    background-position: right -4px center;
 }
 html body div .ow_button span,
 html body div .ow_button span.ow_negative,
@@ -4011,6 +4014,10 @@ table.ow_form td.ow_autowidth {
     text-align: center;
     width: 8%;
 }
+.ow_forum_topic .ow_icon .ow_lbutton:hover {
+	border-color: transparent;
+	cursor: default; 
+}
 body.htmlarea_styles blockquote.ow_quote,
 blockquote.ow_quote{
     margin: 10px 0 10px 40px;
@@ -4457,6 +4464,7 @@ body .ow_chat_dialog_active.ow_mailchat_new_message .ow_mailchat_select_user.ow_
 	-webkit-border-radius: 15px;
 	background: #cad4dd;
 	border-color: #cad4dd;
+	font-size: 13px;
 }
 body .ow_chat_dialog_wrap .ow_dialog_in_item p {
 	color: #fff;
@@ -4598,7 +4606,14 @@ body .ow_chat_dialog_wrap .ow_dialog_item i {
 /* ---- Video styles ---- */
 .ow_video_list .ow_alt1,
 .ow_video_list .ow_alt2 {
-	padding: 24px 0px 24px 24px;
+	padding: 24px 0px 24px 0px;
+	-webkit-align-content: stretch; 
+  	align-content: stretch;
+  	justify-content: center;
+}
+.ow_video_list .ow_alt1.clearfix,
+.ow_video_list .ow_alt2.clearfix {
+	display: flex;
 }
 .ow_video_player{
     text-align: center;
@@ -4607,9 +4622,9 @@ body .ow_chat_dialog_wrap .ow_dialog_item i {
     margin: 8px 0 20px;
 }
 .ow_video_list_item{
-    float: left;
+	margin: 0px 3.5%;
     max-height: 165px;
-    width: 20%;
+    width: 120px;
 }
 .ow_other_video_item_title{
     margin-left: 88px;
@@ -5737,6 +5752,13 @@ body.ow.base_sign_in {
 .fullsize-photo {
 	display: none;
 }
+/* Image Gallery scroll */
+.ow_page_padding > .ow_content_menu_wrap ~ div {
+	overflow-y: visible !important;
+}
+.ow_page_padding > .ow_content_menu_wrap ~ div > table {
+	width: 95% !important;
+}
 /* thickbox 8aa */
 .ow_preloader_content_cont{
 	width: 30px;
@@ -5753,8 +5775,9 @@ span.ic_refresh{
 /* ---- End of the Captcha styles ---- */
 /* ---- Eye for hidden field styles ---- */
 .ow_field_eye {
-	padding-left: 14px;
-	background:url(images/miniic_field_eye.svg) 0 7px no-repeat; 
+	padding-left: 18px;
+	background:url(images/miniic_field_eye.svg) 0 3px no-repeat;
+	background-size: 15px 15px;
 	display: inline-block;
 }
 /* ---- End of the Eye for hidden field styles ---- */
@@ -5870,8 +5893,14 @@ h1.page_title{
     	display: block;
     }
     /*Video*/
+    .ow_video_list .clearfix.ow_alt1,
+    .ow_video_list .clearfix.ow_alt2 {
+    	display: block;
+    }
     .ow_video_list_item {
+    	float: left;
     	width: 100%;
+    	margin: 0px;
     	padding: 24px 0 24px 24px;
     	border-bottom: 1px solid #eff2f5;
     	box-sizing: border-box;
