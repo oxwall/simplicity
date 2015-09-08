@@ -4480,10 +4480,10 @@ body a.owm_suitup-control.active {
 }
 .owm_card_user_pic {
     float: left;
-    margin-right: -36px;
+    margin-right: -52px;
 }
 .owm_card_user_info {
-    padding-left: 44px;
+    padding-left: 62px;
 }
 .owm_card_user_name {
     display: inline-block;
