@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <theme>
-    <name>simplicity</name>
+    <name>Simplicity</name>
     <key>simplicity</key>
     <version>1.0</version>
     <compatibility>1.7 and higher</compatibility>
@@ -9,9 +9,9 @@
     <author>Oxwall Foundation</author>
     <authorEmail>themes@oxwall.org</authorEmail>
     <authorUrl>http://www.oxwall.org/foundation</authorUrl>
-    <developerKey>f3289fc408b184ccb078e4c43971508e</developerKey>
-    <build>1005</build>
+    <developerKey>e547ebcf734341ec11911209d93a1054</developerKey>
+    <build>9700</build>
     <copyright>(C) 2012 Oxwall Foundation. All rights reserved.</copyright>
-    <license>The OSCL License</license>
-    <licenseUrl>http://www.oxwall.org/store/oscl</licenseUrl>
+    <license>The BSD License</license>
+    <licenseUrl>http://www.opensource.org/licenses/bsd-license.php</licenseUrl>
 </theme>
