@@ -3189,6 +3189,9 @@ only screen and (min-device-pixel-ratio : 2) {
     border: none;
     color: #f42217;
 }
+.owm_context_action_list_item.owm_green {
+    color: #339933;
+}
 .owm_context_pos_right {
     right: 0px;
 }
