@@ -5747,6 +5747,10 @@ body.ow.base_sign_in {
  	background-color: #93999f;
  	color: #fff;
 }
+/* */
+body .ow_gift_templates .ow_gift_checked {
+	background-image: url(images/ic_ok.svg);
+}
 /*========================================================
         [17] Misc        __misc
   ========================================================*/
