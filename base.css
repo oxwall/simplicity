@@ -1217,6 +1217,9 @@ body .ow_vertical_nav_item {
 .ow_vertical_nav_item.selected {
    	background-color: #fff;
 }
+.ow_moderation_wrap .ow_moderation_sticked {
+	top: 70px;
+}
 /* ---- End of the Vertical menu styles ---- */
 /*========================================================
         [7] Pagination        __pagination
