@@ -4249,6 +4249,7 @@ body .ow_mailbox_right .ow_mailbox_username {
 }
 body .ow_mailbox_cap .ow_mailbox_avatar {
 	margin-top: 3px;
+	margin-left: -56px;
 }
 .ow_mailbox_table .ow_mailbox_search input {
 	-moz-border-radius: 15px;
