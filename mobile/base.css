@@ -405,12 +405,15 @@ html[dir=rtl] .owm_sidebar_right_active #main {
 .owm_sidebar_right h3 {
     font-size: 87%;
     line-height: 22px;
-    color: #afb6c0;
+    color: #afb6c0; /** OW_Control type:color, key:mobileTextColor, section:3. Mobile, label: 6. Text color **/
 }
 .owm_sidebar_left_header_txt a {
     text-decoration: none;
     color: #fff;
     display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 .owm_sidebar_left_padding {
     padding: 0px;
@@ -584,7 +587,7 @@ html[dir=rtl] .owm_sidebar_right_active #main {
 }
 .owm_sidebar_profile_btn {
     display: block;
-    color: #afb6c0;
+    color: #afb6c0; /** OW_Control type:color, key:mobileTextColor, section:3. Mobile, label: 6. Text color **/
     font-family: 'helveticaneuecyrmedium', Helvetica Neue, Helvetica, Arial, sans-serif;
     padding: 7px 0;
     -moz-border-radius: 4px;
@@ -600,7 +603,7 @@ html[dir=rtl] .owm_sidebar_right_active #main {
     text-decoration: none;
 }
 .owm_sidebar_profile_block input.owm_sidebar_profile_logout {
-    color: #afb6c0;
+    color: #afb6c0; /** OW_Control type:color, key:mobileTextColor, section:3. Mobile, label: 6. Text color **/
     width: 100%;
     font-size: 125%;
     padding-top: 7px;
@@ -711,6 +714,12 @@ only screen and (min-device-pixel-ratio : 2) {
     text-align: center;
     font-size: 118.75%;
     line-height: 25px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 @media only screen and (max-width : 480px) {
     .owm_top_title {
@@ -878,7 +887,7 @@ only screen and (min-device-pixel-ratio : 2) {
     font-size: 81.25%;
     font-family: 'helveticaneuecyrmedium', Helvetica Neue, Helvetica, Arial, sans-serif;
     padding: 14px 20px 14px;
-    color: #afb6c0;
+    color: #afb6c0; /** OW_Control type:color, key:mobileTextColor, section:3. Mobile, label: 6. Text color **/
     background-color: #f8f9fb;
     display: inline-block;
 }
@@ -909,7 +918,7 @@ only screen and (min-device-pixel-ratio : 2) {
 .owm_box_menu_item {
     display: inline-block;
     padding: 0 10px;
-    color: #afb6c0;
+    color: #afb6c0; /** OW_Control type:color, key:mobileTextColor, section:3. Mobile, label: 6. Text color **/
     font-size: 81.25%;
     font-family: 'helveticaneuecyrmedium', Helvetica Neue, Helvetica, Arial, sans-serif;
     background-color: #e6e9ef;
@@ -1129,7 +1138,7 @@ only screen and (min-device-pixel-ratio : 2) {
 .owm_context_action_list_item {
     display: block;
     background-color: #e6e9ef;
-    color: #afb6c0;
+    color: #afb6c0; /** OW_Control type:color, key:mobileTextColor, section:3. Mobile, label: 6. Text color **/
     padding: 0 13px;
     text-decoration: none;
     -webkit-border-radius: 4px;
@@ -1168,7 +1177,7 @@ only screen and (min-device-pixel-ratio : 2) {
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
-    color: #afb6c0;
+    color: #afb6c0; /** OW_Control type:color, key:mobileTextColor, section:3. Mobile, label: 6. Text color **/
     display: block;
     outline: medium none;
     padding: 0 13px;
@@ -1473,7 +1482,7 @@ only screen and (min-device-pixel-ratio : 2) {
     border-right-width: 0px;
 }
 .owm_card_toolbar_btns a {
-    color: #afb6c0;
+    color: #afb6c0; /** OW_Control type:color, key:mobileTextColor, section:3. Mobile, label: 6. Text color **/
     display: block;
     padding: 16px 0px;
     text-align: center;    
@@ -1614,7 +1623,7 @@ textarea.owm_invitation,
 .invitation,
 input.invitation,
 textarea.invitation  {
-    color: #afb6c0;
+    color: #afb6c0; /** OW_Control type:color, key:mobileTextColor, section:3. Mobile, label: 6. Text color **/
 }
 .owm_input_wrap {
     background: #fff; /** OW_Control type:color, key:mobileBoxColor, section:3. Mobile, label: 4. Box color **/
@@ -1655,7 +1664,7 @@ input[type=submit],
 }
 .owm_btn_wide a {
     font-size: 125%;
-    color: #afb6c0;
+    color: #afb6c0; /** OW_Control type:color, key:mobileTextColor, section:3. Mobile, label: 6. Text color **/
     background: #fff; 
     width: 100%;
     display: block;
@@ -1694,7 +1703,7 @@ input[type=submit],
     text-decoration: none;
     text-align: center;
     background-color: #fff;
-    color: #afb6c0;
+    color: #afb6c0; /** OW_Control type:color, key:mobileTextColor, section:3. Mobile, label: 6. Text color **/
     border: 2px solid #c6ced8;/** OW_Control type:color, key:mobileBorderColor, section:3. Mobile, label: 5. Border color **/
 }
 .owm_fb_btn span {
@@ -1758,7 +1767,7 @@ input[type=submit],
 .owm_btn_list_item {
     display: block;
     line-height: 32px;
-    color: #afb6c0;
+    color: #afb6c0; /** OW_Control type:color, key:mobileTextColor, section:3. Mobile, label: 6. Text color **/
     font-size: 81%;
     font-family: 'helveticaneuecyrmedium', Helvetica Neue, Helvetica, Arial, sans-serif;
     padding: 0px 13px;  
@@ -1882,11 +1891,11 @@ ul.owm_regular li {
 /* ======== Content list ======== */
 .owm_content_list_item {
     padding: 10px;
-    border-top: 1px solid #c6ced8;/** OW_Control type:color, key:mobileBorderColor, section:3. Mobile, label: 5. Border color **/
+    border-top: 1px solid #ecf1f6;/** OW_Control type:color, key:mobileBorderColor, section:3. Mobile, label: 5. Border color **/
     background-color: #fff; /** OW_Control type:color, key:mobileBoxColor, section:3. Mobile, label: 4. Box color **/
 }
 .owm_content_list_item:last-child {
-    border-bottom: 1px solid #c6ced8;/** OW_Control type:color, key:mobileBorderColor, section:3. Mobile, label: 5. Border color **/
+    border-bottom: 1px solid #ecf1f6;/** OW_Control type:color, key:mobileBorderColor, section:3. Mobile, label: 5. Border color **/
 }
 .owm_user_list_item {
     padding-right: 38px;
@@ -2035,7 +2044,7 @@ only screen and (min-device-pixel-ratio : 2) {
             }
 }
 .owm_sidebar_msg_block .owm_lbutton {
-    color: #afb6c0;
+    color: #afb6c0; /** OW_Control type:color, key:mobileTextColor, section:3. Mobile, label: 6. Text color **/
     background: #e6e9ef;
 }
 .owm_lbutton .owm_lbutton_ico span {
@@ -2178,7 +2187,7 @@ only screen and (min-device-pixel-ratio : 2) {
 }
 .owm_profile_header .owm_profile_offline span {
     display: inline-block;
-    color: #afb6c0;
+    color: #afb6c0; /** OW_Control type:color, key:mobileTextColor, section:3. Mobile, label: 6. Text color **/
 }
 .owm_profile_block .owm_btn_list {
     padding: 0px 0px 0px 22px;
@@ -2411,7 +2420,7 @@ only screen and (min-device-pixel-ratio : 2) {
     text-align: right;
     padding: 0px 6px;
     line-height: 1.3em;
-    color: #afb6c0;
+    color: #afb6c0; /** OW_Control type:color, key:mobileTextColor, section:3. Mobile, label: 6. Text color **/
 }
 .owm_newsfeed_header_txt .owm_newsfeed_date {
     font-size: 100%;
@@ -2432,7 +2441,7 @@ only screen and (min-device-pixel-ratio : 2) {
     margin: 0px 10px 0px;
     padding: 18px 46px 14px 0px;
     font-size: 92.86%;
-    color: #afb6c0;
+    color: #afb6c0; /** OW_Control type:color, key:mobileTextColor, section:3. Mobile, label: 6. Text color **/
 }
 .owm_newsfeed_item_no_body .owm_newsfeed_header {
     font-size: 100%;
@@ -2458,7 +2467,7 @@ only screen and (min-device-pixel-ratio : 2) {
     font-size: 92.86%;
     padding: 18px 36px 18px 0px;
     margin: 0px 10px 0px;
-    color: #afb6c0;
+    color: #afb6c0; /** OW_Control type:color, key:mobileTextColor, section:3. Mobile, label: 6. Text color **/
 }
 .owm_newsfeed_responded .owm_newsfeed_header {
     border-top: 1px solid #ecf1f6;/** OW_Control type:color, key:mobileBorderColor, section:3. Mobile, label: 5. Border color **/
@@ -2630,7 +2639,7 @@ only screen and (min-device-pixel-ratio : 2) {
     }
 }
 .owm_newsfeed_control_counter {
-    color: #afb6c0;
+    color: #afb6c0; /** OW_Control type:color, key:mobileTextColor, section:3. Mobile, label: 6. Text color **/
     display: inline-block;
     line-height: 36px;
     padding-left: 48px;
@@ -2653,7 +2662,7 @@ only screen and (min-device-pixel-ratio : 2) {
     text-decoration: none;
 }
 .owm_newsfeed_control_txt {
-    color: #afb6c0;
+    color: #afb6c0; /** OW_Control type:color, key:mobileTextColor, section:3. Mobile, label: 6. Text color **/
     font-family: 'helveticaneuecyrmedium', Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 .owm_newsfeed_control_txt ~ .owm_newsfeed_control_counter {
@@ -2734,7 +2743,7 @@ only screen and (min-device-pixel-ratio : 2) {
     border-top: none;
 }
 .owm_newsfeed_ulist_count {
-    color: #afb6c0;
+    color: #afb6c0; /** OW_Control type:color, key:mobileTextColor, section:3. Mobile, label: 6. Text color **/
     float: left;
     margin-right: 17px;
     padding-top: 8px;
@@ -2941,7 +2950,7 @@ only screen and (min-device-pixel-ratio : 2) {
     font-size: 107.69%;
 }
 .owm_newsfeed_comment_date {
-    color: #afb6c0;
+    color: #afb6c0; /** OW_Control type:color, key:mobileTextColor, section:3. Mobile, label: 6. Text color **/
 }
 .owm_newsfeed_comment_input textarea {
     font-size: 92.86%;
@@ -2977,7 +2986,7 @@ only screen and (min-device-pixel-ratio : 2) {
     display: inline-block;
     line-height: 39px;
     font-size: 92.86%;
-    color: #afb6c0;
+    color: #afb6c0; /** OW_Control type:color, key:mobileTextColor, section:3. Mobile, label: 6. Text color **/
 }
 /* ======== End of the Newsfeed styles ======== */
 /* ======== Photo styles ======== */
@@ -3103,7 +3112,7 @@ only screen and (min-device-pixel-ratio : 2) {
 }
 .owm_upload_choose_label,
 .owm_upload_replace_label {
-    color: #afb6c0;
+    color: #afb6c0; /** OW_Control type:color, key:mobileTextColor, section:3. Mobile, label: 6. Text color **/
 }
 .owm_upload_photo_attach_wrap .owm_upload_replace_label,
 .owm_upload_photo_attach_wrap .owm_upload_img_name_label {
@@ -3182,7 +3191,7 @@ only screen and (min-device-pixel-ratio : 2) {
 }
 .owm_choose_album {
     position: relative;
-    color: #afb6c0;
+    color: #afb6c0; /** OW_Control type:color, key:mobileTextColor, section:3. Mobile, label: 6. Text color **/
     padding: 5px 7px 6px;    
     font-size: 78.13%;
     text-decoration: none;
@@ -3266,7 +3275,7 @@ only screen and (min-device-pixel-ratio : 2) {
     padding-bottom: 2px;
 }
 .owm_photo_date {
-    color: #afb6c0;
+    color: #afb6c0; /** OW_Control type:color, key:mobileTextColor, section:3. Mobile, label: 6. Text color **/
 }
 .owm_photo_descr {
     font-size: 114.28%;
@@ -3410,7 +3419,7 @@ only screen and (min-device-pixel-ratio : 2) {
     padding: 8px;
     font-family: 'helveticaneuecyrmedium', Helvetica Neue, Helvetica, Arial, sans-serif;
     font-size: 81.25%;
-    color: #afb6c0;
+    color: #afb6c0; /** OW_Control type:color, key:mobileTextColor, section:3. Mobile, label: 6. Text color **/
     text-align: center;
     height: 18px;
     line-height: 18px;
@@ -3527,6 +3536,9 @@ only screen and (min-device-pixel-ratio : 2) {
 }
 .owm_load_earlier {
     display: inline-block;
+}
+.owm_mchat_search_list .owm_user_list_name {
+    padding-left: 62px;
 }
 /* ======== Chat Window ======== */
 .owm_chat_back {
@@ -4304,7 +4316,7 @@ input[type="radio"] ~ label {
 }
 .owm_link_field input[type=text].invitation,
 .owm_video_field input[type=text].invitation {
-    color: #afb6c0;
+    color: #afb6c0; /** OW_Control type:color, key:mobileTextColor, section:3. Mobile, label: 6. Text color **/
     text-decoration: none;
 }
 .owm_video_attach_preview,
@@ -4354,7 +4366,7 @@ input[type="radio"] ~ label {
     overflow: hidden;
     position: relative;
     margin: 0px;
-    color: #afb6c0;
+    color: #afb6c0; /** OW_Control type:color, key:mobileTextColor, section:3. Mobile, label: 6. Text color **/
     padding-right: 19px;
 }
 .owm_attach_label {
