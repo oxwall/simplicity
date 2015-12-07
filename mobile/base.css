@@ -3462,6 +3462,16 @@ only screen and (min-device-pixel-ratio : 2) {
 .owm_convers_list .owm_convers_item_active {
     background: #fff;
 }
+.owm_convers_list .owm_convers_item_active .owm_sidebar_convers_mail_theme {
+    font-family: 'helveticaneuecyrbold', Helvetica Neue, Helvetica, Arial, sans-serif;
+    color: #000;
+    font-size: larger;
+}
+.owm_convers_list .owm_convers_item_active .owm_user_list_name span {
+    font-family: 'helveticaneuecyrbold', Helvetica Neue, Helvetica, Arial, sans-serif;
+    color: #000;
+    font-size: larger;
+}
 .owm_sidebar_convers_status_ico {
     display: block;
     height: 10px;
