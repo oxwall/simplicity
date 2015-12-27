@@ -891,7 +891,7 @@ only screen and (min-device-pixel-ratio : 2) {
     font-family: 'helveticaneuecyrmedium', Helvetica Neue, Helvetica, Arial, sans-serif;
     padding: 14px 20px 14px;
     color: #afb6c0; /** OW_Control type:color, key:mobileTextColor, section:3. Mobile, label: 6. Text color **/
-    background-color: #f8f9fb;
+    background-color: #fff;
     display: inline-block;
 }
 .owm_content_menu li:first-child a {
@@ -911,7 +911,7 @@ only screen and (min-device-pixel-ratio : 2) {
     border-bottom-right-radius: 4px;
 }
 .owm_content_menu li.active a {
-    background-color: #fff;
+    background-color: #f8f9fb;
 }
 .owm_content_menu a:hover {
     text-decoration: none;
@@ -3402,10 +3402,10 @@ only screen and (min-device-pixel-ratio : 2) {
     float: left;
     width: 50%;
     word-wrap: break-word;
-    background: #e6e9ef;
+    background: #f8f9fd;
 }
 .owm_sidebar_sub_menu_item_active {
-    background: #f8f9fd;
+    background: #e6e9ef;
 }
 .owm_sidebar_sub_menu_item:first-child {
     -webkit-border-radius: 5px 0px 0px 5px;
@@ -3444,7 +3444,7 @@ only screen and (min-device-pixel-ratio : 2) {
     height: 24px;
     width: 18px;
     padding: 5px 8px;
-    background: #e6e9ef url(images/ico_search.png) no-repeat center center;
+    background: url(images/ico_search.png) no-repeat center right;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -4641,6 +4641,155 @@ input[type="radio"] ~ label {
         }
 }
 /* ======== End of the Attachments styles ======== */
+/* ======== Subscribe page styles ======== */
+.owm_subscribe_page {
+    max-width: 640px;
+    margin: 0 auto;
+}
+/* Element with arrow */
+.owm_sidemenu_item_wrap {
+    padding-right: 10px;
+}
+.owm_sidemenu_item {
+    display: block;
+    padding: 15px 20px 15px 10px;
+    background-image: url(images/arr_nav_back.png);
+    background-repeat: no-repeat;
+    background-position: right center;  
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+       only screen and (min-device-pixel-ratio : 2) {
+        .owm_sidemenu_item {
+            background-image: url(images/arr_nav_back@2x.png);
+            background-size: 10px 16px;
+        }
+}
+.owm_sidemenu_item_label,
+.owm_sidemenu_item_value {
+    display: inline-block;
+    line-height: 24px;
+    color: #555;
+    display: inline-block;
+    font-size: 125%;
+}
+/* Memberships and Credits */
+.owm_membersip_item.owm_border {
+    border-width: 1px 0px 0px;
+}
+.owm_membersip_item:last-child {
+    border-bottom-width: 1px;
+}
+.owm_current_membership  {
+    margin-bottom: 43px;
+}
+.owm_current_membership.owm_border {
+    border-width: 1px 0px 1px;
+}
+.owm_subscribe_packs_item.owm_btn_wide {
+    padding-bottom: 0px;
+}
+.owm_subscribe_table {
+    padding: 5px;
+}
+.owm_subscribe_table .ow_section {
+    text-transform: uppercase;
+    padding-left: 9px;
+}
+.owm_subscribe_table .owm_td_value {
+    text-align: right;
+}
+.owm_subscribe_table .owm_ico_check {
+    display: inline-block;
+    width: 13px;
+    height: 9px;
+}
+.owm_ico_check {
+    background-image: url(images/ico_check.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 13px 9px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+       only screen and (min-device-pixel-ratio : 2) {
+        .owm_ico_check {
+            background-image: url(images/ico_check@2x.png);
+        }
+}
+.owm_current_credit .owm_ico_info {
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+}
+.owm_ico_info {
+    background-image: url(images/ico_info.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 19px 19px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+       only screen and (min-device-pixel-ratio : 2) {
+        .owm_ico_info {
+            background-image: url(images/ico_info@2x.png);
+        }
+}
+.owm_current_credit .owm_sidemenu_item {
+    background-image: none;
+    padding-right: 0px;
+}
+/* Payment page */
+.owm_payment_provider_list {
+    padding: 20px 20px 0px;
+}
+.owm_payment_provider_item label {
+    display: block;
+    height: 44px;
+    border-width: 1px;
+    padding-top: 24px;
+    padding-right: 20px;
+    text-align: right;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+}
+.owm_payment_provider_item label.active {
+    background-color: #fff;
+}
+.owm_paypal {
+    background-image: url(images/paypal.png);
+    background-size: 193px 49px;
+}
+.owm_ccbill {
+    background-image: url(images/ccbill.png);
+    background-size: 91px 54px;
+}
+.owm_paypal.active {
+    background-image: url(images/paypal_hover.png);
+}
+.owm_ccbill.active {
+    background-image: url(images/ccbill_hover.png);
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+       only screen and (min-device-pixel-ratio : 2) {
+       .owm_paypal {
+            background-image: url(images/paypal@2x.png);
+        }
+        .owm_ccbill {
+            background-image: url(images/ccbill@2x.png);
+        }
+        .owm_paypal.active {
+            background-image: url(images/paypal_hover@2x.png);
+        }
+        .owm_ccbill.active {
+            background-image: url(images/ccbill_hover@2x.png);
+        }   
+}
+.owm_payment_btn.owm_btn_wide {
+    padding: 10px 20px;
+}
+.owm_payment_btn.owm_btn_wide input {
+    background: #009cde;
+    color: #fff;
+}
+/* ======== End of the Subscribe page styles ======== */
 /*========================================================
     [16] Misc                        __misc
 ========================================================*/
