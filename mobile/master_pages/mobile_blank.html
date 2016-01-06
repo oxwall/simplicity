@@ -1,8 +1,10 @@
 <div id="main" class="clearfix">
-	<header>
-		 <nav id="head-navigation">
-			<div class="owm_top_title" id="owm_heading">{$heading}</div>
-		 </nav>
-	</header>
-	<section>{$content}</section>
+    <header>
+        <nav id="head-navigation">
+            {if !empty($buttonData.left)}<a href="{$buttonData.left.href}" class="owm_nav_menu{if !empty($buttonData.left.class)} {$buttonData.left.class}{/if}"{if !empty($buttonData.left.id)} id="{$buttonData.left.id}"{/if}{if !empty($buttonData.left.extraString)}{$buttonData.left.extraString}{/if}></a>{/if}
+            {if !empty($buttonData.right)}<a href="{$buttonData.right.href}" class="owm_nav_profile{if !empty($buttonData.left.class)} {$buttonData.right.class}{/if}"{if !empty($buttonData.right.id)} id="{$buttonData.right.id}"{/if}{if !empty($buttonData.right.extraString)}{$buttonData.right.extraString}{/if}></a>{/if}
+            <div class="owm_top_title" id="owm_heading">{$heading}</div>
+        </nav>
+    </header>
+    <section>{$content}</section>
 </div>
