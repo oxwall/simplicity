@@ -3841,10 +3841,14 @@ div.ow_nomargin {
 .ow_tiny {
     font-size: 12px;
 }
-body .ow_disabled{
-    background: rgba(239, 242, 245, 0.5);
-    opacity: 0.7;
+body .ow_disabled {
+    background: #fff;
+    color: #ACB5BB;
 }
+body .ow_disabled::selection,
+body .ow_disabled::-moz-selection {
+	color: #828894;
+}	
 .ow_highlight{
     background: #aaffaa;
 }
