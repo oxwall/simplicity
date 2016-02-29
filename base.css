@@ -3842,8 +3842,8 @@ div.ow_nomargin {
     font-size: 12px;
 }
 body .ow_disabled{
-    background: #fff;
-    opacity: 0.5;
+    background: rgba(239, 242, 245, 0.5);
+    opacity: 0.7;
 }
 .ow_highlight{
     background: #aaffaa;
