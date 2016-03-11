@@ -1,7 +1,7 @@
 /********************************************************************************
   *
   *     Filename:        base.css
-  *     Description:     Portfolio Theme Base CSS File
+  *     Description:     Simplicity Theme Base CSS File
   *     Version:         1.0.0
   *
   *     -- FILE STRUCTURE: --
@@ -958,7 +958,8 @@ ul.ow_console_dropdown li:last-child .ow_console_dropdown_cont {
 	padding-right: 0;
 }
 .ow_console_messages_btns .ow_console_messages_viewall a,
-.ow_console_messages_btns .ow_console_messages_send a {
+.ow_console_messages_btns .ow_console_messages_send a,
+.ow_console_messages_btn .ow_console_messages_viewall a {
 	display: inline-block;
 	width: 100%;
 	line-height: 38px;
@@ -970,11 +971,13 @@ ul.ow_console_dropdown li:last-child .ow_console_dropdown_cont {
 	color: #a2acb3;
 	text-transform: uppercase;
 }
-.ow_console_messages_btns .ow_console_messages_viewall a {
+.ow_console_messages_btns .ow_console_messages_viewall a,
+.ow_console_messages_btn .ow_console_messages_viewall a {
 	border-right: none;	
 }
 .ow_console_messages_btns .ow_console_messages_viewall a:hover,
-.ow_console_messages_btns .ow_console_messages_send a:hover {
+.ow_console_messages_btns .ow_console_messages_send a:hover,
+.ow_console_messages_btn .ow_console_messages_viewall a:hover {
 	color: #fff;
 	background: #4c5358;
 }
