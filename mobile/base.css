@@ -4655,14 +4655,14 @@ input[type="radio"] ~ label {
 .owm_sidemenu_item {
     display: block;
     padding: 15px 20px 15px 10px;
-    background-image: url(images/arr_nav_back.png);
+    background-image: url(images/arr_nav_next.png);
     background-repeat: no-repeat;
     background-position: right center;  
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2),
        only screen and (min-device-pixel-ratio : 2) {
         .owm_sidemenu_item {
-            background-image: url(images/arr_nav_back@2x.png);
+            background-image: url(images/arr_nav_next@2x.png);
             background-size: 10px 16px;
         }
 }
