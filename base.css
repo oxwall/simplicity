@@ -4298,9 +4298,9 @@ body span.ow_btn_sort_users span {
 body a.ow_btn_sound span {
 	background-image: url(images/chat_btn_sound.png);
 }
-body .ow_btn_close_search {
+/*body .ow_btn_close_search {
 	background-image: url(images/chat_btn_close_search.png);
-}
+}*/
 .ow_count_block span.ow_count_txt {
 	color: #9b9a9d;
 	font-weight: normal;

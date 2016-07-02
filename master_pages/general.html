@@ -23,7 +23,7 @@
 		<div class="ow_page_container">
 			<div class="ow_canvas">
 				<div class="ow_page ow_bg_color clearfix">
-					<h1 class="ow_stdmargin {$heading_icon_class}">{$heading}</h1>
+					{if !empty($heading)}<h1 class="ow_stdmargin {$heading_icon_class}">{$heading}</h1>{/if}
 					<div class="ow_content">
 						{add_content key='base.add_page_top_content'}
 						{$content}
