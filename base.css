@@ -4043,11 +4043,13 @@ blockquote.ow_quote .ow_author{
     padding: 2px 0;
     width: 98%;
 }
+body.htmlarea_styles .ow_quote_header,
 .ow_quote_header {
 	display: block;
 	padding: 6px;
 	background-color: #cad4dd;
 }
+body.htmlarea_styles .ow_quote_cont_wrap,
 .ow_quote_cont_wrap {
 	background: url("images/quote_top.png") no-repeat right 1px;
     border-color: #eff2f5;
@@ -4055,6 +4057,7 @@ blockquote.ow_quote .ow_author{
     border-width: 0 1px 1px;
     display: block;
 }
+body.htmlarea_styles .ow_quote_cont,
 .ow_quote_cont {
 	background: url("images/quote_bottom.png") no-repeat 1px bottom;
     display: block;
