@@ -5790,7 +5790,7 @@ body .ow_gift_templates .ow_gift_checked {
 /* ~thickbox 8aa */
 /* ---- Captcha styles ---- */
 span.ic_refresh{
-    background: url(images/ic_refresh.png) no-repeat;
+    background: url(images/ic_refresh.svg) no-repeat;
     display: inline-block;
     height: 16px;
     width: 16px;
