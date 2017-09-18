@@ -4747,6 +4747,7 @@ input[type="radio"] ~ label {
     height: 60px;
     border-width: 1px;
     padding: 5px;
+    text-align: right; 
     background-repeat: no-repeat;
     background-position: 10px center;
 }
